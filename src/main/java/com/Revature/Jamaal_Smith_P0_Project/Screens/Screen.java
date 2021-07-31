@@ -1,4 +1,4 @@
-package P_0.Screens;
+package com.Revature.Jamaal_Smith_P0_Project.Screens;
 
 public abstract class Screen {
 
@@ -18,5 +18,7 @@ public abstract class Screen {
         return route;
     }
 
-    public abstract String render();
+
+
+    public abstract void render() throws Exception;
 }
