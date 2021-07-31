@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 public class LogIn extends Screen{
 
 
-    public LogIn(String name, String route) {
+    public LogIn(String name, String route, BufferedReader consoleReader) {
         super("LogIn", "/LogIn");
     }
 

@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class UserType extends Screen{
-    public UserType(String name, String route) {
+    public UserType(String name, String route, BufferedReader consoleReader) {
         super("UserType", "/UserType");
     }
 

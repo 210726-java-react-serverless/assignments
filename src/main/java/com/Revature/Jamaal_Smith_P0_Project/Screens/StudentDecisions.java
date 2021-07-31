@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class StudentDecisions extends Screen{
-    public StudentDecisions(String name, String route) {
+    public StudentDecisions(String name, String route, BufferedReader consoleReader) {
         super("StudentDecisions", "/StudentDecisions");
     }
 

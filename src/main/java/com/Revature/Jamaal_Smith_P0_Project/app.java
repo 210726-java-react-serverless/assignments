@@ -1,7 +1,6 @@
 package com.Revature.Jamaal_Smith_P0_Project;
 
 import com.Revature.Jamaal_Smith_P0_Project.Routers.AppState;
-import com.Revature.Jamaal_Smith_P0_Project.Screens.RoleDesignationScreen;
 
 import java.io.IOException;
 

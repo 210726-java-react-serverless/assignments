@@ -1,7 +1,9 @@
 package com.Revature.Jamaal_Smith_P0_Project.Screens;
 
+import java.io.BufferedReader;
+
 public class StudentCourse extends Screen{
-    public StudentCourse(String name, String route) {
+    public StudentCourse(String name, String route, BufferedReader ConsoleReader) {
         super("StudentCourse", "/StudentCourse");
     }
 

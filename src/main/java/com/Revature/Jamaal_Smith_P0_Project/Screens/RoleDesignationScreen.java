@@ -1,15 +1,22 @@
 package com.Revature.Jamaal_Smith_P0_Project.Screens;
 
+import com.Revature.Jamaal_Smith_P0_Project.Routers.AppState;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class RoleDesignationScreen extends Screen{
 
-    public RoleDesignationScreen() {
-        super("RoleDesignationScreen", "/RoleDesignationScreen");
+    public RoleDesignationScreen(BufferedReader consoleReader) {
+        super("RoleDesignationScreen", "/RoleDesignationScreen",consoleReader);
 
         }
+
+    public RoleDesignationScreen() {
+        super("RoleDesignationScreen", "/RoleDesignationScreen");
+    }
+
 
     public void render() throws IOException {
         String ConsoleText = " Please select your relationship to the University:\n" +
@@ -22,7 +29,9 @@ public class RoleDesignationScreen extends Screen{
         BufferedReader consoleReader = new BufferedReader(new InputStreamReader(System.in));
         String userInput = consoleReader.readLine();
 
-        //display user input
+        AppState appState = new AppState();
+        appState.appStart();
+
         System.out.println(userInput);
 
     }

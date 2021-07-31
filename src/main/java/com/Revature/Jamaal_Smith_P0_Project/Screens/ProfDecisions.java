@@ -5,7 +5,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class ProfDecisions extends Screen{
-    public ProfDecisions(String name, String route) {
+    public ProfDecisions(String name, String route, BufferedReader consoleReader) {
         super("ProfDecisions", "/ProfDecisions");
     }
 
