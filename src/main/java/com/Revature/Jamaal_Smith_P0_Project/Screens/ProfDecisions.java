@@ -1,12 +1,14 @@
 package com.Revature.Jamaal_Smith_P0_Project.Screens;
 
+import com.Revature.Jamaal_Smith_P0_Project.Services.ScreenRouter;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class ProfDecisions extends Screen{
-    public ProfDecisions(String name, String route, BufferedReader consoleReader) {
-        super("ProfDecisions", "/ProfDecisions");
+    public ProfDecisions(BufferedReader consoleReader, ScreenRouter router) {
+        super("ProfDecisions", "/ProfDecisions", consoleReader,router);
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.Revature.Jamaal_Smith_P0_Project.Screens;
 
+import com.Revature.Jamaal_Smith_P0_Project.Services.ScreenRouter;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -7,8 +9,9 @@ import java.io.InputStreamReader;
 public class LogIn extends Screen{
 
 
-    public LogIn(String name, String route, BufferedReader consoleReader) {
-        super("LogIn", "/LogIn");
+    public LogIn(BufferedReader consoleReader, ScreenRouter router) {
+
+        super("LogIn", "/LogIn",consoleReader,router);
     }
 
     @Override

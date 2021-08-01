@@ -1,10 +1,13 @@
 package com.Revature.Jamaal_Smith_P0_Project.Screens;
 
+import com.Revature.Jamaal_Smith_P0_Project.Services.ScreenRouter;
+
 import java.io.BufferedReader;
 
 public class Summary_Checkout extends Screen{
-    public Summary_Checkout(String name, String route, BufferedReader consoleReader) {
-        super("Summary_Checkout", "/Summary_Checkout");
+    public Summary_Checkout(BufferedReader consoleReader, ScreenRouter router) {
+
+        super("Summary_Checkout", "/Summary_Checkout",consoleReader,router);
     }
 
     @Override
