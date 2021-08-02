@@ -31,9 +31,11 @@ public class AppState {
 
     public void startUp() {
         router.navigate("/Home");
-        while (appRunning) {
+        int counter = 0;
+        while (counter < 1) {
             try {
                 router.getCurrentScreen().render();
+                counter ++;
             } catch (Exception e) {
                 e.printStackTrace();
 
