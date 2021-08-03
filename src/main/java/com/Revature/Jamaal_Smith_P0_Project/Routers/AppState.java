@@ -2,6 +2,8 @@ package com.Revature.Jamaal_Smith_P0_Project.Routers;
 
 import com.Revature.Jamaal_Smith_P0_Project.Screens.*;
 import com.Revature.Jamaal_Smith_P0_Project.Services.ScreenRouter;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -9,6 +11,7 @@ import java.io.InputStreamReader;
 public class AppState {
     public boolean appRunning;
     private final ScreenRouter router;
+    private final Logger logger = LogManager.getLogger(AppState.class);
 
     public AppState() {
         appRunning = true;
@@ -35,9 +38,10 @@ public class AppState {
         while (counter < 1) {
             try {
                 router.getCurrentScreen().render();
+                logger.info("Successful - no errors");
                 counter ++;
             } catch (Exception e) {
-                e.printStackTrace();
+                logger.error(e.getMessage());
 
 
             }

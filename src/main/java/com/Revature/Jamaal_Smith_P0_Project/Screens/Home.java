@@ -4,6 +4,8 @@ import com.Revature.Jamaal_Smith_P0_Project.Routers.AppState;
 import com.Revature.Jamaal_Smith_P0_Project.Routers.ProfFlow;
 import com.Revature.Jamaal_Smith_P0_Project.Routers.StudentFlow;
 import com.Revature.Jamaal_Smith_P0_Project.Services.ScreenRouter;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,31 +18,41 @@ public class Home extends Screen {
 
     }
 
+    private final Logger logger = LogManager.getLogger(Home.class);
 
-    public void render() throws IOException {
-        String consoleText = " Please select your relationship to the University:\n" +
-                "\n1 - Student \n" +
-                "\n2 - Professor \n";
+    public void render()  {
+        try {
+            String consoleText = " Please select your relationship to the University:\n" +
+                    "\n1 - Student \n" +
+                    "\n2 - Professor \n";
 
-        System.out.println(consoleText);
+            System.out.println(consoleText);
 
-        String userSelection = consoleReader.readLine();
+            String userSelection = consoleReader.readLine();
 
-        switch (userSelection){
-            case "1":
-                StudentFlow studentFlow = new StudentFlow();
-                studentFlow.render();
-                break;
+            switch (userSelection) {
+                case "1":
+                    StudentFlow studentFlow = new StudentFlow();
+                    studentFlow.render();
+                    break;
 
-            case "2":
-                ProfFlow profFlow = new ProfFlow();
-                profFlow.render();
+                case "2":
+                    ProfFlow profFlow = new ProfFlow();
+                    profFlow.render();
 
-                break;
+                    break;
 
-            default:
-                System.out.print("Please select either Student or Professor");
+                default:
+                    System.out.print("Please select either Student or Professor");
+            }
+        } catch (IOException ioe) {
+            logger.error(ioe.getMessage());
+            logger.info("No input received");
         }
     }
 }
+
+
+
+
 
