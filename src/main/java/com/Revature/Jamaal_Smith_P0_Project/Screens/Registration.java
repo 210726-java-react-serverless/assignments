@@ -4,9 +4,9 @@ import com.Revature.Jamaal_Smith_P0_Project.Services.ScreenRouter;
 
 import java.io.BufferedReader;
 
-public class StudentCourse extends Screen{
-    public StudentCourse(BufferedReader consoleReader, ScreenRouter router) {
-        super("StudentCourse", "/StudentCourse", consoleReader,router);
+public class Registration extends Screen{
+    public Registration(BufferedReader consoleReader, ScreenRouter router) {
+        super("Registration", "/Registration", consoleReader,router);
     }
 
     @Override

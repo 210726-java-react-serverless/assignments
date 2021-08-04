@@ -11,7 +11,7 @@ public class app {
     public static void main(String[] args) {
 
         AppState app = new AppState();
-        app.startUp();
+        app.startup();
     }
 }
 

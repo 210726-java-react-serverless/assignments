@@ -13,6 +13,7 @@ public class AppState {
     private final ScreenRouter router;
     private final Logger logger = LogManager.getLogger(AppState.class);
 
+
     public AppState() {
         appRunning = true;
         router = new ScreenRouter();
@@ -23,31 +24,28 @@ public class AppState {
         router.addScreen(new ProfCourse(consoleReader, router));
         router.addScreen(new Home(consoleReader, router));
         router.addScreen(new StudentDecisions(consoleReader, router));
-        router.addScreen(new StudentCourse(consoleReader, router));
+        router.addScreen(new Registration(consoleReader, router));
         router.addScreen(new StudentDecisions(consoleReader, router));
         router.addScreen(new Summary_Checkout(consoleReader, router));
-        router.addScreen(new UserType(consoleReader, router));
-
-
     }
 
 
-    public void startUp() {
-        router.navigate("/Home");
-        int counter = 0;
-        while (counter < 1) {
+    public void startup() {
+        router.navigate("/UserType");
+
+        while (appRunning) {
             try {
                 router.getCurrentScreen().render();
-                logger.info("Successful - no errors");
-                counter ++;
             } catch (Exception e) {
-                logger.error(e.getMessage());
+                logger.info("User Type information not received");
+                logger.error(e.printStackTrace());
 
 
             }
         }
     }
 }
+
 
 
 
