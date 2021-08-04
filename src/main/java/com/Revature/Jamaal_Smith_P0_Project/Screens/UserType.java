@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 public class UserType extends Screen{
 
     public UserType(BufferedReader consoleReader, ScreenRouter router) {
-        super("UserType","UserType",consoleReader,router);
+        super("UserType","/UserType",consoleReader,router);
     }
 
     @Override
