@@ -31,6 +31,11 @@ public class AppState {
 
 
     public void startup() {
+        UserType user = new UserType();
+        user.render();
+
+
+
         router.navigate("/UserType");
 
         while (appRunning) {
@@ -38,7 +43,6 @@ public class AppState {
                 router.getCurrentScreen().render();
             } catch (Exception e) {
                 logger.info("User Type information not received");
-                logger.error(e.printStackTrace());
 
 
             }

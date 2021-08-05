@@ -9,8 +9,8 @@ import java.io.IOException;
 
 
 public class UserType extends Screen{
-    public UserType(BufferedReader consoleReader, ScreenRouter router){
-        super("UserType","/UserType",consoleReader,router);
+    public UserType(){
+        super("UserType","/UserType");
     }
 
 
