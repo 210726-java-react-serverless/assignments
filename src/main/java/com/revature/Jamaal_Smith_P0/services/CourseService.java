@@ -23,7 +23,12 @@ public class CourseService {
         return courseRemove;
     }
     public Course register(Course newCourse){
-        return CourseRepository.save(newCourse);
+        return courseRepository.save(newCourse);
+    }
+
+    public Course update(Course course,Course newCourse){
+        Course updateCourse = courseRepository.updateCourse(course,newCourse);
+        return updateCourse;
     }
 }
 

@@ -45,7 +45,7 @@ public class UserProfileScreen extends Screen {
                 router.navigate("/studentCourses");
             }
             if (userInput == "1" && userRole == "professor") {
-                router.navigate("/professorCourses");
+                router.navigate("/profcourses");
             }
             if (userInput == "2" && userRole == "student") {
                 router.navigate("/studentUpdate");

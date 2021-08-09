@@ -5,7 +5,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.revature.Jamaal_Smith_P0.documents.AppUser;
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
 import com.revature.Jamaal_Smith_P0.documents.Course;
 import com.revature.Jamaal_Smith_P0.util.Other.MongoClientFactory;
 import com.revature.Jamaal_Smith_P0.util.exceptions.DataSourceException;
@@ -17,6 +18,7 @@ public class CourseRepository implements CrudRepository<Course> {
 
     private Course newCourse;
     private Document courseDoc;
+    private final Logger logger = LogManager.getLogger(CourseRepository.class);
 
 
 
@@ -62,7 +64,7 @@ public class CourseRepository implements CrudRepository<Course> {
 
     //Method to add courses to the database
 
-    public static Course save(Course newCourse) {
+    public Course save(Course newCourse) {
         try {
             MongoClient mongoClient = MongoClientFactory.getInstance().getConnection();
             MongoDatabase courseDatabase = mongoClient.getDatabase("project0");
@@ -77,7 +79,8 @@ public class CourseRepository implements CrudRepository<Course> {
 
             return newCourse;
 
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             logger.error("An unexpected exception occurred.", e);
             throw new DataSourceException("An unexpected exception occurred.", e);
         }
@@ -103,9 +106,19 @@ public class CourseRepository implements CrudRepository<Course> {
         return null;
     }
 
+    public Course updateCourse(Course course, Course newCourse) {
+        try{
+        MongoClient mongoClient = MongoClientFactory.getInstance().getConnection();
+        MongoDatabase courseDatabase = mongoClient.getDatabase("project0");
+        MongoCollection<Document> courseCollection = courseDatabase.getCollection("courses");
+        courseCollection.updateOne(Filters.eq("courseNumber", course.getCourseNumber()), Updates.combine(
+         Updates.set("title",newCourse.getTitle()), Updates.set("department",newCourse.getDepartment()),
+                Updates.set("description",newCourse.getDescription()),Updates.set("teacher",newCourse.getTeacher())));
 
-
-
-
-    private final Logger logger = LogManager.getLogger(UserRepository.class);
+        return newCourse;
+    }catch(Exception e){
+        logger.error(e);
+        }
+        return null;
+    }
 }
