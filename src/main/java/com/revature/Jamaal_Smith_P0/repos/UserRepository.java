@@ -100,7 +100,7 @@ private final Logger logger = LogManager.getLogger(UserRepository.class);
 
 
         @Override
-        public AppUser findById(int id) {
+        public AppUser findById(String courseNumber) {
                 return null;
         }
 

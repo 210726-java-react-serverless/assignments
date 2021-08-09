@@ -13,20 +13,15 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.bson.Document;
 
-import javax.print.Doc;
-
-public class CourseRepository implements CrudRepository<Document> {
+public class CourseRepository implements CrudRepository<Course> {
 
     private Course newCourse;
+    private Document courseDoc;
 
 
-    @Override
-    public Document save(Document newResource) {
-        return null;
-    }
 
     @Override
-    public boolean update(Document updatedResource) {
+    public boolean update(Course updatedResource) {
         return false;
     }
 
@@ -37,7 +32,7 @@ public class CourseRepository implements CrudRepository<Document> {
 
     //put in MongoDriver logic to complete
     @Override
-    public Document findById(int courseNumber) {
+    public Course findById(String courseNumber) {
         try {
             MongoClient mongoClient = MongoClientFactory.getInstance().getConnection();
             MongoDatabase userDatabase = mongoClient.getDatabase("project0");
@@ -50,9 +45,10 @@ public class CourseRepository implements CrudRepository<Document> {
             }
 
             ObjectMapper mapper = new ObjectMapper();
-            AppUser authUser = mapper.readValue(courseDoc.toJson(), AppUser.class);
-            authUser.setId(courseDoc.get("_id").toString());
-            return courseDoc;
+            Course locatedCourse = mapper.readValue(courseDoc.toJson(),Course.class);
+            return locatedCourse;
+
+
 
         } catch (JsonMappingException jme) {
             logger.error("An exception occurred while mapping the document.", jme);
@@ -62,9 +58,11 @@ public class CourseRepository implements CrudRepository<Document> {
             throw new DataSourceException("An unexpected exception occurred.", e);
         }
     }
+
+
     //Method to add courses to the database
 
-    public Course add(Course newCourse) {
+    public static Course save(Course newCourse) {
         try {
             MongoClient mongoClient = MongoClientFactory.getInstance().getConnection();
             MongoDatabase courseDatabase = mongoClient.getDatabase("project0");
@@ -101,11 +99,7 @@ public class CourseRepository implements CrudRepository<Document> {
 
         } catch (Exception e) {
             logger.error("An unexpected exception occurred.", e);
-
-
         }
-
-
         return null;
     }
 
