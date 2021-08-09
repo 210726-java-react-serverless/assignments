@@ -1,15 +1,18 @@
 package com.revature.Jamaal_Smith_P0.documents;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.Objects;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Course {
     String department;
     String title;
     String teacher;
     String description;
-    int courseNumber;
+    String courseNumber;
 
-    public Course(String department, String title, String teacher, String description, int courseNumber) {
+    public Course(String department, String title, String teacher, String description, String courseNumber) {
         this.department = department;
         this.title = title;
         this.teacher = teacher;
@@ -53,12 +56,13 @@ public class Course {
         this.description = description;
     }
 
-    public int getCourseNumber() {
+    public String getCourseNumber() {
         return courseNumber;
     }
 
-    public void setCourseNumber(int courseNumber) {
-        this.courseNumber = courseNumber;
+    public String setCourseNumber(String courseNumber) {
+
+        return this.courseNumber = courseNumber;
     }
 
     @Override

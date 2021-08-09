@@ -98,10 +98,11 @@ private final Logger logger = LogManager.getLogger(UserRepository.class);
         }
         }
 
-        public AppUser findById(int id) {
-        return null;
-        }
 
+        @Override
+        public AppUser findById(int id) {
+                return null;
+        }
 
         public AppUser save(AppUser newUser) {
         try {
