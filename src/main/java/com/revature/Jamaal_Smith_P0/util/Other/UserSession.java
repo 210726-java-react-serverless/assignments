@@ -4,7 +4,6 @@ import com.revature.Jamaal_Smith_P0.documents.AppUser;
 
 public class UserSession {
     private AppUser currentUser;
-    private AppUser user;
 
 
     public AppUser getCurrentUser() {

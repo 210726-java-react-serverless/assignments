@@ -9,9 +9,8 @@ public class ProfCoursesScreen {
     private UserService userService;
 
 
-
-    public ProfCoursesScreen(String name, String route, BufferedReader consoleReader, ScreenRouter router, UserService userService){
-        super("profCourses","/profCourses",consoleReader,router)
-        this.userService = userService;
+    public ProfCoursesScreen(BufferedReader consoleReader, ScreenRouter router, UserService userService) {
+        super("profCourses, /profCourses",consoleReader,router)
+        this.userService= this.userService;
     }
 }

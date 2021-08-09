@@ -9,7 +9,7 @@ public class StudentCoursesScreen extends Screen{
 
     private final UserService userService;
 
-    public StudentCoursesScreen(String name, String route, BufferedReader consoleReader, ScreenRouter router, UserService userService) {
+    public StudentCoursesScreen(BufferedReader consoleReader, ScreenRouter router, UserService userService) {
         super("studentCourses","/studentCourses", consoleReader, router);
         this.userService = userService;
     }
