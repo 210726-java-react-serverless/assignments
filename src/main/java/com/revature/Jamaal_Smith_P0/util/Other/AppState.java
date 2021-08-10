@@ -1,3 +1,7 @@
+/** This class has the startup and shutdown methods for the applicaiton. Additionally,
+ * it possess all of the screens that can be passed through the screenrouter to facilitate
+ * the console based user experience.
+ */
 package com.revature.Jamaal_Smith_P0.util.Other;
 
 import com.revature.Jamaal_Smith_P0.documents.AppUser;
@@ -37,7 +41,9 @@ public class AppState {
     }
 
 
-
+    /** Allows for the graceful launch of the application.
+     *
+     */
     public void startup() {
         router.navigate("/welcome");
 
@@ -50,8 +56,8 @@ public class AppState {
         }
     }
 
-    // Switches 'appRunning' to false, ending the while loop and
-    // closing the app through super's main.
+    /** Allows for the graceful shutdown of the application.
+     */
     public static void shutdown() {
         appRunning = false;
         MongoClientFactory.getInstance().cleanUp();

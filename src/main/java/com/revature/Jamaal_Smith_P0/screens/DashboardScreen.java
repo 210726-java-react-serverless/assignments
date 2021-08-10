@@ -1,3 +1,6 @@
+/** The dashboard screen is a key landing page that allows the user to review their credentials
+ * in the database or available courses in the registry system.
+ */
 package com.revature.Jamaal_Smith_P0.screens;
 
 import com.revature.Jamaal_Smith_P0.documents.AppUser;

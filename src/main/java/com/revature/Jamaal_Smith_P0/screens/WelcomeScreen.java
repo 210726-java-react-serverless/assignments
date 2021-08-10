@@ -1,3 +1,8 @@
+/** This is the first screen that appears once the application is initiated.
+ *
+ */
+
+
 package com.revature.Jamaal_Smith_P0.screens;
 
 import com.revature.Jamaal_Smith_P0.documents.AppUser;

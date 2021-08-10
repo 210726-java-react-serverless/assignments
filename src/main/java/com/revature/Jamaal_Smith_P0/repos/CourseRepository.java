@@ -1,3 +1,7 @@
+/** This class houses all of the tasks that will be performed related to courses in the
+ * enrollment system.
+ */
+
 package com.revature.Jamaal_Smith_P0.repos;
 
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -29,6 +33,9 @@ public class CourseRepository implements CrudRepository<Course> {
 
     //put in MongoDriver logic to complete
     @Override
+    /** This method allows for a course to be located in the database by entering its
+     * course number in the form of a string
+     */
     public Course findById(String courseNumber) {
         try {
             MongoClient mongoClient = MongoClientFactory.getInstance().getConnection();
@@ -56,20 +63,17 @@ public class CourseRepository implements CrudRepository<Course> {
         }
     }
 
-    @Override
-    public Course save(Course newResource) {
-        return null;
-    }
-
 
     @Override
     public AppUser update(String updatedResource) {
         return null;
     }
 
-
-    //Method to add courses to the database
-
+    /** This method allows one to add a new course to the registry
+     *
+     * @param newCourse
+     * @return
+     */
     public Course saveReal(Course newCourse) {
         try {
             MongoClient mongoClient = MongoClientFactory.getInstance().getConnection();
@@ -92,11 +96,10 @@ public class CourseRepository implements CrudRepository<Course> {
         }
     }
 
-    public AppUser update() {
-        return null;
-    }
-
-
+    /** This method allows one to remove a course from the catalog by providing its course number.
+     * @param courseNumber
+     * @return
+     */
     public Course removeCourse(String courseNumber) {
         try {
             MongoClient mongoClient = MongoClientFactory.getInstance().getConnection();
@@ -117,6 +120,12 @@ public class CourseRepository implements CrudRepository<Course> {
         return null;
     }
 
+    /** This method enables for a course that already exists in the database to be deleted
+     *
+     * @param course
+     * @param newCourse
+     * @return
+     */
     public Course update(Course course, Course newCourse) {
         try{
         MongoClient mongoClient = MongoClientFactory.getInstance().getConnection();
@@ -130,5 +139,9 @@ public class CourseRepository implements CrudRepository<Course> {
     }catch(Exception e) {
             logger.error(e);
         }return null;
+    }
+
+    public Course save(){
+        return null;
     }
 }

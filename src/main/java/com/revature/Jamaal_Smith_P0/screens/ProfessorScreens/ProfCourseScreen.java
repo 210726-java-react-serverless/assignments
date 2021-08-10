@@ -1,3 +1,6 @@
+/** This screen is designed to enable faculty with the ability to add, update and delete
+ * courses from the registry.
+ */
 package com.revature.Jamaal_Smith_P0.screens.ProfessorScreens;
 
 import com.revature.Jamaal_Smith_P0.documents.Course;

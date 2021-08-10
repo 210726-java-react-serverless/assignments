@@ -1,3 +1,6 @@
+/** This screen allows a student to update their personal credentials in the database.
+ *
+ */
 package com.revature.Jamaal_Smith_P0.screens.StudentScreens;
 
 import com.revature.Jamaal_Smith_P0.screens.Screen;

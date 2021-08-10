@@ -1,3 +1,8 @@
+/** This class abstracts many of the methods found in the user repository class.
+ *
+ */
+
+
 package com.revature.Jamaal_Smith_P0.services;
 
 import com.revature.Jamaal_Smith_P0.documents.AppUser;
@@ -19,11 +24,19 @@ public class UserService {
 
     }
 
+    /** This method allows for all the getters in the user repository to be accessed.
+     *
+     * @return
+     */
     public UserSession getSession() {
         return session;
     }
 
-
+    /**Abstraction of the logic needed to register a user in the registry.
+     *
+     * @param newUser
+     * @return
+     */
     public AppUser register(AppUser newUser) {
 
         if (!isUserValid(newUser)) {
@@ -42,6 +55,13 @@ public class UserService {
 
     }
 
+    /** Abstraction of all logic required to login to the application.
+     *
+     * @param username
+     * @param password
+     * @return
+     * @throws AuthenticationException
+     */
     public AppUser login(String username, String password) throws AuthenticationException {
 
         if (username == null || username.trim().equals("") || password == null || password.trim().equals("")) {
@@ -60,6 +80,11 @@ public class UserService {
 
     }
 
+    /** Boolean test to make sure that inputs received via I/O to be verified and part of the logic
+     * utilized to assist with the registration of users.
+     * @param user
+     * @return
+     */
     public boolean isUserValid(AppUser user) {
         if (user == null) return false;
         if (user.getFirstName() == null || user.getFirstName().trim().equals("")) return false;

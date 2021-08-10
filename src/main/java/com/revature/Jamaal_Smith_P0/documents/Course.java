@@ -1,3 +1,8 @@
+/** The course data model details all the characteristics/features that courses in the
+ * enrollment program. These fields will be immediately utilized in the course repository
+ * class to perform all necessary tasks related to courses throughout the application.
+ */
+
 package com.revature.Jamaal_Smith_P0.documents;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

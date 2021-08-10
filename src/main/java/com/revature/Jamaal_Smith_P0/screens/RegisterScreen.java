@@ -1,3 +1,8 @@
+/** This screen is where returning application users can come to create usernames and passwords
+ * to gain access into the registration system.
+ */
+
+
 package com.revature.Jamaal_Smith_P0.screens;
 
 import com.revature.Jamaal_Smith_P0.documents.AppUser;
@@ -68,7 +73,7 @@ public class RegisterScreen extends Screen {
         String role = consoleReader.readLine();
 
         AppUser newUser = new AppUser(firstName, lastName, email, username, password, role);
-
+        System.out.println(newUser);
         try {
             userService.register(newUser);
             logger.info("User successfully registered!");

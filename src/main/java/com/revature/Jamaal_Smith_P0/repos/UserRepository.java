@@ -1,3 +1,7 @@
+/** The user repository contains all the methods that can be applied to professors and students
+ * in the enrollment system.
+ */
+
 package com.revature.Jamaal_Smith_P0.repos;
 
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -18,7 +22,12 @@ import org.bson.Document;
 public class UserRepository implements CrudRepository <AppUser> {
         private final Logger logger = LogManager.getLogger(UserRepository.class);
 
-
+        /** This method allows for an individual to be located when their username and password
+         * are provided as parameters.
+          * @param username
+         * @param password
+         * @return
+         */
         public AppUser findUserByCredentials(String username, String password) {
 
                 try {
@@ -46,7 +55,11 @@ public class UserRepository implements CrudRepository <AppUser> {
                 }
         }
 
-
+        /** This method allows for a user to be located when their username is provided as a parameter.
+         *
+         * @param username
+         * @return
+         */
         public AppUser findUserByUsername(String username) {
                 try {
                         MongoClient mongoClient = MongoClientFactory.getInstance().getConnection();
@@ -73,6 +86,11 @@ public class UserRepository implements CrudRepository <AppUser> {
                 }
         }
 
+        /** This method allows for a user to be located when their email is provided as a parameter.
+         *
+         * @param email
+         * @return
+         */
         public AppUser findUserByEmail(String email) {
                 try {
                         MongoClient mongoClient = MongoClientFactory.getInstance().getConnection();
@@ -105,6 +123,11 @@ public class UserRepository implements CrudRepository <AppUser> {
                 return null;
         }
 
+        /** The save method is key to assisting with the registration of users on the registration
+         * screen and enables these details to be saved on the database.
+         * @param newUser
+         * @return
+         */
         public AppUser save(AppUser newUser) {
                 try {
                         MongoClient mongoClient = MongoClientFactory.getInstance().getConnection();
@@ -131,12 +154,18 @@ public class UserRepository implements CrudRepository <AppUser> {
                 return null;
         }
 
+
         @Override
         public boolean deleteById(int id) {
                 return false;
         }
 
-
+        /** The update method enables an existing user to alter any fields in their document.
+         *
+         * @param user
+         * @param updatedResource
+         * @return
+         */
         public AppUser update(AppUser user, AppUser updatedResource) {
                 MongoClient mongoClient = MongoClientFactory.getInstance().getConnection();
                 MongoDatabase userDb = mongoClient.getDatabase("project0");
@@ -149,6 +178,11 @@ public class UserRepository implements CrudRepository <AppUser> {
                 return updatedResource;
         }
 
+        /** The removeUser method allows for a user to delete themselves from the database.
+         *
+         * @param username
+         * @return
+         */
         public AppUser removeUser(String username) {
                 try {
                         MongoClient mongoClient = MongoClientFactory.getInstance().getConnection();

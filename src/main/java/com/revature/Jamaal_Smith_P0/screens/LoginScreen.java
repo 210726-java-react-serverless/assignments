@@ -1,3 +1,9 @@
+/** The log in screen is where new application users will enter their username and password to
+ * gain entry into the system. Implementation of the previous screen was borrowed from training
+ * activities where batch members designed its implementation.
+ */
+
+
 package com.revature.Jamaal_Smith_P0.screens;
 
 import com.revature.Jamaal_Smith_P0.documents.AppUser;

@@ -1,3 +1,6 @@
+/** This screen enables a professor with the ability to update their credentials.
+ *
+ */
 package com.revature.Jamaal_Smith_P0.screens.ProfessorScreens;
 
 import com.revature.Jamaal_Smith_P0.documents.AppUser;

@@ -1,3 +1,9 @@
+/** The AppUser data model outlines all the features that will be collected for
+ * students and professors related to the RevaRoll enrollment program. These details
+ * will be immediately utilized in the User Repository class to perform all tasks related to
+ * users to comply with OOP principles that promote loosely coupled classes.
+ */
+
 package com.revature.Jamaal_Smith_P0.documents;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

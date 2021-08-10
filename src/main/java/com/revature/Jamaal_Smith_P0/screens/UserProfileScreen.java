@@ -1,3 +1,8 @@
+/** After logging into the system, this is the landing page that users will arrive at to
+ * review their options related to the registry system.
+ */
+
+
 package com.revature.Jamaal_Smith_P0.screens;
 
 import com.oracle.xmlns.internal.webservices.jaxws_databinding.SoapBindingParameterStyle;

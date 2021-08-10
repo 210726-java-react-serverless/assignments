@@ -1,3 +1,7 @@
+/** This class contains all the logic that controls how screens are accessed while the
+ * application is running.
+ */
+
 package com.revature.Jamaal_Smith_P0.util.Other;
 
 import com.revature.Jamaal_Smith_P0.screens.Screen;
@@ -16,11 +20,20 @@ public class ScreenRouter {
         history = new ArrayDeque<Screen>();
     }
 
+    /** Method that enables screens to be loaded into the router so that they can be
+     * accessed with their route.
+     * @param screen
+     * @return
+     */
     public ScreenRouter addScreen(Screen screen) {
         screens.add(screen);
         return this;
     }
 
+    /** Method that can be used to go to different screens in the application.
+     *
+     * @param route
+     */
     public void navigate(String route) {
         if(currentScreen != null) {
             history.push(currentScreen);
@@ -31,11 +44,19 @@ public class ScreenRouter {
                 .orElseThrow(ScreenNotFoundException::new);
     }
 
+    /** Logic that enables the user to return to their previous screen.
+     *
+     * @throws ScreenNotFoundException
+     */
     public void goToPrevious() throws ScreenNotFoundException{
         if (history.size() == 0) { throw new ScreenNotFoundException(); }
         currentScreen = history.pop();
     }
 
+    /** This method gets the details about the current screen that the user is currently viewing.
+     *
+     * @return
+     */
     public Screen getCurrentScreen() {
         return currentScreen;
     }
