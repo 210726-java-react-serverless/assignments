@@ -2,7 +2,6 @@ package com.revature.Jamaal_Smith_P0.services;
 
 import com.revature.Jamaal_Smith_P0.documents.Course;
 import com.revature.Jamaal_Smith_P0.repos.CourseRepository;
-import org.bson.Document;
 
 public class CourseService {
 
@@ -23,11 +22,11 @@ public class CourseService {
         return courseRemove;
     }
     public Course register(Course newCourse){
-        return courseRepository.save(newCourse);
+        return courseRepository.save();
     }
 
     public Course update(Course course,Course newCourse){
-        Course updateCourse = courseRepository.updateCourse(course,newCourse);
+        Course updateCourse = courseRepository.update(course,newCourse);
         return updateCourse;
     }
 }

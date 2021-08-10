@@ -68,6 +68,10 @@ public class UserService {
         if (user.getUsername() == null || user.getUsername().trim().equals("")) return false;
         return user.getPassword() != null && !user.getPassword().trim().equals("");
     }
+    public AppUser updateUser (AppUser user, AppUser newUser){
+        AppUser updateUser = userRepo.update(user,newUser);
+        return updateUser;
+    }
 
 }
 

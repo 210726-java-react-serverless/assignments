@@ -7,6 +7,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
+import com.revature.Jamaal_Smith_P0.documents.AppUser;
 import com.revature.Jamaal_Smith_P0.documents.Course;
 import com.revature.Jamaal_Smith_P0.util.Other.MongoClientFactory;
 import com.revature.Jamaal_Smith_P0.util.exceptions.DataSourceException;
@@ -20,12 +21,6 @@ public class CourseRepository implements CrudRepository<Course> {
     private Document courseDoc;
     private final Logger logger = LogManager.getLogger(CourseRepository.class);
 
-
-
-    @Override
-    public boolean update(Course updatedResource) {
-        return false;
-    }
 
     @Override
     public boolean deleteById(int id) {
@@ -61,23 +56,34 @@ public class CourseRepository implements CrudRepository<Course> {
         }
     }
 
+    @Override
+    public Course save(Course newResource) {
+        return null;
+    }
+
+
+    @Override
+    public AppUser update(String updatedResource) {
+        return null;
+    }
+
 
     //Method to add courses to the database
 
-    public Course save(Course newCourse) {
+    public Course saveReal(Course newCourse) {
         try {
             MongoClient mongoClient = MongoClientFactory.getInstance().getConnection();
             MongoDatabase courseDatabase = mongoClient.getDatabase("project0");
             MongoCollection<Document> courseCollection = courseDatabase.getCollection("courses");
-            Document newCourseItem = new Document("department", newCourse.getDepartment())
-                    .append("title", newCourse.getTitle())
-                    .append("teacher", newCourse.getTeacher())
-                    .append("description", newCourse.getDescription())
-                    .append("course_number", newCourse.getCourseNumber());
+            Document newCourseItem = new Document("department", this.newCourse.getDepartment())
+                    .append("title", this.newCourse.getTitle())
+                    .append("teacher", this.newCourse.getTeacher())
+                    .append("description", this.newCourse.getDescription())
+                    .append("course_number", this.newCourse.getCourseNumber());
 
             courseCollection.insertOne(newCourseItem);
 
-            return newCourse;
+            return this.newCourse;
 
         }
         catch (Exception e) {
@@ -85,6 +91,11 @@ public class CourseRepository implements CrudRepository<Course> {
             throw new DataSourceException("An unexpected exception occurred.", e);
         }
     }
+
+    public AppUser update() {
+        return null;
+    }
+
 
     public Course removeCourse(String courseNumber) {
         try {
@@ -106,7 +117,7 @@ public class CourseRepository implements CrudRepository<Course> {
         return null;
     }
 
-    public Course updateCourse(Course course, Course newCourse) {
+    public Course update(Course course, Course newCourse) {
         try{
         MongoClient mongoClient = MongoClientFactory.getInstance().getConnection();
         MongoDatabase courseDatabase = mongoClient.getDatabase("project0");
@@ -116,9 +127,8 @@ public class CourseRepository implements CrudRepository<Course> {
                 Updates.set("description",newCourse.getDescription()),Updates.set("teacher",newCourse.getTeacher())));
 
         return newCourse;
-    }catch(Exception e){
-        logger.error(e);
-        }
-        return null;
+    }catch(Exception e) {
+            logger.error(e);
+        }return null;
     }
 }
