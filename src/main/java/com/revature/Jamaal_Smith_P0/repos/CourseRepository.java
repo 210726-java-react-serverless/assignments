@@ -24,6 +24,7 @@ public class CourseRepository implements CrudRepository<Course> {
     private Course newCourse;
     private Document courseDoc;
     private final Logger logger = LogManager.getLogger(CourseRepository.class);
+    private Course newResource;
 
 
     @Override
@@ -63,31 +64,32 @@ public class CourseRepository implements CrudRepository<Course> {
         }
     }
 
-
+  
+    
     @Override
-    public AppUser update(String updatedResource) {
+    public Course update(String updatedResource) {
         return null;
     }
 
     /** This method allows one to add a new course to the registry
      *
-     * @param newCourse
+     * @param newResource
      * @return
      */
-    public Course saveReal(Course newCourse) {
+    public Course save(Course newResource) {
         try {
             MongoClient mongoClient = MongoClientFactory.getInstance().getConnection();
             MongoDatabase courseDatabase = mongoClient.getDatabase("project0");
             MongoCollection<Document> courseCollection = courseDatabase.getCollection("courses");
-            Document newCourseItem = new Document("department", this.newCourse.getDepartment())
-                    .append("title", this.newCourse.getTitle())
-                    .append("teacher", this.newCourse.getTeacher())
-                    .append("description", this.newCourse.getDescription())
-                    .append("course_number", this.newCourse.getCourseNumber());
+            Document newCourseItem = new Document("department", this.newResource.getDepartment())
+                    .append("title", this.newResource.getTitle())
+                    .append("teacher", this.newResource.getTeacher())
+                    .append("description", this.newResource.getDescription())
+                    .append("course_number", this.newResource.getCourseNumber());
 
             courseCollection.insertOne(newCourseItem);
 
-            return this.newCourse;
+            return this.newResource;
 
         }
         catch (Exception e) {

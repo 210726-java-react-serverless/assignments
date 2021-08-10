@@ -9,6 +9,6 @@ import com.revature.Jamaal_Smith_P0.documents.AppUser;
 public interface CrudRepository <T> {
     T findById(String T);
      T save(T newResource);
-    AppUser update(String updatedResource);
+    T update(String updatedResource);
     boolean deleteById(int id);
 }

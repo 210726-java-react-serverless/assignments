@@ -150,6 +150,11 @@ public class UserRepository implements CrudRepository <AppUser> {
                 }
         }
 
+        @Override
+        public AppUser update(String updatedResource) {
+                return null;
+        }
+
         public AppUser update(AppUser updatedResource) {
                 return null;
         }
