@@ -7,13 +7,13 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.revature.Jamaal_Smith_P0.documents.Schedule;
+import com.revature.Jamaal_Smith_P0.services.UserService;
 import com.revature.Jamaal_Smith_P0.util.Other.MongoClientFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.bson.Document;
 
 
-import javax.print.Doc;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,7 +42,7 @@ public class ScheduleRepository implements CrudRepository<Schedule>  {
         return null;
     }
 
-        public Schedule findByCourseID(String courseNumber, String username){
+        public Schedule findByCourseID(String courseNumber, UserService username){
             MongoClient mongoClient = MongoClientFactory.getInstance().getConnection();
             MongoDatabase courseDatabase = mongoClient.getDatabase("project0");
             MongoCollection<Document> scheduleCollection = courseDatabase.getCollection("schedule");

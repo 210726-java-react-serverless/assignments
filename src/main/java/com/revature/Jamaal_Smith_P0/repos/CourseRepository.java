@@ -1,9 +1,5 @@
 package com.revature.Jamaal_Smith_P0.repos;
 
-/** This class houses all of the tasks that will be performed related to courses in the
- * enrollment system.
- */
-
 
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -12,13 +8,16 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
-import com.revature.Jamaal_Smith_P0.documents.AppUser;
 import com.revature.Jamaal_Smith_P0.documents.Course;
 import com.revature.Jamaal_Smith_P0.util.Other.MongoClientFactory;
 import com.revature.Jamaal_Smith_P0.util.exceptions.DataSourceException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.bson.Document;
+
+/** This class houses all of the tasks that will be performed related to courses in the
+ * enrollment system.
+ */
 
 public class CourseRepository implements CrudRepository<Course> {
 
