@@ -9,7 +9,6 @@ package com.revature.Jamaal_Smith_P0.screens;
 import com.revature.Jamaal_Smith_P0.documents.AppUser;
 import com.revature.Jamaal_Smith_P0.services.UserService;
 import com.revature.Jamaal_Smith_P0.util.Other.ScreenRouter;
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -18,11 +17,14 @@ import java.io.BufferedReader;
 public class LoginScreen extends Screen {
 
     private final UserService userService;
+    private AppUser authUser;
     private final Logger logger = LogManager.getLogger(RegisterScreen.class);
 
     public LoginScreen(BufferedReader consoleReader, ScreenRouter router, UserService userService) {
         super("LoginScreen", "/login", consoleReader, router);
         this.userService = userService;
+        this.authUser = authUser;
+
     }
 
     @Override
@@ -58,7 +60,7 @@ public class LoginScreen extends Screen {
         System.out.print("Password: ");
         String password = consoleReader.readLine();
 
-        AppUser authUser = null;
+
         try {
             authUser = userService.login(username, password);
             System.out.println("Login successful!\n");
@@ -71,18 +73,13 @@ public class LoginScreen extends Screen {
                 router.navigate("/profCourses");
             }
 
+
         } catch (Exception ae) {
             System.out.println("No user found with provided credentials!");
             System.out.println("Navigating back to welcome screen...");
             router.navigate("/welcome");
         }
-        if (authUser.getRole().equalsIgnoreCase("student")) {
-            router.navigate("/studentCourses");
-        }
 
-        if (authUser.getRole().equalsIgnoreCase("professor")) {
-            router.navigate("/profCourses");
-        }
 
 
     }

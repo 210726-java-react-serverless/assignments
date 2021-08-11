@@ -23,7 +23,7 @@ import java.io.InputStreamReader;
 public class AppState {
     private static boolean appRunning;
     private final ScreenRouter router;
-    private AppUser user;
+
 
     public AppState() {
 
