@@ -43,7 +43,7 @@ public class CourseService {
      * @return
      */
     public Course register(Course newCourse){
-        Course courseRegister = courseRepository.save()
+        Course courseRegister = courseRepository.save();
         return courseRegister;
     }
 

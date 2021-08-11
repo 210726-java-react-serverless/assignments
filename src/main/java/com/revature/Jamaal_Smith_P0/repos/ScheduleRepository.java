@@ -1,9 +1,13 @@
 package com.revature.Jamaal_Smith_P0.repos;
 
-import com.revature.Jamaal_Smith_P0.documents.AppUser;
+
 import com.revature.Jamaal_Smith_P0.documents.Schedule;
 
-public class ScheduleRepository implements CrudRepository<Schedule> {
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ScheduleRepository implements CrudRepository<Schedule>  {
 
 
     @Override

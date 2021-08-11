@@ -1,8 +1,9 @@
+package com.revature.Jamaal_Smith_P0.repos;
+
 /** This class houses all of the tasks that will be performed related to courses in the
  * enrollment system.
  */
 
-package com.revature.Jamaal_Smith_P0.repos;
 
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -64,8 +65,8 @@ public class CourseRepository implements CrudRepository<Course> {
         }
     }
 
-  
-    
+
+
     @Override
     public Course update(String updatedResource) {
         return null;
@@ -130,15 +131,15 @@ public class CourseRepository implements CrudRepository<Course> {
      */
     public Course update(Course course, Course newCourse) {
         try{
-        MongoClient mongoClient = MongoClientFactory.getInstance().getConnection();
-        MongoDatabase courseDatabase = mongoClient.getDatabase("project0");
-        MongoCollection<Document> courseCollection = courseDatabase.getCollection("courses");
-        courseCollection.updateOne(Filters.eq("courseNumber", course.getCourseNumber()), Updates.combine(
-         Updates.set("title",newCourse.getTitle()), Updates.set("department",newCourse.getDepartment()),
-                Updates.set("description",newCourse.getDescription()),Updates.set("teacher",newCourse.getTeacher())));
+            MongoClient mongoClient = MongoClientFactory.getInstance().getConnection();
+            MongoDatabase courseDatabase = mongoClient.getDatabase("project0");
+            MongoCollection<Document> courseCollection = courseDatabase.getCollection("courses");
+            courseCollection.updateOne(Filters.eq("courseNumber", course.getCourseNumber()), Updates.combine(
+                    Updates.set("title",newCourse.getTitle()), Updates.set("department",newCourse.getDepartment()),
+                    Updates.set("description",newCourse.getDescription()),Updates.set("teacher",newCourse.getTeacher())));
 
-        return newCourse;
-    }catch(Exception e) {
+            return newCourse;
+        }catch(Exception e) {
             logger.error(e);
         }return null;
     }
