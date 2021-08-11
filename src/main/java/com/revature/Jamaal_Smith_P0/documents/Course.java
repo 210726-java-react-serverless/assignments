@@ -18,16 +18,21 @@ public class Course {
     String courseNumber;
     String open;
 
-    public Course(String department, String title, String teacher, String description, String courseNumber, String open) {
+    //public Course(String department, String title, String teacher, String description, String courseNumber, String open) {
+       // this.department = department;
+        //this.title = title;
+       // this.teacher = teacher;
+        //this.description = description;
+        //this.courseNumber = courseNumber;
+        //this.open = open;
+    //}
+
+    public Course(String courseNumber, String department, String title, String teacher, String description) {
+        this.courseNumber = courseNumber;
         this.department = department;
         this.title = title;
         this.teacher = teacher;
         this.description = description;
-        this.courseNumber = courseNumber;
-        this.open = open;
-    }
-
-    public Course(String courseNumber, String department, String title, String teacher, String description) {
     }
 
 

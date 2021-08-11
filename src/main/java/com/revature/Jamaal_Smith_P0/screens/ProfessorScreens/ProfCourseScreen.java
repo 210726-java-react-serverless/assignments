@@ -6,6 +6,7 @@ package com.revature.Jamaal_Smith_P0.screens.ProfessorScreens;
 import com.revature.Jamaal_Smith_P0.documents.Course;
 import com.revature.Jamaal_Smith_P0.repos.CourseRepository;
 import com.revature.Jamaal_Smith_P0.screens.Screen;
+import com.revature.Jamaal_Smith_P0.services.CourseService;
 import com.revature.Jamaal_Smith_P0.services.UserService;
 import com.revature.Jamaal_Smith_P0.util.Other.ScreenRouter;
 
@@ -14,6 +15,7 @@ import java.io.BufferedReader;
 public class ProfCourseScreen extends Screen {
     private final UserService userService;
     private CourseRepository courseRepository;
+    private CourseService courseService;
 
     public ProfCourseScreen(BufferedReader consoleReader, ScreenRouter router, UserService userService) {
         super("profcourses","/profCourses", consoleReader, router);
@@ -56,9 +58,10 @@ public class ProfCourseScreen extends Screen {
                 System.out.println("Please describe the course.");
                 String description = consoleReader.readLine();
 
-                Course newCourse = new Course(courseNumber,department,title,teacher,description);
-                courseRepository.saveReal(newCourse);
-                System.out.printf("newCourse");
+                Course newCourse = new Course(courseNumber, department, title, teacher, description);
+                System.out.println(newCourse);
+                courseService.register(newCourse);
+                System.out.print("newCourse");
             break;
 
             case "3":

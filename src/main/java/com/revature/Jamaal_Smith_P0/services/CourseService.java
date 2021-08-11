@@ -43,8 +43,9 @@ public class CourseService {
      * @return
      */
     public Course register(Course newCourse){
-        Course courseRegister = courseRepository.save();
-        return courseRegister;
+        System.out.println("mama, we made it");
+        //Course courseRegister = courseRepository.saveReal(newCourse);
+        return courseRepository.saveReal(newCourse);
     }
 
     /** Abstracted method that allows for a current course to be updated.

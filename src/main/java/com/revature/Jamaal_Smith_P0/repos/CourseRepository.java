@@ -127,15 +127,17 @@ public class CourseRepository implements CrudRepository<Course> {
     }
 
     public Course saveReal(Course newCourse) {
+        System.out.println("we made it");
         try {
             MongoClient mongoClient = MongoClientFactory.getInstance().getConnection();
             MongoDatabase courseDatabase = mongoClient.getDatabase("project0");
             MongoCollection<Document> courseCollection = courseDatabase.getCollection("courses");
-            Document newCourseItem = new Document("department", this.newCourse.getDepartment())
+            Document newCourseItem = new Document( "course_number", this.newCourse.getCourseNumber())
+                    .append("department",this.newCourse.getDepartment())
                     .append("title", this.newCourse .getTitle())
                     .append("teacher", this.newCourse.getTeacher())
-                    .append("description", this.newCourse.getDescription())
-                    .append("course_number", this.newCourse.getCourseNumber());
+                    .append("description", this.newCourse.getDescription());
+
 
             courseCollection.insertOne(newCourseItem);
 
