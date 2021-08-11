@@ -4,24 +4,25 @@
  */
 
 
-package com.revature.Jamaal_Smith_P0.screens;
+package com.revature.Jamaal_Smith_P0.screens.StudentScreens;
 
 import com.revature.Jamaal_Smith_P0.documents.AppUser;
+import com.revature.Jamaal_Smith_P0.screens.RegisterScreen;
+import com.revature.Jamaal_Smith_P0.screens.Screen;
 import com.revature.Jamaal_Smith_P0.services.UserService;
 import com.revature.Jamaal_Smith_P0.util.Other.ScreenRouter;
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.BufferedReader;
 
-public class LoginScreen extends Screen {
+public class LoginScreenStudent extends Screen {
 
     private final UserService userService;
     private final Logger logger = LogManager.getLogger(RegisterScreen.class);
 
-    public LoginScreen(BufferedReader consoleReader, ScreenRouter router, UserService userService) {
-        super("LoginScreen", "/login", consoleReader, router);
+    public LoginScreenStudent(BufferedReader consoleReader, ScreenRouter router, UserService userService) {
+        super("LoginScreenStudent", "/loginStudent", consoleReader, router);
         this.userService = userService;
     }
 
@@ -36,7 +37,7 @@ public class LoginScreen extends Screen {
         int userChoice = 0;
         try {
             userChoice = Integer.parseInt(consoleReader.readLine());
-        } catch (Exception e) {
+        } catch(Exception e) {
             //User choice will still be 0 and will hit default below
             logger.error("Non-numeric string entered by user");
         }
@@ -58,30 +59,14 @@ public class LoginScreen extends Screen {
         System.out.print("Password: ");
         String password = consoleReader.readLine();
 
-        AppUser authUser = null;
         try {
-            authUser = userService.login(username, password);
+            AppUser authUser = userService.login(username, password);
             System.out.println("Login successful!\n");
-
-            if (authUser.getRole().equalsIgnoreCase("student")) {
-                router.navigate("/studentCourses");
-            }
-
-            if (authUser.getRole().equalsIgnoreCase("professor")) {
-                router.navigate("/profCourses");
-            }
-
+            router.navigate("/studentCourses");
         } catch (Exception ae) {
             System.out.println("No user found with provided credentials!");
             System.out.println("Navigating back to welcome screen...");
             router.navigate("/welcome");
-        }
-        if (authUser.getRole().equalsIgnoreCase("student")) {
-            router.navigate("/studentCourses");
-        }
-
-        if (authUser.getRole().equalsIgnoreCase("professor")) {
-            router.navigate("/profCourses");
         }
 
 

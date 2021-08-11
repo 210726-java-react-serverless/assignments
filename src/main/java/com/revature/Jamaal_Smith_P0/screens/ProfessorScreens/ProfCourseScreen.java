@@ -16,7 +16,7 @@ public class ProfCourseScreen extends Screen {
     private CourseRepository courseRepository;
 
     public ProfCourseScreen(BufferedReader consoleReader, ScreenRouter router, UserService userService) {
-        super("profcourses","/profcourses", consoleReader, router);
+        super("profcourses","/profCourses", consoleReader, router);
         this.userService = userService;
     }
 

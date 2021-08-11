@@ -7,8 +7,14 @@ package com.revature.Jamaal_Smith_P0.util.Other;
 import com.revature.Jamaal_Smith_P0.documents.AppUser;
 import com.revature.Jamaal_Smith_P0.repos.UserRepository;
 import com.revature.Jamaal_Smith_P0.screens.*;
+import com.revature.Jamaal_Smith_P0.screens.ProfessorScreens.LoginScreenProf;
 import com.revature.Jamaal_Smith_P0.screens.ProfessorScreens.ProfCourseScreen;
+import com.revature.Jamaal_Smith_P0.screens.ProfessorScreens.RegisterScreenProf;
+import com.revature.Jamaal_Smith_P0.screens.ProfessorScreens.UserSelectionProf;
+import com.revature.Jamaal_Smith_P0.screens.StudentScreens.LoginScreenStudent;
+import com.revature.Jamaal_Smith_P0.screens.StudentScreens.RegisterScreenStudent;
 import com.revature.Jamaal_Smith_P0.screens.StudentScreens.StudentCoursesScreen;
+import com.revature.Jamaal_Smith_P0.screens.StudentScreens.UserSelectionStudent;
 import com.revature.Jamaal_Smith_P0.services.UserService;
 
 import java.io.BufferedReader;
@@ -36,7 +42,14 @@ public class AppState {
                 .addScreen(new DashboardScreen(consoleReader, router, userService))
                 .addScreen(new UserProfileScreen(consoleReader, router,userService))
                 .addScreen(new ProfCourseScreen(consoleReader,router,userService))
-                .addScreen(new StudentCoursesScreen(consoleReader,router,userService));
+                .addScreen(new StudentCoursesScreen(consoleReader,router,userService))
+                .addScreen(new LoginScreenStudent(consoleReader,router,userService))
+                .addScreen(new RegisterScreenStudent(consoleReader,router,userService))
+                .addScreen(new LoginScreenProf(consoleReader,router,userService))
+                .addScreen(new RegisterScreenProf(consoleReader,router,userService))
+                .addScreen(new WelcomeScreenReal(consoleReader,router,userService))
+                .addScreen(new UserSelectionProf(consoleReader,router,userService))
+                .addScreen(new UserSelectionStudent(consoleReader,router,userService));
 
     }
 
