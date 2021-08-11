@@ -4,6 +4,7 @@
 package com.revature.Jamaal_Smith_P0.screens.ProfessorScreens;
 
 import com.revature.Jamaal_Smith_P0.documents.Course;
+import com.revature.Jamaal_Smith_P0.repos.CourseRepository;
 import com.revature.Jamaal_Smith_P0.screens.Screen;
 import com.revature.Jamaal_Smith_P0.services.UserService;
 import com.revature.Jamaal_Smith_P0.util.Other.ScreenRouter;

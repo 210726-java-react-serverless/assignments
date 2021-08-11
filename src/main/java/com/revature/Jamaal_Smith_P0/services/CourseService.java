@@ -54,7 +54,7 @@ public class CourseService {
      * @return
      */
     public Course update(Course course,Course newCourse){
-        Course updateCourse = courseRepository.update(course,newCourse);
+        Course updateCourse = courseRepository.updatereal(course,newCourse);
         return updateCourse;
     }
 }

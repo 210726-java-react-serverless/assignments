@@ -123,18 +123,44 @@ public class CourseRepository implements CrudRepository<Course> {
         return null;
     }
 
+    public Course save(){
+        return null;
+    }
+
+    public Course saveReal(Course newCourse) {
+        try {
+            MongoClient mongoClient = MongoClientFactory.getInstance().getConnection();
+            MongoDatabase courseDatabase = mongoClient.getDatabase("project0");
+            MongoCollection<Document> courseCollection = courseDatabase.getCollection("courses");
+            Document newCourseItem = new Document("department", this.newCourse.getDepartment())
+                    .append("title", this.newCourse .getTitle())
+                    .append("teacher", this.newCourse.getTeacher())
+                    .append("description", this.newCourse.getDescription())
+                    .append("course_number", this.newCourse.getCourseNumber());
+
+            courseCollection.insertOne(newCourseItem);
+
+            return newCourse;
+
+        }
+        catch (Exception e) {
+            logger.error("An unexpected exception occurred.", e);
+            throw new DataSourceException("An unexpected exception occurred.", e);
+        }
+    }
+
     /** This method enables for a course that already exists in the database to be deleted
      *
      * @param course
      * @param newCourse
      * @return
      */
-    public Course update(Course course, Course newCourse) {
+    public Course updatereal(Course course, Course newCourse) {
         try{
             MongoClient mongoClient = MongoClientFactory.getInstance().getConnection();
             MongoDatabase courseDatabase = mongoClient.getDatabase("project0");
             MongoCollection<Document> courseCollection = courseDatabase.getCollection("courses");
-            courseCollection.updateOne(Filters.eq("courseNumber", course.getCourseNumber()), Updates.combine(
+            courseCollection.updateOne(Filters.eq("courseNumber", newCourse.getCourseNumber()), Updates.combine(
                     Updates.set("title",newCourse.getTitle()), Updates.set("department",newCourse.getDepartment()),
                     Updates.set("description",newCourse.getDescription()),Updates.set("teacher",newCourse.getTeacher())));
 
@@ -144,7 +170,5 @@ public class CourseRepository implements CrudRepository<Course> {
         }return null;
     }
 
-    public Course save(){
-        return null;
     }
-}
+
