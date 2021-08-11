@@ -1,10 +1,11 @@
 package com.revature.Jamaal_Smith_P0.documents;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.bson.Document;
 
 import java.util.Objects;
 
-public class Schedule {
+public class Schedule extends Document {
     @JsonIgnoreProperties(ignoreUnknown = true)
     private String courseNumber;
     private String username;
