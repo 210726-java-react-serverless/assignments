@@ -1,4 +1,4 @@
-# Project 0
+# Project 1
 For Project 1, you will be refactor a console-based student management application into a full-fledged web application. The server-side will be written using Java 8, persist data into a MongoDB (hosted on an EC2), and expose API endpoints using Java Servlets. The client-side of the application will be written using HTML, CSS, and JavaScript.
 
 
@@ -31,6 +31,7 @@ As a student, I can:
 - [ ] Sensitive endpoints should be inaccessible to unauthenticated/unauthorized users
 - [ ] All API endpoints must respond with an appropriate HTTP status code
 - [ ] Server-side errors do not expose a stack trace to end-users
+- [ ] Both the API and UI have CI/CD pipeline (using AWS CodePipeline, CodeBuild, and Elastic Beanstalk) for automated building and deployment of the app
 
 
 ## Tech Stack
