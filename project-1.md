@@ -44,6 +44,9 @@ As a student, I can:
 - [ ] CSS
 - [ ] JavaScript
 - [ ] Git SCM (hosted on GitHub)
+- [ ] AWS CodePipeline
+- [ ] AWS CodeBuild
+- [ ] AWS Elastic Beanstalk
 
 
 ## Init Instructions
