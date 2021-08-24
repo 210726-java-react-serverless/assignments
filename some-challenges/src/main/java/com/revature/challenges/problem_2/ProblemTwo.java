@@ -18,8 +18,7 @@ import java.util.stream.IntStream;
             1 < n <= 91
 
  */
-public class
-ProblemTwo {
+public class ProblemTwo {
 
     public long sumEvenFibNumbers(int exclusiveEnd) {
         return -1L;
