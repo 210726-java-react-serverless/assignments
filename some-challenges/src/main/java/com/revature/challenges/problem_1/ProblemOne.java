@@ -19,7 +19,36 @@ public class ProblemOne {
 
 
     public int sumOfMultiples_3or5(int exclusiveEnd) {
-        return -1;
+        int result = 0;
+        int i = 0;
+
+        while (i < exclusiveEnd) {
+            result += i;
+            switch (i%3) {
+                case 0:
+                    switch (i%5) {
+                        case 0:
+                        case 1:
+                        case 2:
+                            i += 3;
+                            break;
+                        case 3:
+                            i += 2;
+                            break;
+                        case 4:
+                            i += 1;
+                            break;
+                    }
+                    break;
+                case 1:
+                    i += 2;
+                    break;
+                case 2:
+                    i += 1;
+                    break;
+            }
+        }
+        return result;
     }
 
 }
