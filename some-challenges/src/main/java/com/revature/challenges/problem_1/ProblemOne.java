@@ -12,10 +12,11 @@ import java.util.stream.IntStream;
 
     Constraints:
 
-        0 < n <= Integer.MAX_VAU
+        0 < n <= Integer.MAX_VALUE
 
  */
 public class ProblemOne {
+
 
     public int sumOfMultiples_3or5(int exclusiveEnd) {
         return -1;
