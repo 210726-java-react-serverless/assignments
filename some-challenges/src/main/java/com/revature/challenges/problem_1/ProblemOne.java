@@ -15,6 +15,7 @@ import java.util.stream.IntStream;
         0 < n <= Integer.MAX_VALUE
 
  */
+
 public class ProblemOne {
 
 
