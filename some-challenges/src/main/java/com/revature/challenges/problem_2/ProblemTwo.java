@@ -22,17 +22,16 @@ public class ProblemTwo {
 
     public long sumEvenFibNumbers(int exclusiveEnd) {
 
+        if(exclusiveEnd < 2) return 0;
+
         long[] fibNumbers = new long[exclusiveEnd];
         fibNumbers[0] = 1;
         fibNumbers[1] = 2;
-        long sum = 0L;
+        long sum = 2;
 
         for (int i = 2; i < fibNumbers.length; i++){
             fibNumbers[i] = fibNumbers[i-1] + fibNumbers[i-2];
-        }
-
-        for(long i : fibNumbers){
-            if(i % 2 == 0L) sum += i;
+            if(fibNumbers[i] % 2 == 0) sum += fibNumbers[i];
         }
 
         return sum;
