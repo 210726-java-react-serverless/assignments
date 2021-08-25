@@ -16,7 +16,29 @@ package com.revature.challenges.problem_4;
 public class ProblemFour {
 
     public int largestPalindromicNumber(int factorDigitLength) {
-        return -1;
+
+        //Needs to be optimized
+
+        int maxIndex = (int) Math.pow(10, factorDigitLength);
+        int minIndex = ((int) Math.pow(10, factorDigitLength)/10);
+        int largestPalindrome = -1;
+        boolean isPalindrome = true;
+
+        for(int i = minIndex; i < maxIndex; i++){
+            for(int j = minIndex; j < maxIndex; j++){
+                String s = String.valueOf(i*j);
+                for(int k = 0; k < s.length()/2; k++){
+                    if(!(s.substring(k,k+1).equals(s.substring(s.length()-k-1,s.length()-k)))){
+                        isPalindrome = false;
+                        break;
+                    }
+                }
+                if(isPalindrome && ((i*j) > largestPalindrome)) largestPalindrome = i*j;
+                isPalindrome = true;
+            }
+        }
+
+        return largestPalindrome;
     }
 
 }
