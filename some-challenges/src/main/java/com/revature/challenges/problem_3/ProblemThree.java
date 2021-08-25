@@ -48,6 +48,7 @@ public class ProblemThree {
 
     public int smallestFactor(int number) {
         for (int i = 2; i < number; i++) {
+            if (i > number/2) { break; }
             if (number%i == 0) { return i; }
         }
         return 1;
