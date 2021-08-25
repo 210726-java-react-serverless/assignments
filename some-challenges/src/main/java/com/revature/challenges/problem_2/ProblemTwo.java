@@ -21,18 +21,18 @@ import java.util.stream.IntStream;
 public class ProblemTwo {
 
     public long sumEvenFibNumbers(int exclusiveEnd) {
-        long result = 2L;
-        long a = 1L;
-        long b = 2L;
-        long n = 0L;
-        if (exclusiveEnd == 1) { return 0; }
-        if (exclusiveEnd == 2) { return 2; }
-        for (int i = 3; i < exclusiveEnd; i++) {
-            n = a + b;
-            a = b;
-            b = n;
-            System.out.println(n);
-            if (n%2 == 0) { result += n; }
+        if (exclusiveEnd < 2) { return 0L; }
+        long result = 0L;
+        long previous = 0L;
+        long temp;
+        long current = 2L;
+
+        for (int i = 2; i < exclusiveEnd; i += 3) {
+            result += current;
+            System.out.println(result);
+            temp = current;
+            current = (current*4) + previous;
+            previous = temp;
         }
 
         return result;
