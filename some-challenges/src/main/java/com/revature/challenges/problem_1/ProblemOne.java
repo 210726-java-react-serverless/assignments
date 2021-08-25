@@ -17,7 +17,7 @@ import java.util.stream.IntStream;
  */
 public class ProblemOne {
 
-
+    // if i remember correctly, there's a formula for fibonacci number involving the golden ratio that could be used here
     public int sumOfMultiples_3or5(int exclusiveEnd) {
         int result = 0;
         int i = 0;

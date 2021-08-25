@@ -15,6 +15,7 @@ package com.revature.challenges.problem_4;
  */
 public class ProblemFour {
 
+    // wondering if this could be sped up by moving diagonally across i and j, rather than linearly
     public int largestPalindromicNumber(int factorDigitLength) {
         String potentialPalindrome = "";
         int biggestPalindrome = 0;
