@@ -18,7 +18,28 @@ import java.util.List;
 public class ProblemThree {
 
     public List<Integer> findPrimeFactors(int candidate) {
-        return null;
+
+        List<Integer> answer = new ArrayList<>();
+
+        if (candidate == 1)
+            return answer;
+
+        int i = 2;
+
+        // This one kept me up at night, almost did way too much work lol
+        while (i < candidate)
+        {
+            if(candidate % i == 0){
+                answer.add(i);
+                candidate /= i;
+            }else
+                i++;
+
+        }
+        answer.add(i);
+
+
+        return answer;
     }
 
 }

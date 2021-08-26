@@ -16,7 +16,15 @@ package com.revature.challenges.problem_4;
 public class ProblemFour {
 
     public int largestPalindromicNumber(int factorDigitLength) {
-        return -1;
+
+        double i = 1;
+        int a = 1;
+
+        while(Math.log10(i)<factorDigitLength) {
+
+        }
+
+        return factorDigitLength;
     }
 
 }

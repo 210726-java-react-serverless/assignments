@@ -21,6 +21,22 @@ import java.util.stream.IntStream;
 public class ProblemTwo {
 
     public long sumEvenFibNumbers(int exclusiveEnd) {
-        return -1L;
+
+        if(exclusiveEnd==2)
+            return 2L;
+
+        long answer = 2L;
+        long a = 1L;
+        long b = 2L;
+        long c = 0L;
+        for(int i = 2; i<exclusiveEnd;i++) {
+            c = a + b;
+            if (c%2 == 0)
+                answer += c;
+            a = b;
+            b = c;
+        }
+
+        return answer;
     }
 }

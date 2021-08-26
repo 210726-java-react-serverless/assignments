@@ -3,7 +3,9 @@ package com.revature.challenges.problem_3;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -14,6 +16,11 @@ public class ProblemThreeTestSuite {
     @BeforeEach
     public void setup() {
         sut = new ProblemThree();
+    }
+
+    @Test
+    public void returns_empty_given_1() {
+        assertEquals(Arrays.asList(), sut.findPrimeFactors(1));
     }
 
     @Test

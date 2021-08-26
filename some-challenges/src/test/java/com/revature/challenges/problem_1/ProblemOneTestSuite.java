@@ -27,6 +27,11 @@ public class ProblemOneTestSuite {
     }
 
     @Test
+    public void returns_2318_given_100() {
+        assertEquals(2318, sut.sumOfMultiples_3or5(100));
+    }
+
+    @Test
     public void returns_233168_given_1000() {
         assertEquals(233168, sut.sumOfMultiples_3or5(1000));
     }
