@@ -19,7 +19,16 @@ public class ProblemOne {
 
 
     public int sumOfMultiples_3or5(int exclusiveEnd) {
-        return -1;
+        int sumOfMultiples = 0;
+
+        for (int i=0; i<exclusiveEnd; i++) {
+            if (i%3 == 0) {
+                sumOfMultiples += i;
+            } else if (i%5 == 0) {
+                sumOfMultiples += i;
+            }
+        }
+        return sumOfMultiples;
     }
 
 }

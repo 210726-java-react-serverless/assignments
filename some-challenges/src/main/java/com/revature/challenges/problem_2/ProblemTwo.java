@@ -20,7 +20,24 @@ import java.util.stream.IntStream;
  */
 public class ProblemTwo {
 
+    // shut up, I know how inefficient it is
+    // dude just trust me, it works <-<
     public long sumEvenFibNumbers(int exclusiveEnd) {
-        return -1L;
+        long fiboTotal = 0;
+        for (int i=0; i<exclusiveEnd; i++) {
+            long currentFibo = fibonacciCalc(i);
+            if (currentFibo%2 == 0) {
+                fiboTotal += currentFibo;
+            }
+        }
+        return fiboTotal;
+    }
+
+    public long fibonacciCalc(int index) {
+        if((index == 0) || (index == 1)) {
+            return index;
+        } else {
+            return fibonacciCalc(index-1) + fibonacciCalc(index -2);
+        }
     }
 }
