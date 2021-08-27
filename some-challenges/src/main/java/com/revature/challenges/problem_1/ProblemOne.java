@@ -1,4 +1,4 @@
-package com.revature.challenges.problem_1;
+package main.java.com.revature.challenges.problem_1;
 
 import java.util.stream.IntStream;
 
@@ -17,9 +17,20 @@ import java.util.stream.IntStream;
  */
 public class ProblemOne {
 
+    public ProblemOne(){
+
+    }
 
     public int sumOfMultiples_3or5(int exclusiveEnd) {
-        return -1;
+        int n = 0;
+        for(int i = 0; i < exclusiveEnd; i++){
+            if(i % 5 == 0 || i % 3 == 0){
+                n+=i;
+            }
+        }
+
+
+        return n;
     }
 
 }
