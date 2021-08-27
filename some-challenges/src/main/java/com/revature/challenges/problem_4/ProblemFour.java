@@ -16,7 +16,18 @@ package com.revature.challenges.problem_4;
 public class ProblemFour {
 
     public int largestPalindromicNumber(int factorDigitLength) {
-        return -1;
+        StringBuilder intString;
+
+        int max=0;
+        for (int i = (int) Math.pow(10, factorDigitLength-1); i <= (int) Math.pow(10, factorDigitLength); i++)
+            for (int j = (int) Math.pow(10, factorDigitLength - 1); j < (int) Math.pow(10, factorDigitLength); j++) {
+                intString = new StringBuilder(String.valueOf(i * j));
+
+                if(intString.toString().equals(intString.reverse().toString()) && Integer.parseInt(intString.toString())>max)
+                    max = Integer.parseInt(intString.toString());
+
+            }
+        return max;
     }
 
 }

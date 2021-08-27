@@ -1,5 +1,8 @@
 package com.revature.challenges.problem_2;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /*
@@ -21,6 +24,21 @@ import java.util.stream.IntStream;
 public class ProblemTwo {
 
     public long sumEvenFibNumbers(int exclusiveEnd) {
-        return -1L;
+        int c = 0;
+        int d = 1;
+        int e;
+        int p;
+        List<Integer> list = new ArrayList<>();
+        for(int i = 1; i<=exclusiveEnd; i++){
+            e=c;
+            c=d;
+            d+=e;
+            list.add(d);
+        }
+        List<Integer> evenList = list.stream()
+                .filter(k -> k%2 == 0)
+                .collect(Collectors.toList());
+        p = evenList.stream().mapToInt(j -> j).sum();
+        return p;
     }
 }
