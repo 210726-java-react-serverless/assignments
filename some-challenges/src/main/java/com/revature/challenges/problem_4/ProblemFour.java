@@ -1,4 +1,4 @@
-package main.java.com.revature.challenges.problem_4;
+package java.com.revature.challenges.problem_4;
 
 /*
     Problem Description:

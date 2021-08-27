@@ -1,4 +1,4 @@
-package com.revature.challenges.problem_4;
+package java.com.revature.challenges.problem_4;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

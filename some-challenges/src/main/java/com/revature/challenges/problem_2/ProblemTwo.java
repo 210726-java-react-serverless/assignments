@@ -1,4 +1,4 @@
-package main.java.com.revature.challenges.problem_2;
+package java.com.revature.challenges.problem_2;
 
 import java.util.stream.IntStream;
 

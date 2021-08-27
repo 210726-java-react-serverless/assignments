@@ -1,4 +1,4 @@
-package main.java.com.revature.challenges.problem_3;
+package java.com.revature.challenges.problem_3;
 
 import java.util.ArrayList;
 import java.util.List;
