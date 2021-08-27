@@ -27,7 +27,7 @@ public class ProblemTwo {
         long second=0;
 
 
-        for (int i = 2; i < exclusiveEnd; i++);
+        for (int i = 2; i < exclusiveEnd; i++){
            long temp = first;
            first = second;
            second = temp + first;
