@@ -1,5 +1,7 @@
 package com.revature.challenges.problem_2;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.stream.IntStream;
 
 /*
@@ -19,8 +21,31 @@ import java.util.stream.IntStream;
 
  */
 public class ProblemTwo {
+    public static Map<Integer,Long> fibMap = new HashMap<>();
 
+    public long fibSeq(int exclusiveEnd){
+        if (fibMap.containsKey(exclusiveEnd))
+            return fibMap.get(exclusiveEnd);
+        if (fibMap.containsKey(exclusiveEnd-1) && fibMap.containsKey(exclusiveEnd-2))
+        {
+            long eF = fibMap.get(exclusiveEnd-1) + fibMap.get(exclusiveEnd-2);
+            fibMap.put(exclusiveEnd, eF);
+            return eF;
+        }
+        else
+        {
+            return (fibSeq(exclusiveEnd-1) + fibSeq(exclusiveEnd-2));
+        }
+    }
     public long sumEvenFibNumbers(int exclusiveEnd) {
-        return -1L;
+        fibMap.put(0, (long) 0);
+        fibMap.put(1, (long) 1);
+        fibSeq(exclusiveEnd+1);
+        long answer = 0;
+        for(int i=3; i<exclusiveEnd; i+=3)
+        {
+            answer += fibMap.get(i);
+        }
+        return answer;
     }
 }

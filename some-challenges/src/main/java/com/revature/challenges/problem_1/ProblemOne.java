@@ -19,7 +19,18 @@ public class ProblemOne {
 
 
     public int sumOfMultiples_3or5(int exclusiveEnd) {
-        return -1;
+    	int inclusiveEnd = exclusiveEnd - 1;
+		int div3 = inclusiveEnd/3;
+		int div5 = inclusiveEnd/5;
+		int div15 = inclusiveEnd/15;
+		//Sums of series of 3 and 5 minus intersection at 15
+		double sum3 = div3*(div3+1)*3*.5;
+		double sum5 = div5*(div5+1)*5*.5;
+		double sum15 = div15*(div15+1)*15*.5;
+		double val =  sum3+sum5-sum15;
+		return (int) val;
     }
 
 }
+
+
