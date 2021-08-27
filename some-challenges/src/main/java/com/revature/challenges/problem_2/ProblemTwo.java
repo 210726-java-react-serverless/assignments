@@ -20,7 +20,28 @@ import java.util.stream.IntStream;
  */
 public class ProblemTwo {
 
+    //fibonacci n + (n-1)
     public long sumEvenFibNumbers(int exclusiveEnd) {
+        long sum =0;
+        long first=0;
+        long second=0;
+
+
+        for (int i = 2; i < exclusiveEnd; i++);
+           long temp = first;
+           first = second;
+           second = temp + first;
+            //check if number is even
+          if  ( temp % 2 == 0){
+                sum += temp ;
+
+        }
+          return sum;
+
+        }
+           // fibonnaci sequence for reference: sumEvenFibNumbers(n - 1) + sumEvenFibNumbers(n - 2);
+
+
         return -1L;
     }
 }

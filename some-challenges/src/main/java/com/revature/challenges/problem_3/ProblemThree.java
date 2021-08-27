@@ -18,6 +18,9 @@ import java.util.List;
 public class ProblemThree {
 
     public List<Integer> findPrimeFactors(int candidate) {
+
+        //My understanding is that you need to divide by 2 until you get numbers that can no longer be divided by anything but itself and 1...
+        // I am at a loss for what to do...
         return null;
     }
 
