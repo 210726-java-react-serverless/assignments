@@ -19,7 +19,18 @@ public class ProblemOne {
 
 
     public int sumOfMultiples_3or5(int exclusiveEnd) {
-        return -1;
+        int n = exclusiveEnd;
+        int sum = 0;
+
+        for( int i = 1; i <= n; i++){
+            if( i % 3 == 0 || i % 5 == 0)
+                sum += i;
+        }
+        return sum;
     }
 
+    public static void main(String[] args){
+        ProblemOne result = new ProblemOne();
+        System.out.println(result.sumOfMultiples_3or5(10));
+    }
 }
