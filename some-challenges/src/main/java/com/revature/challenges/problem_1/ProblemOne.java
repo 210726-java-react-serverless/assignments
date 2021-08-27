@@ -19,7 +19,40 @@ public class ProblemOne {
 
 
     public int sumOfMultiples_3or5(int exclusiveEnd) {
-        return -1;
+
+        int count3 = 1;
+        int multiple3 = 3;
+        int sum3 = 0;
+        while(multiple3 < exclusiveEnd) {
+            sum3 += multiple3;
+
+            System.out.println("multiple3: " + multiple3);
+            System.out.println("count3: " + count3);
+            System.out.println("sum3: " + sum3);
+            System.out.println();
+
+            multiple3 = 3 * (++count3);
+        }
+
+
+        int count5 = 1;
+        int multiple5 = 5;
+        int sum5 = 0;
+        while(multiple5 < exclusiveEnd) {
+            if(((double) multiple5/3) == (double) (multiple5/3)) multiple5 = 0; // ignore repeat multiples of 3
+            sum5 += multiple5;
+
+            System.out.println("multiple5: " + multiple5);
+            System.out.println("count5: " + count5);
+            System.out.println("sum 5: " + sum5);
+            System.out.println();
+
+            multiple5 = 5 * (++count5);
+        }
+
+        System.out.println("Total: " + (sum3+sum5));
+
+        return sum3 + sum5;
     }
 
 }

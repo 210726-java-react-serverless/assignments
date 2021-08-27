@@ -1,5 +1,6 @@
 package com.revature.challenges.problem_2;
 
+import java.math.BigInteger;
 import java.util.stream.IntStream;
 
 /*
@@ -22,6 +23,20 @@ public class
 ProblemTwo {
 
     public long sumEvenFibNumbers(int exclusiveEnd) {
-        return -1L;
+
+        long n = 1;
+        long m = 2;
+        long swap;
+        long sum = 0;
+        for(int i = 2; i < exclusiveEnd; i++) {
+            System.out.println("m, n: " + m + ", " + n);
+            if(m%2 == 0) sum += m;
+            System.out.println("sum: " + sum);
+            swap = m;
+            m = m + n;
+            n = swap;
+        }
+
+        return sum;
     }
 }
