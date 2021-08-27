@@ -20,7 +20,22 @@ import java.util.stream.IntStream;
  */
 public class ProblemTwo {
 
-    public long sumEvenFibNumbers(int exclusiveEnd) {
-        return -1L;
+    public static long sumEvenFibNumbers(int exclusiveEnd) {
+        long sum = 0;
+        long prev = 0, current = 1, temp = 0;
+        for (int i = 1; i <= exclusiveEnd; i++) {
+            temp = current;
+            current += prev;
+            prev = temp;
+            System.out.print(i + ": ");
+            System.out.println(current);
+            if (current % 2 == 0) sum += current;
+        }
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        final int EXCLUSIVE_END = 90;
+        System.out.println(sumEvenFibNumbers(EXCLUSIVE_END));
     }
 }

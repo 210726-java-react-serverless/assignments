@@ -18,8 +18,16 @@ import java.util.stream.IntStream;
 public class ProblemOne {
 
 
-    public int sumOfMultiples_3or5(int exclusiveEnd) {
-        return -1;
+    public static int sumOfMultiples_3or5(int exclusiveEnd) {
+        int sum = 0;
+        for (int i = 1; i < exclusiveEnd; i++)
+            if (i % 3 == 0 || i % 5 == 0) sum += i;
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        final int EXCLUSIVE_END = 10;
+        System.out.println(sumOfMultiples_3or5(EXCLUSIVE_END));
     }
 
 }
