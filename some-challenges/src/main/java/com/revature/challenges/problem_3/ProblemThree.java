@@ -32,7 +32,7 @@ public class ProblemThree {
 
     public static void main(String[] args){
         ProblemThree result = new ProblemThree();
-        System.out.println(result.findPrimeFactors(1000001));
+        System.out.println(result.findPrimeFactors(100001));
     }
 
 }
