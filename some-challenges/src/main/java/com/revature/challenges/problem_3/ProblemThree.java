@@ -17,8 +17,28 @@ import java.util.List;
  */
 public class ProblemThree {
 
+    //Cant take credit for the idea of this algo. Found it online
+
     public List<Integer> findPrimeFactors(int candidate) {
-        return null;
+        List<Integer> primeFactors = new ArrayList<>();
+
+        while(candidate%2==0){
+            candidate = candidate/2;
+            primeFactors.add(2);
+        }
+
+        for(int i = 3; i < Math.sqrt(candidate); i = i + 2){
+            while(candidate % i == 0){
+                candidate = candidate/i;
+                primeFactors.add(i);
+            }
+        }
+
+        //take care of trailing remainder
+        if(candidate>2)
+            primeFactors.add(candidate);
+
+        return primeFactors;
     }
 
 }
