@@ -21,7 +21,7 @@ Other requirements:
 - Application will demonstrate at least ten individual user stories 
 - Application will leverage at least one external API 
 - Application's own data model must be sufficiently complex (i.e. >2 tables) 
-- RDBMS will be deployed to the cloud (AWS RDS) 
+- NoSQL DB will be deployed to the cloud
 - Java API will be deployed to the cloud (AWS EC2) 
 - UI application will be deployed to the cloud (AWS S3) 
 - Java API will have >=80% test (line) coverage for service layer (confirmed by Jacoco coverage report)
