@@ -130,11 +130,22 @@ public class MyLinkedList<T> {
         Node<?> tank_sperlunkerNode = head;
         // stays k units behind tank
         Node<?> trail_sperlunkerNode = head;
-        int units_till_follow = 0;
-        while(trail_sperlunkerNode.nextNode != null)
-        {
 
+        // frames until trail starts
+        int units_till_follow = 0;
+
+        while(tank_sperlunkerNode.nextNode != null)
+        {
+              // trail only moves when k units away from tank
+             if(units_till_follow => k)
+             {
+                 trail_sperlunkerNode_sperlunkerNode = trail_sperlunkerNode.nextNode;
+             }
+            // tank moves no matter what
+            tank_sperlunkerNode = tank_sperlunkerNode.nextNode;
         }
+
+        return trail_sperlunkerNode.data;
         throw new ImplementationMissingException(); // TODO: REPLACE THIS
     }
 
