@@ -125,6 +125,16 @@ public class MyLinkedList<T> {
      * @return the k-th to last element of this list
      */
     public T getKthToLast(int k) {
+
+        //thiss node clears the path ahead k units infront of trail
+        Node<?> tank_sperlunkerNode = head;
+        // stays k units behind tank
+        Node<?> trail_sperlunkerNode = head;
+        int units_till_follow = 0;
+        while(trail_sperlunkerNode.nextNode != null)
+        {
+
+        }
         throw new ImplementationMissingException(); // TODO: REPLACE THIS
     }
 
@@ -142,7 +152,7 @@ public class MyLinkedList<T> {
 
         List<Object> goldNodes = new ArrayList<>();
         //this node tunnels into headNode
-        Node<?> sperlunkerNode = head.nextNode;
+        Node<?> sperlunkerNode = head;
 
         // tunnel thruogh list till we hit the end
         while(sperlunkerNode.nextNode != null )
