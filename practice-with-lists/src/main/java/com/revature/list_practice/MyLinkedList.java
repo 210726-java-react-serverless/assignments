@@ -1,9 +1,6 @@
 package com.revature.list_practice;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.List;
+import java.util.*;
 
 /**
  * A simple implementation of a singly linked list.
@@ -109,7 +106,21 @@ public class MyLinkedList<T> {
      * @return true if this list contains a loop
      */
     public boolean containsLoop() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        //detects loops
+        Node<?> the_matrix_node =head;
+        //reference
+        HashSet<Node> ref = new HashSet<>();
+        int frames = 0;
+        while (the_matrix_node.nextNode != null)
+        {
+            // if the set contains current node we know we have encountered this node b4
+            if(ref.contains(the_matrix_node))
+                return true;
+                the_matrix_node = the_matrix_node.nextNode;
+        }
+
+        return false;
+
     }
 
     /**
