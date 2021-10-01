@@ -126,6 +126,10 @@ public class MyLinkedList<T> {
      */
     public T getKthToLast(int k) {
 
+        if(k <= 0 || k >= 500)
+        {
+            return null;
+        }
         //thiss node clears the path ahead k units infront of trail
         Node<?> tank_sperlunkerNode = head;
         // stays k units behind tank
@@ -137,16 +141,17 @@ public class MyLinkedList<T> {
         while(tank_sperlunkerNode.nextNode != null)
         {
               // trail only moves when k units away from tank
-             if(units_till_follow => k)
+             if(units_till_follow >= k)
              {
-                 trail_sperlunkerNode_sperlunkerNode = trail_sperlunkerNode.nextNode;
+                 trail_sperlunkerNode = trail_sperlunkerNode.nextNode;
              }
             // tank moves no matter what
             tank_sperlunkerNode = tank_sperlunkerNode.nextNode;
+             units_till_follow++;
         }
 
-        return trail_sperlunkerNode.data;
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        return (T) trail_sperlunkerNode.data;
+
     }
 
     /**
