@@ -5,6 +5,8 @@ package com.revature.list_practice;
  *
  * @param <T>
  */
+import java.util.List;
+
 public class MyLinkedList<T> {
 
     private Node<T> head;
@@ -129,6 +131,21 @@ public class MyLinkedList<T> {
      * @return true if the contents of this list form a palindrome
      */
     public boolean isPalindromicList() {
+        // ig nuthing is identical to nuthing
+        if(head == null)
+        {
+            return true;
+        }
+
+        List<?>
+        //this node tunnels into headNode
+        Node<?> sperlunkerNode = head.nextNode;
+        // tunnel thruogh list till we hit the end
+        while(sperlunkerNode.nextNode != null)
+        {
+
+            sperlunkerNode = sperlunkerNode.nextNode;
+        }
         throw new ImplementationMissingException(); // TODO: REPLACE THIS
     }
 
