@@ -111,6 +111,27 @@ public class MyLinkedList<T> {
      *
      */
     public MyLinkedList<T> removeDuplicates() {
+
+        // array to store the LL elements
+        MyLinkedList<Object> candidates = new MyLinkedList<>();
+        int num_of_candidates = 0;
+
+        // Current comparison
+        Object memory = head.data;
+
+        //this node serveyys the list
+        Node<?> clone_hunter_Node = head;
+
+        // populating list
+        while(clone_hunter_Node.nextNode != null)
+        {
+//            candidates.add()
+//                num_of_candidates ++;
+        }
+
+
+
+
         throw new ImplementationMissingException(); // TODO: REPLACE THIS
     }
 
