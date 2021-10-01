@@ -1,5 +1,8 @@
 package com.revature.list_practice;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * A simple implementation of a singly linked list.
  *
@@ -11,6 +14,7 @@ public class MyLinkedList<T> {
 
     public MyLinkedList() {
         super();
+        head = null;
     }
 
     public MyLinkedList(Node<T> startingNode) {
@@ -23,7 +27,7 @@ public class MyLinkedList<T> {
      * @return true if this collection contains no elements
      */
     public boolean isEmpty() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        return head == null;
     }
 
     /**
@@ -35,7 +39,20 @@ public class MyLinkedList<T> {
      * @return true if this collection contains the specified element
      */
     public boolean contains(T t) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+
+        Node<T> current = head;
+        Node<T> tNode = new Node<>(t);
+
+        if(head == null) {
+            return false;
+        }
+
+        while(current != null) {
+            if(current.data.equals(tNode.data)) return true;
+            current = current.nextNode;
+        }
+
+        return false;
     }
 
     /**
@@ -48,7 +65,25 @@ public class MyLinkedList<T> {
      * @return true if this collection changed as a result of the call
      */
     public boolean add(T t) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+
+        if(t == null) return false;
+
+        Node<T> current = head;
+        Node<T> tNode = new Node<>(t);
+
+        if(head == null) {
+            head = tNode;
+        } else {
+
+            while(current.nextNode != null) {
+//                if(current.data.equals(tNode.data)) return false; // Not allowing duplication
+                current = current.nextNode;
+            }
+
+            current.nextNode = tNode;
+        }
+
+        return true;
     }
 
     /**
@@ -62,7 +97,30 @@ public class MyLinkedList<T> {
      * @return true if this list contained the specified element
      */
     public boolean remove(Object o) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+
+        if(head == null) return false;
+
+        Node<T> previous = head;
+        Node<T> current = head.nextNode;
+
+        if(head.data.equals(o)) {
+            head = head.nextNode;
+            return true;
+        }
+
+        while(current != null) {
+
+            if(current.data.equals(o)) {
+                previous.nextNode = current.nextNode;
+                return true;
+            }
+
+            previous = current;
+            current = current.nextNode;
+
+        }
+
+        return false;
     }
 
     /**
@@ -71,7 +129,14 @@ public class MyLinkedList<T> {
      * @return the head of this list, or null if this list is empty
      */
     public T poll() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+
+        if(head == null) return null;
+
+        Node<T> pollNode = head;
+        head = head.nextNode;
+
+        return pollNode.data;
+
     }
 
     /**
@@ -80,7 +145,11 @@ public class MyLinkedList<T> {
      * @return the head of this list, or null if this list is empty
      */
     public T peek() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+
+        if(head == null) return null;
+
+        return head.data;
+
     }
 
     /**
@@ -94,7 +163,18 @@ public class MyLinkedList<T> {
      * @return true if this list contains a loop
      */
     public boolean containsLoop() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+
+        Node<T> current = head;
+        Set<Node<T>> nodeSet = new HashSet<>();
+
+        while(current.nextNode != null) {
+            if(nodeSet.contains(current)) return true;
+            nodeSet.add(current);
+            current = current.nextNode;
+        }
+
+        return false;
+
     }
 
     /**
@@ -106,7 +186,23 @@ public class MyLinkedList<T> {
      *
      */
     public MyLinkedList<T> removeDuplicates() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+
+        Node<T> current = head;
+        Set<T> dataSet = new HashSet<>();
+        MyLinkedList<T> result = new MyLinkedList<>();
+
+        while(current != null) {
+
+            if(!dataSet.contains(current.data)) {
+                dataSet.add(current.data);
+                result.add(current.data);
+            }
+
+            current = current.nextNode;
+        }
+
+        return result;
+
     }
 
     /**
@@ -120,7 +216,37 @@ public class MyLinkedList<T> {
      * @return the k-th to last element of this list
      */
     public T getKthToLast(int k) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+
+        int size = getSize();
+
+        if(k > size || k < 0) return null; // Input out of bounds
+
+        Node<T> current = head;
+
+        for(int i = 0; i < ((size-k)-1); i++) {
+            current = current.nextNode;
+        }
+
+        return current.data;
+
+    }
+
+    public int getSize() {
+
+        if(head == null) return 0;
+        if(containsLoop()) return -1;
+
+        Node<T> current = head;
+
+        int i = 1;
+
+        while(current.nextNode != null) {
+            i++;
+            current = current.nextNode;
+        }
+
+        return i;
+
     }
 
     /**
@@ -129,7 +255,29 @@ public class MyLinkedList<T> {
      * @return true if the contents of this list form a palindrome
      */
     public boolean isPalindromicList() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+
+        System.out.println(this);
+
+        if(getSize() >= 0 && getSize() < 2) return true;
+
+        Node<T> current = head;
+        Node<T> next = head.nextNode;
+
+        Node<T> reverseHead = new Node<>(current.data);
+
+        while(next != null) {
+
+            Node<T> reverseCurrent = new Node<>(next.data);
+            reverseCurrent.nextNode = reverseHead;
+
+            reverseHead = reverseCurrent;
+
+            current = current.nextNode;
+            next = next.nextNode;
+        }
+
+        MyLinkedList<T> reversedList = new MyLinkedList<>(reverseHead);
+        return this.equals(reversedList);
     }
 
     static class Node<T> {
@@ -166,6 +314,23 @@ public class MyLinkedList<T> {
         }
 
         return true;
+    }
+
+    @Override
+    public String toString() {
+
+        Node<T> current = head;
+        String result = "[";
+
+        while(current != null) {
+            result += current.data;
+            if(current.nextNode != null) result += ", ";
+            current = current.nextNode;
+        }
+
+        result += "]";
+        return result;
+
     }
 
 }
