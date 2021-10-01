@@ -41,7 +41,6 @@ public class MyLinkedList<T> {
      * @return true if this collection contains the specified element
      */
     public boolean contains(T t) {
-        boolean result = false;
         if(this.head != null){
             while(this.head.nextNode != null){
                 if(this.head.data.equals(t)){
@@ -69,7 +68,22 @@ public class MyLinkedList<T> {
      * @return true if this collection changed as a result of the call
      */
     public boolean add(T t) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if(this.head != null){
+            while(this.head.nextNode != null){
+                if(this.head.data.equals(t)){
+                    this.head.nextNode.data = t;
+                    return false;
+                }
+                else{
+                    this.head = this.head.nextNode;
+                }
+            }
+            this.head.nextNode.data = t;
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     /**
