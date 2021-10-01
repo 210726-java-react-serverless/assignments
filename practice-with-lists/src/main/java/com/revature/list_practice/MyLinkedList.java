@@ -41,7 +41,22 @@ public class MyLinkedList<T> {
      * @return true if this collection contains the specified element
      */
     public boolean contains(T t) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        boolean result = false;
+        if(this.head != null){
+            while(this.head.nextNode != null){
+                if(this.head.data.equals(t)){
+                    return true;
+                }
+                else{
+                    this.head = this.head.nextNode;
+                }
+            }
+
+        }
+        else{
+            return false;
+        }
+        return false;
     }
 
     /**
