@@ -96,7 +96,20 @@ public class MyLinkedList<T> {
      * @return true if this list contained the specified element
      */
     public boolean remove(Object o) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        // Define. work one node ahead so that it can step back if needed.
+        Node<T> current = head.nextNode;
+        Node<T> previous = head;
+
+        // nullcheck
+        if (current == null) return false;
+        // iterate. If the data matches, remove the reference by linking the previous node to the next node, skipping present node.
+        while (current.nextNode != null) {
+            if (current.data.equals(o))  {
+                previous.nextNode = current.nextNode;
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
