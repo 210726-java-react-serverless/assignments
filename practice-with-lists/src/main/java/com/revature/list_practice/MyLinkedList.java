@@ -1,5 +1,10 @@
 package com.revature.list_practice;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * A simple implementation of a singly linked list.
  *
@@ -52,7 +57,14 @@ public class MyLinkedList<T> {
      * @return true if this collection changed as a result of the call
      */
     public boolean add(T t) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if (t == null) return false;
+        while (head != null) {
+            if (head.data.equals(t)) return false;
+            head = head.nextNode;
+        }
+        Node<T> node = new Node<>(t);
+        head = node;
+        return true;
     }
 
     /**
@@ -133,6 +145,8 @@ public class MyLinkedList<T> {
      * @return true if the contents of this list form a palindrome
      */
     public boolean isPalindromicList() {
+        List<T> list = new ArrayList<>();
+
         throw new ImplementationMissingException(); // TODO: REPLACE THIS
     }
 
