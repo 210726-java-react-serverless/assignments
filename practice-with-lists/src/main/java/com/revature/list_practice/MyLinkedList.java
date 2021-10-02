@@ -152,7 +152,7 @@ public class MyLinkedList<T> {
      */
     public MyLinkedList<T> removeDuplicates() {
         Node<T> newNode = this.head;
-        MyLinkedList<T> newList = new MyLinkedList<>(newNode);
+        MyLinkedList<T> newList = new MyLinkedList<>();
         while (newNode != null) {
             if (!newList.contains(newNode.data)) newList.add(newNode.data);
             newNode = newNode.nextNode;
