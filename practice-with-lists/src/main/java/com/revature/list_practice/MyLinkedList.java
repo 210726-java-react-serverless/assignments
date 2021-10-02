@@ -196,10 +196,11 @@ public class MyLinkedList<T> {
         Map<Integer, T> index = new HashMap<>();
         Node<T> currentNode = this.head;
         while (currentNode != null) {
-            index.put(size, currentNode.data);
-
-            if (currentNode != null) { currentNode = currentNode.nextNode; }
-            if (currentNode != null) { size++; }
+            if (currentNode != null) {
+                index.put(size, currentNode.data);
+                currentNode = currentNode.nextNode;
+                size++;
+            }
         }
     }
 
