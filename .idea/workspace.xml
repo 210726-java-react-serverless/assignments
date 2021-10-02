@@ -35,8 +35,8 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="JUnit.MyLinkedListTestSuite.removeDuplicates_returnsNewIdenticalList_givenListWithNoDuplicates">
-    <configuration name="MyLinkedListTestSuite.contains_returnsFalse_givenNonExistentElement" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.MyLinkedListTestSuite.isEmpty_returnsTrue_whenListIsEmpty">
+    <configuration name="MyLinkedListTestSuite.isEmpty_returnsFalse_whenListIsPopulated" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="practice-with-lists" />
       <extension name="coverage">
         <pattern>
@@ -46,13 +46,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.revature.list_practice" />
       <option name="MAIN_CLASS_NAME" value="com.revature.list_practice.MyLinkedListTestSuite" />
-      <option name="METHOD_NAME" value="contains_returnsFalse_givenNonExistentElement" />
+      <option name="METHOD_NAME" value="isEmpty_returnsFalse_whenListIsPopulated" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MyLinkedListTestSuite.contains_returnsTrue_givenExistingElement" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MyLinkedListTestSuite.isEmpty_returnsTrue_whenListIsEmpty" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="practice-with-lists" />
       <extension name="coverage">
         <pattern>
@@ -62,7 +62,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.revature.list_practice" />
       <option name="MAIN_CLASS_NAME" value="com.revature.list_practice.MyLinkedListTestSuite" />
-      <option name="METHOD_NAME" value="contains_returnsTrue_givenExistingElement" />
+      <option name="METHOD_NAME" value="isEmpty_returnsTrue_whenListIsEmpty" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -118,11 +118,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MyLinkedListTestSuite.isEmpty_returnsTrue_whenListIsEmpty" />
+        <item itemvalue="JUnit.MyLinkedListTestSuite.isEmpty_returnsFalse_whenListIsPopulated" />
         <item itemvalue="JUnit.MyLinkedListTestSuite.removeDuplicates_returnsNewIdenticalList_givenListWithNoDuplicates" />
         <item itemvalue="JUnit.MyLinkedListTestSuite.removeDuplicates_returnsNewListWithNoDuplicates_givenListWithDuplicates" />
         <item itemvalue="JUnit.MyLinkedListTestSuite.poll_returnsAndRemovesHeadValue_whenListIsPopulated" />
-        <item itemvalue="JUnit.MyLinkedListTestSuite.contains_returnsTrue_givenExistingElement" />
-        <item itemvalue="JUnit.MyLinkedListTestSuite.contains_returnsFalse_givenNonExistentElement" />
       </list>
     </recent_temporary>
   </component>
