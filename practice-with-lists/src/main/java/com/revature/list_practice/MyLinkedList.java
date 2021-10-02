@@ -200,6 +200,10 @@ public class MyLinkedList<T> {
             if (k == 0) { return currentNode.nextNode.data; }
             if (k == 1) { return currentNode.data; }
         }
+        while (currentNode.nextNode != null) {
+
+            currentNode = currentNode.nextNode;
+        }
     }
 
     /**
