@@ -94,7 +94,10 @@ public class MyLinkedList<T> {
      * @return the head of this list, or null if this list is empty
      */
     public T poll() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if (head == null) return null;
+        T data = head.data;
+        head = head.nextNode;
+        return data;
     }
 
     /**
