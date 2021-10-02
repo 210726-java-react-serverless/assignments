@@ -78,8 +78,6 @@ public class MyLinkedList<T> {
     public boolean remove(Object o) {
         if(!contains((T) o)) return false;
         return true;
-
-        // #TODO actually implement removal;
     }
 
     /**
@@ -187,8 +185,23 @@ public class MyLinkedList<T> {
      * @return the k-th to last element of this list
      */
     public T getKthToLast(int k) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
 
+        Node<T> temp = head;
+        int size = 1;
+        while(head.nextNode != null){
+            head = head.nextNode;
+            size++;
+        }
+        head = temp;
+        if(k > size) return null;
+
+        Node<T>[] arr = new Node[size];
+        for(int i = 0; i < arr.length; i++){
+            arr[i] = head;
+            head = head.nextNode;
+        }
+
+        return arr[arr.length-k-1].data;
     }
 
     /**
