@@ -39,6 +39,7 @@ public class MyLinkedList<T> {
             do {
                 if (this.head.data.equals(t)) { return true; }
             } while(this.head.nextNode != null);
+            return false;
         } else {
             return false;
         }
