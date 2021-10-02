@@ -76,13 +76,24 @@ public class MyLinkedList<T> {
      * @return true if this list contained the specified element
      */
     public boolean remove(Object o) {
-        Node previousNode;
+        Node previousNode = null;
         Node currentNode = this.head;
         if (this == null || this.head == null) { return false; }
         if (this.head.data.equals(o) && this.head.nextNode == null) {
             this.head = null;
             return true;
         }
+        while (currentNode.nextNode != null) {
+            if (currentNode.data.equals(o)) {
+                if (previousNode != null) { previousNode.nextNode = currentNode.nextNode; }
+                if (currentNode.equals(this.head)) { this.head = currentNode.nextNode; }
+                currentNode = null;
+                return true;
+            }
+            previousNode = currentNode;
+            currentNode = currentNode.nextNode;
+        }
+        return false;
     }
 
     /**
