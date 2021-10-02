@@ -35,12 +35,19 @@ public class MyLinkedList<T> {
      * @return true if this collection contains the specified element
      */
     public boolean contains(T t) {
+
+        if( isEmpty() || t == null )
+            return false;
+
+        if (t.equals(head.data))
+            return true;
+
         while (head.nextNode != null) {
-            if (t.equals(head.data)) {
-                return true;
-            }
             head = head.nextNode;
+            if (t.equals(head.data))
+                return true;
         }
+
         return false;
     }
 
@@ -54,7 +61,16 @@ public class MyLinkedList<T> {
      * @return true if this collection changed as a result of the call
      */
     public boolean add(T t) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        // No duplicates allowed.
+        if(contains(t))
+            return false;
+
+        // No values found, can add new element.
+        if(head == null && t != null){
+            head = new Node<>(t);
+            return true;
+        }
+        return false;
     }
 
     /**
