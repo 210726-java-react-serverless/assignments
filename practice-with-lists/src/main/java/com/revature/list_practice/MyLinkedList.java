@@ -35,10 +35,12 @@ public class MyLinkedList<T> {
      * @return true if this collection contains the specified element
      */
     public boolean contains(T t) {
+        Node currentNode = this.head;
         if (!this.isEmpty()) {
-            do {
-                if (this.head.data.equals(t)) { return true; }
-            } while(this.head.nextNode != null);
+            while(currentNode.nextNode != null) {
+                if (currentNode.data.equals(t)) { return true; }
+                currentNode = currentNode.nextNode;
+            }
             return false;
         } else {
             return false;
