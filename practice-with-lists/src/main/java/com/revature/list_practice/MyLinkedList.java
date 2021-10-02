@@ -54,7 +54,19 @@ public class MyLinkedList<T> {
      * @return true if this collection changed as a result of the call
      */
     public boolean add(T t) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if (t == null) return false;
+        Node<T> newNode = head;
+        if (newNode == null) {
+            head = new Node<>(t);
+            return true;
+        }
+        while (newNode.nextNode != null) {
+            if (newNode.data.equals(t)) return false;
+            newNode = newNode.nextNode;
+        }
+
+        newNode.nextNode = new Node<>(t);
+        return true;
     }
 
     /**
