@@ -235,7 +235,25 @@ public class MyLinkedList<T> {
      * @return true if the contents of this list form a palindrome
      */
     public boolean isPalindromicList() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if (head == null) return true;
+        if (containsLoop()) return false;
+
+        Node<T> current = head;
+
+        // collect size. persist data to hashmap.
+        HashMap<Integer, T> storage = new HashMap<Integer, T>();
+        int size = 1;
+        while(current.nextNode != null) {
+            storage.put(size, current.data);
+            current = current.nextNode;
+            size++;
+        }
+
+        // iterate
+        for (int i=1; i<size; i++) {
+            if (storage.get(i)!=storage.get((size+1)-i)) return false;
+        }
+        return true;
     }
 
     static class Node<T> {
