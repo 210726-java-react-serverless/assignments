@@ -185,6 +185,7 @@ public class MyLinkedList<T> {
      * @return the k-th to last element of this list
      */
     public T getKthToLast(int k) {
+        if(k < 1) return null;
 
         Node<T> temp = head;
         int size = 1;
@@ -210,7 +211,26 @@ public class MyLinkedList<T> {
      * @return true if the contents of this list form a palindrome
      */
     public boolean isPalindromicList() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        Node<T> temp = head;
+        int size = 1;
+        while (head.nextNode != null) {
+            head = head.nextNode;
+            size++;
+        }
+        head = temp;
+
+        Node<T>[] arr = new Node[size];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = head;
+            head = head.nextNode;
+        }
+        head = temp;
+
+        System.out.println("HELLO WORLD!");
+        for (int i = 0; i < arr.length / 2; i++) {
+            if (!arr[i].data.equals(arr[arr.length - i - 1].data)) return false;
+        }
+        return true;
     }
 
     static class Node<T> {
