@@ -69,7 +69,21 @@ public class MyLinkedList<T> {
      * @return true if this collection changed as a result of the call
      */
     public boolean add(T t) {
-return true;
+
+        boolean found = false;
+
+        Node<T> current = head;
+
+        while(current != null && !found){
+            if(t != null){
+                found = true;
+            }else {
+                current = current.nextNode;
+            }
+        }
+        return found;
+
+
     }
 
     /**
@@ -83,7 +97,20 @@ return true;
      * @return true if this list contained the specified element
      */
     public boolean remove(Object o) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        boolean found = false;
+
+        Node<T> previous = null;
+        Node<T> current = head;
+
+        while(current != null && !found){
+            if(o.equals(current.data)){
+                found = true;
+            }else {
+                previous = current;
+                current = current.nextNode;
+            }
+        }
+        return found;
     }
 
     /**
