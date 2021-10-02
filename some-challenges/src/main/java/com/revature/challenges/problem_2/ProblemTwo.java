@@ -29,7 +29,6 @@ public class ProblemTwo {
 
         for (int i = 2; i < exclusiveEnd; i += 3) {
             result += current;
-            System.out.println(result);
             temp = current;
             current = (current*4) + previous;
             previous = temp;
