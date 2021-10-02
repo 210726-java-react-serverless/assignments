@@ -71,7 +71,10 @@ public class MyLinkedList<T> {
      * @return true if this list contained the specified element
      */
     public boolean remove(Object o) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if(!contains((T) o)) return false;
+        return true;
+
+        // #TODO actually implement removal;
     }
 
     /**
@@ -80,7 +83,17 @@ public class MyLinkedList<T> {
      * @return the head of this list, or null if this list is empty
      */
     public T poll() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if(isEmpty()) return null;
+
+        Node<T> temp = head;
+
+        if(head.nextNode != null){
+            head = head.nextNode;
+        } else {
+            head = null;
+        }
+
+        return temp.data;
     }
 
     /**
