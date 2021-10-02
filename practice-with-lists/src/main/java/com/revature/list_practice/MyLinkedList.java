@@ -10,7 +10,7 @@ import java.util.*;
  */
 public class MyLinkedList<T> {
 
-    private Node<T> head;
+    private Node<?> head;
 
     public MyLinkedList() {
         super();
@@ -66,9 +66,14 @@ public class MyLinkedList<T> {
      * @return true if this collection changed as a result of the call
      */
     public boolean add(T t) {
+        if(head == null || head.nextNode == null)
+        {
+            return false;
+        }
+        Node<?> packer_node = new Node<>(t);
+        packer_node.nextNode = (Node<?>) head;
 
-        Node<?> packer_node = head;
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        return true;
     }
 
     /**
@@ -311,7 +316,7 @@ public class MyLinkedList<T> {
 
     static class Node<T> {
         T data;
-        Node<T> nextNode;
+        Node<?> nextNode;
 
         Node(T data) {
             this.data = data;

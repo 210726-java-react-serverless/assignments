@@ -35,7 +35,54 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="JUnit.MyLinkedListTestSuite.isEmpty_returnsTrue_whenListIsEmpty">
+  <component name="RunManager" selected="JUnit.MyLinkedListTestSuite.add_returnsTrue_givenValidInput">
+    <configuration name="MyLinkedListTestSuite" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="practice-with-lists" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.revature.list_practice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.revature.list_practice" />
+      <option name="MAIN_CLASS_NAME" value="com.revature.list_practice.MyLinkedListTestSuite" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyLinkedListTestSuite.add_returnsFalse_givenNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="practice-with-lists" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.revature.list_practice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.revature.list_practice" />
+      <option name="MAIN_CLASS_NAME" value="com.revature.list_practice.MyLinkedListTestSuite" />
+      <option name="METHOD_NAME" value="add_returnsFalse_givenNull" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyLinkedListTestSuite.add_returnsTrue_givenValidInput" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="practice-with-lists" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.revature.list_practice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.revature.list_practice" />
+      <option name="MAIN_CLASS_NAME" value="com.revature.list_practice.MyLinkedListTestSuite" />
+      <option name="METHOD_NAME" value="add_returnsTrue_givenValidInput" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MyLinkedListTestSuite.isEmpty_returnsFalse_whenListIsPopulated" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="practice-with-lists" />
       <extension name="coverage">
@@ -68,61 +115,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MyLinkedListTestSuite.poll_returnsAndRemovesHeadValue_whenListIsPopulated" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="practice-with-lists" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.revature.list_practice.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.revature.list_practice" />
-      <option name="MAIN_CLASS_NAME" value="com.revature.list_practice.MyLinkedListTestSuite" />
-      <option name="METHOD_NAME" value="poll_returnsAndRemovesHeadValue_whenListIsPopulated" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MyLinkedListTestSuite.removeDuplicates_returnsNewIdenticalList_givenListWithNoDuplicates" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="practice-with-lists" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.revature.list_practice.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.revature.list_practice" />
-      <option name="MAIN_CLASS_NAME" value="com.revature.list_practice.MyLinkedListTestSuite" />
-      <option name="METHOD_NAME" value="removeDuplicates_returnsNewIdenticalList_givenListWithNoDuplicates" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MyLinkedListTestSuite.removeDuplicates_returnsNewListWithNoDuplicates_givenListWithDuplicates" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="practice-with-lists" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.revature.list_practice.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.revature.list_practice" />
-      <option name="MAIN_CLASS_NAME" value="com.revature.list_practice.MyLinkedListTestSuite" />
-      <option name="METHOD_NAME" value="removeDuplicates_returnsNewListWithNoDuplicates_givenListWithDuplicates" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MyLinkedListTestSuite.add_returnsTrue_givenValidInput" />
+        <item itemvalue="JUnit.MyLinkedListTestSuite.add_returnsFalse_givenNull" />
+        <item itemvalue="JUnit.MyLinkedListTestSuite" />
         <item itemvalue="JUnit.MyLinkedListTestSuite.isEmpty_returnsTrue_whenListIsEmpty" />
         <item itemvalue="JUnit.MyLinkedListTestSuite.isEmpty_returnsFalse_whenListIsPopulated" />
-        <item itemvalue="JUnit.MyLinkedListTestSuite.removeDuplicates_returnsNewIdenticalList_givenListWithNoDuplicates" />
-        <item itemvalue="JUnit.MyLinkedListTestSuite.removeDuplicates_returnsNewListWithNoDuplicates_givenListWithDuplicates" />
-        <item itemvalue="JUnit.MyLinkedListTestSuite.poll_returnsAndRemovesHeadValue_whenListIsPopulated" />
       </list>
     </recent_temporary>
   </component>
