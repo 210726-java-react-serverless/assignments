@@ -26,10 +26,13 @@ public class MyLinkedList<T> {
      */
     public boolean isEmpty() {
 
-        LinkedList<String> coll = new LinkedList<>();
-        System.out.println(coll.isEmpty());
+        Node<T> current = head;
 
-        return true;
+        if(current == null){
+            return true;
+        }else
+
+        return current.nextNode == null;
     }
 
     /**
@@ -66,7 +69,7 @@ public class MyLinkedList<T> {
      * @return true if this collection changed as a result of the call
      */
     public boolean add(T t) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+return true;
     }
 
     /**
