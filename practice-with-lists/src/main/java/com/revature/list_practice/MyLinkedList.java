@@ -185,7 +185,7 @@ public class MyLinkedList<T> {
      * @return the k-th to last element of this list
      */
     public T getKthToLast(int k) {
-        if(k < 1) return null;
+        if(k < 0) return null;
 
         Node<T> temp = head;
         int size = 1;
