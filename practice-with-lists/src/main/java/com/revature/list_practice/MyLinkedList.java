@@ -46,7 +46,7 @@ public class MyLinkedList<T> {
 
                 scanner_sperlunkerNode = scanner_sperlunkerNode.nextNode;
         }
-        return true;
+        return false;
 
     }
 
@@ -74,7 +74,20 @@ public class MyLinkedList<T> {
      * @return true if this list contained the specified element
      */
     public boolean remove(Object o) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+
+        Node<?> the_hitman_Node = head;
+        while(the_hitman_Node.nextNode != null)
+        {
+            if(o.equals(the_hitman_Node.data))
+            {
+                o = null;
+                return true;
+            }
+
+
+            the_hitman_Node = the_hitman_Node.nextNode;
+        }
+        return false;
     }
 
     /**
