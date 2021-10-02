@@ -132,11 +132,11 @@ public class MyLinkedList<T> {
      * @return true if this list contains a loop
      */
     public boolean containsLoop() {
-        List<Node<T>> nodes = new ArrayList<>();
         Node<T> newNode = this.head;
+        MyLinkedList<T> nodes = new MyLinkedList<>();
         while (newNode != null) {
-            if (nodes.contains(newNode)) return true;
-            nodes.add(newNode);
+            if (nodes.contains(newNode.data)) return true;
+            nodes.add(newNode.data);
             newNode = newNode.nextNode;
         }
         return false;
@@ -151,7 +151,13 @@ public class MyLinkedList<T> {
      *
      */
     public MyLinkedList<T> removeDuplicates() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        Node<T> newNode = this.head;
+        MyLinkedList<T> newList = new MyLinkedList<>(newNode);
+        while (newNode != null) {
+            if (!newList.contains(newNode.data)) newList.add(newNode.data);
+            newNode = newNode.nextNode;
+        }
+        return newList;
     }
 
     /**
