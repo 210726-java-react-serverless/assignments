@@ -192,6 +192,7 @@ public class MyLinkedList<T> {
      */
     public T getKthToLast(int k) {
         if (this == null || this.head == null) { return null; }
+        int size = 0;
         Map<Integer, T> index = new HashMap<>();
         Node<T> currentNode = this.head;
     }
