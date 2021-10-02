@@ -1,5 +1,7 @@
 package com.revature.list_practice;
 
+import java.util.LinkedList;
+
 /**
  * A simple implementation of a singly linked list.
  *
@@ -23,9 +25,12 @@ public class MyLinkedList<T> {
      * @return true if this collection contains no elements
      */
     public boolean isEmpty() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
-    }
 
+        if(this.head == null){
+            return true;
+        }
+        return false;
+    }
     /**
      * Returns true if this collection contains the specified element. More formally,
      * returns true if and only if this collection contains at least one element e
@@ -35,7 +40,13 @@ public class MyLinkedList<T> {
      * @return true if this collection contains the specified element
      */
     public boolean contains(T t) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        while(!isEmpty()) {
+            if (head.data.equals(t)) {
+                return true;
+            }
+            head = head.nextNode;
+        }
+        return false;
     }
 
     /**
@@ -48,6 +59,8 @@ public class MyLinkedList<T> {
      * @return true if this collection changed as a result of the call
      */
     public boolean add(T t) {
+        if(t == null){return false;}
+
         throw new ImplementationMissingException(); // TODO: REPLACE THIS
     }
 
