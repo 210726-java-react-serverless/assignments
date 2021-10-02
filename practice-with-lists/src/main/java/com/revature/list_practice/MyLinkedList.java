@@ -23,7 +23,8 @@ public class MyLinkedList<T> {
      * @return true if this collection contains no elements
      */
     public boolean isEmpty() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        // Null comparison on head element.
+        return head == null;
     }
 
     /**
