@@ -129,7 +129,7 @@ public class MyLinkedList<T> {
      * @return true if this list contains a loop
      */
     public boolean containsLoop() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if (this == null || this.head == null) { return false; }
     }
 
     /**
