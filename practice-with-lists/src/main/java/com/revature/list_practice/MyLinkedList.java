@@ -103,7 +103,9 @@ public class MyLinkedList<T> {
      */
     public T poll() {
         if (this == null || this.head == null) { return null; }
-
+        Node<T> pollNode = this.head;
+        this.head = pollNode.nextNode;
+        return pollNode.data;
     }
 
     /**
