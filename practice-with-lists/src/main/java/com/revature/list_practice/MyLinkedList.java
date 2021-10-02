@@ -212,7 +212,7 @@ public class MyLinkedList<T> {
      * @return true if the contents of this list form a palindrome
      */
     public boolean isPalindromicList() {
-        if (this == null || this.head == null) { return null; }
+        if (this == null || this.head == null) { return true; }
     }
 
     static class Node<T> {
