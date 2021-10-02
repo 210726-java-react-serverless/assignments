@@ -223,9 +223,15 @@ public class MyLinkedList<T> {
         int size = 1;
         while(current.nextNode != null) {
             storage.put(size, current.data);
-            current = current.nextNode;
             size++;
+            current = current.nextNode;
+            if (current.nextNode == null) {
+                storage.put(size, current.data);
+            }
         }
+        // out of bounds.
+        if (k < 0 || k > size) return null;
+        // return value.
         return storage.get(size-k);
     }
 
@@ -242,16 +248,20 @@ public class MyLinkedList<T> {
 
         // collect size. persist data to hashmap.
         HashMap<Integer, T> storage = new HashMap<Integer, T>();
-        int size = 1;
+        int size = 0;
         while(current.nextNode != null) {
+            size++;
             storage.put(size, current.data);
             current = current.nextNode;
-            size++;
+            if (current.nextNode == null) {
+                size++;
+                storage.put(size, current.data);
+            }
         }
 
         // iterate
         for (int i=1; i<size; i++) {
-            if (storage.get(i)!=storage.get((size+1)-i)) return false;
+            if (storage.get(i) != storage.get((size+1)-i)) return false;
         }
         return true;
     }
