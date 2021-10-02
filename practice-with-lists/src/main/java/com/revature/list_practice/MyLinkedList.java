@@ -133,7 +133,10 @@ public class MyLinkedList<T> {
         if (this.head.nextNode == null) { return false; }
         MyLinkedList<T> copy = new MyLinkedList<>();
         Node<T> currentNode = this.head;
+        while (currentNode.nextNode != null) {
 
+        }
+        return false;
     }
 
     /**
