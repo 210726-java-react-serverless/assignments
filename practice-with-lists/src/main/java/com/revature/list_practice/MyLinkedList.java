@@ -1,6 +1,7 @@
 package com.revature.list_practice;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -211,7 +212,21 @@ public class MyLinkedList<T> {
      * @return the k-th to last element of this list
      */
     public T getKthToLast(int k) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        // validate
+        if (head == null) return null;
+        if (containsLoop()) return null;
+
+        Node<T> current = head;
+
+        // collect size. persist data to hashmap.
+        HashMap<Integer, T> storage = new HashMap<Integer, T>();
+        int size = 1;
+        while(current.nextNode != null) {
+            storage.put(size, current.data);
+            current = current.nextNode;
+            size++;
+        }
+        return storage.get(size-k);
     }
 
     /**
