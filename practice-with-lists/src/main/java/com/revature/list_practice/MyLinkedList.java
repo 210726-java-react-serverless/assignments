@@ -84,8 +84,6 @@ public class MyLinkedList<T> {
                 o = null;
                 return true;
             }
-
-
             the_hitman_Node = the_hitman_Node.nextNode;
         }
         return false;
@@ -115,7 +113,15 @@ public class MyLinkedList<T> {
      * @return the head of this list, or null if this list is empty
      */
     public T peek() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+
+        Node<?> perseus_Node = head;
+        if(perseus_Node.nextNode == null)
+        {
+            return null;
+        }else {
+
+            return (T) perseus_Node;
+        }
     }
 
     /**
