@@ -36,6 +36,7 @@ public class MyLinkedList<T> {
      */
     public boolean contains(T t) {
         Node currentNode = this.head;
+        if (this == null) { return false; }
         if (this.head.data.equals(t)) { return true; }
         if (!this.isEmpty()) {
             while(currentNode.nextNode != null) {
@@ -133,14 +134,9 @@ public class MyLinkedList<T> {
         if (this.head.nextNode == null) { return false; }
         MyLinkedList<T> copy = new MyLinkedList<>();
         Node<T> currentNode = this.head;
-        Node<T> currentCopyNode = copy.head;
         while (currentNode.nextNode != null) {
-            while (currentCopyNode.nextNode != null) {
-                if (currentNode == currentCopyNode) {
-                    return true;
-                }
-                currentCopyNode = currentCopyNode.nextNode;
-            }
+            if (copy.contains(currentNode.data)) { return true; }
+            copy.add(currentNode.data);
             currentNode = currentNode.nextNode;
         }
         return false;
