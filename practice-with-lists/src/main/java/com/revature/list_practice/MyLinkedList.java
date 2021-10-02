@@ -153,6 +153,8 @@ public class MyLinkedList<T> {
     public MyLinkedList<T> removeDuplicates() {
         if (this == null) { return null; }
         if (this.head == null) { return new MyLinkedList<T>(); }
+        MyLinkedList<T> noDupes = new MyLinkedList<T>();
+
     }
 
     /**
