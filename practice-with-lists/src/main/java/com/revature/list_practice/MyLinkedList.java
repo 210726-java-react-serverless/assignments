@@ -191,10 +191,11 @@ public class MyLinkedList<T> {
      * @return the k-th to last element of this list
      */
     public T getKthToLast(int k) {
-        if (this == null || this.head == null) { return null; }
+        if (this == null || this.head == null || k < 0) { return null; }
         int size = 0;
         Map<Integer, T> index = new HashMap<>();
         Node<T> currentNode = this.head;
+
     }
 
     /**
