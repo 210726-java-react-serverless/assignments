@@ -163,6 +163,7 @@ public class MyLinkedList<T> {
             if (!noDupes.contains(currentNode.data)) {
                 noDupes.add(currentNode.data);
             }
+            currentNode = currentNode.nextNode;
         }
         return noDupes;
     }
