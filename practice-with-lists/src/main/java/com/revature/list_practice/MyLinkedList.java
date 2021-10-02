@@ -133,8 +133,13 @@ public class MyLinkedList<T> {
         if (this.head.nextNode == null) { return false; }
         MyLinkedList<T> copy = new MyLinkedList<>();
         Node<T> currentNode = this.head;
+        Node<T> currentCopyNode = copy.head;
         while (currentNode.nextNode != null) {
-
+            while (currentCopyNode.nextNode != null) {
+                if (currentNode == currentCopyNode) {
+                    return true;
+                }
+            }
         }
         return false;
     }
