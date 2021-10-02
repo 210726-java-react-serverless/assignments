@@ -216,6 +216,21 @@ public class MyLinkedList<T> {
         if (this == null || this.head == null) { return true; }
         ArrayDeque<T> stack = new ArrayDeque<T>();
         Node<T> currentNode = this.head;
+
+        while (currentNode != null) {
+            if (currentNode != null) {
+                stack.push(currentNode.data);
+                currentNode = currentNode.nextNode;
+            }
+        }
+        while (currentNode != null) {
+            if (currentNode != null) {
+                if (!currentNode.data.equals(stack.pop())) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     static class Node<T> {
