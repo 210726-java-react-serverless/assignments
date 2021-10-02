@@ -1,5 +1,8 @@
 package com.revature.list_practice;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * A simple implementation of a singly linked list.
  *
@@ -188,7 +191,9 @@ public class MyLinkedList<T> {
      * @return the k-th to last element of this list
      */
     public T getKthToLast(int k) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+
+        Map<Integer, T> index = new HashMap<>();
+        Node<T> currentNode = this.head;
     }
 
     /**
