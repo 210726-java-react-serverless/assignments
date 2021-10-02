@@ -53,6 +53,9 @@ public class MyLinkedList<T> {
      */
     public boolean add(T t) {
         if(contains(t) || t == null) return false;
+        if(isEmpty()){
+            head = new Node(t);
+        }
         while(head.nextNode != null){
             head = head.nextNode;
         }
