@@ -36,7 +36,9 @@ public class MyLinkedList<T> {
      */
     public boolean contains(T t) {
         if (!this.isEmpty()) {
+            do {
 
+            } while(this.head.nextNode != null);
         } else {
             return false;
         }
