@@ -36,7 +36,23 @@ public class MyLinkedList<T> {
      * @return true if this collection contains the specified element
      */
     public boolean contains(T t) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        // Define nodes.
+        Node<T> current = head;
+        Node <T> testnode = new Node<>(t);
+
+        // Check for null head. It's possible.
+        if(head == null) {
+            return false;
+        }
+
+        // Iterator, locate existing object and return if that object is matched. Otherwise, continue.
+        while(current != null) {
+            if (current.data.equals(testnode.data)) return true;
+            current = current.nextNode;
+        }
+
+        // Loop has ended, with no success.
+        return false;
     }
 
     /**
