@@ -175,14 +175,43 @@ public class MyLinkedList<T> {
         // populating list
         while(clone_hunter_Node.nextNode != null)
         {
-//            candidates.add()
-//                num_of_candidates ++;
+
+            candidates.add(clone_hunter_Node);
+                num_of_candidates ++;
+        }
+        // check if list contains loop
+        if(candidates.containsLoop())
+        {
+            return null;
         }
 
+        //resetting clone hunter node
+        clone_hunter_Node = head;
+        // this node holds the current comparison
+        Node<?> wanted_poster_Node = candidates.head;
+        int i = 0;
+        // walk through list and find duplicate nodes
+        while(i != num_of_candidates * num_of_candidates)
+        {
+            // if one whole loop of the list is completed
+            if(num_of_candidates % i == 0)
+            {
+                // return node to head
+                clone_hunter_Node = head;
+                // move on to next comparison
+                wanted_poster_Node = wanted_poster_Node.nextNode;
+            }
+            //if comparison is duplicate
+            if(clone_hunter_Node.data.equals(wanted_poster_Node.data))
+            {
+                //remove duplicate from list
+                candidates.remove(wanted_poster_Node);
+            }
+            clone_hunter_Node = clone_hunter_Node.nextNode;
+            i++;
+        }
 
-
-
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        return (MyLinkedList<T>) candidates;
     }
 
     /**
