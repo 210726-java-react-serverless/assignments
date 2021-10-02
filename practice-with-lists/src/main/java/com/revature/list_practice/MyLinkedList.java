@@ -130,6 +130,7 @@ public class MyLinkedList<T> {
      */
     public boolean containsLoop() {
         if (this == null || this.head == null) { return false; }
+        if (this.head.nextNode == null) { return false; }
     }
 
     /**
