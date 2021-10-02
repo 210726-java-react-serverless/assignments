@@ -1,5 +1,6 @@
 package com.revature.list_practice;
 
+import java.lang.reflect.Type;
 import java.util.*;
 
 /**
@@ -96,7 +97,16 @@ public class MyLinkedList<T> {
      * @return the head of this list, or null if this list is empty
      */
     public T poll() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        Node<?> perseus_Node = head;
+        if(perseus_Node.nextNode == null)
+        {
+            return null;
+        }else {
+            Node<?> medusa_Node = head;
+            head = null;
+            return (T) medusa_Node;
+        }
+
     }
 
     /**

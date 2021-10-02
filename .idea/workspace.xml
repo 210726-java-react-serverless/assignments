@@ -137,7 +137,7 @@
     <servers />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/assignments$MyLinkedListTestSuite.ic" NAME="MyLinkedListTestSuite Coverage Results" MODIFIED="1633145498267" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/assignments$MyLinkedListTestSuite.ic" NAME="MyLinkedListTestSuite Coverage Results" MODIFIED="1633145948132" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.revature.list_practice.*</FILTER>
     </SUITE>
   </component>
