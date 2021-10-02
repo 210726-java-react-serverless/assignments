@@ -202,6 +202,7 @@ public class MyLinkedList<T> {
                 size++;
             }
         }
+        if (k > size) { return null; }
     }
 
     /**
