@@ -96,13 +96,13 @@ public class MyLinkedList<T> {
      */
     public T poll() {
         Node<?> perseus_Node = head;
-        if(perseus_Node.nextNode == null)
+        if(head == null || perseus_Node.data == null)
         {
             return null;
         }else {
             Node<?> medusa_Node = head;
-            head = null;
-            return (T) medusa_Node;
+            head = head.nextNode;
+            return (T) medusa_Node.data;
         }
 
     }
@@ -114,13 +114,13 @@ public class MyLinkedList<T> {
      */
     public T peek() {
 
-        Node<?> perseus_Node = head;
-        if(perseus_Node.nextNode == null)
+        Node<?> crown_Node = head;
+        if( head == null || crown_Node.data == null)
         {
             return null;
         }else {
 
-            return (T) perseus_Node;
+            return (T) head.data;
         }
     }
 
