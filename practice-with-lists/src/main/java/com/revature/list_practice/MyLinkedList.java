@@ -60,6 +60,7 @@ public class MyLinkedList<T> {
         if (t == null) { return false; }
         Node addNode = new Node(t);
         addNode.nextNode = this.head;
+        this.head = addNode;
     }
 
     /**
