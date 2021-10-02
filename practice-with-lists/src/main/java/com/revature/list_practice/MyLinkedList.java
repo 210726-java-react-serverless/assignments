@@ -69,7 +69,9 @@ public class MyLinkedList<T> {
         do {
             if (currentNode.nextNode == null) {
                 currentNode.nextNode = addNode;
+                continue;
             }
+            currentNode = currentNode.nextNode
         } while (!currentNode.nextNode.equals(addNode));
         return true;
     }
@@ -138,15 +140,15 @@ public class MyLinkedList<T> {
      * @return true if this list contains a loop
      */
     public boolean containsLoop() {
-//        if (this == null || this.head == null) { return false; }
-//        if (this.head.nextNode == null) { return false; }
-//        MyLinkedList<T> copy = new MyLinkedList<>();
-//        Node<T> currentNode = this.head;
-//        while (currentNode.nextNode != null) {
-//            if (copy.contains(currentNode.data)) { return true; }
-//            copy.add(currentNode.data);
-//            currentNode = currentNode.nextNode;
-//        }
+        if (this == null || this.head == null) { return false; }
+        if (this.head.nextNode == null) { return false; }
+        MyLinkedList<T> copy = new MyLinkedList<>();
+        Node<T> currentNode = this.head;
+        while (currentNode.nextNode != null) {
+            if (copy.contains(currentNode.data)) { return true; }
+            copy.add(currentNode.data);
+            currentNode = currentNode.nextNode;
+        }
         return false;
     }
 
