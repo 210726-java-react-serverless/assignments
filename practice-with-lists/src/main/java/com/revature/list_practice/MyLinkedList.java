@@ -203,6 +203,7 @@ public class MyLinkedList<T> {
             }
         }
         if (k > size) { return null; }
+        return index.get(size - k);
     }
 
     /**
