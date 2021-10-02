@@ -139,7 +139,9 @@ public class MyLinkedList<T> {
                 if (currentNode == currentCopyNode) {
                     return true;
                 }
+                currentCopyNode = currentCopyNode.nextNode;
             }
+            currentNode = currentNode.nextNode;
         }
         return false;
     }
