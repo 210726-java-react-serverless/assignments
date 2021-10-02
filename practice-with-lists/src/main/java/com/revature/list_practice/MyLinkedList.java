@@ -61,6 +61,7 @@ public class MyLinkedList<T> {
         Node addNode = new Node(t);
         addNode.nextNode = this.head;
         this.head = addNode;
+        return true;
     }
 
     /**
