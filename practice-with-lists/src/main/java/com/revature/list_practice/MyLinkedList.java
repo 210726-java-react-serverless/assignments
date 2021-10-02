@@ -118,7 +118,17 @@ public class MyLinkedList<T> {
      * @return the head of this list, or null if this list is empty
      */
     public T poll() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        // nullcheck
+        if (head == null) return null;
+
+        // save the current head for return purposes.
+        final Node<T> returnHead = head;
+
+        // set the node of head to the node past head. This erases the head node.
+        head = head.nextNode;
+
+        // return the data of returnHead. for purposes.
+        return returnHead.data;
     }
 
     /**
