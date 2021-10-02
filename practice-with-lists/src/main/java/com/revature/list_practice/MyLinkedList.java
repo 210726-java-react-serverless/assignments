@@ -195,11 +195,6 @@ public class MyLinkedList<T> {
         int size = 0;
         Map<Integer, T> index = new HashMap<>();
         Node<T> currentNode = this.head;
-        if (currentNode.nextNode == null) {
-            if (k > 1) { return null; }
-            if (k == 0) { return currentNode.nextNode.data; }
-            if (k == 1) { return currentNode.data; }
-        }
         while (currentNode != null) {
             index.put(size, currentNode.data);
 
