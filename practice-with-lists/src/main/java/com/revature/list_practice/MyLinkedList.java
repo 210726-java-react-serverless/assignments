@@ -1,6 +1,5 @@
 package com.revature.list_practice;
 
-import java.util.LinkedList;
 
 /**
  * A simple implementation of a singly linked list.
@@ -59,9 +58,15 @@ public class MyLinkedList<T> {
      * @return true if this collection changed as a result of the call
      */
     public boolean add(T t) {
-        if(t == null){return false;}
-
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if(t == null || contains(t)){return false;}
+        if(isEmpty()){
+            head = new Node(t);
+        } else {
+           Node<T> newNode = new Node(t);
+           newNode.nextNode = head;
+           head = newNode;
+        }
+       return true;
     }
 
     /**
