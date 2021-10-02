@@ -66,7 +66,7 @@ public class MyLinkedList<T> {
      * @return true if this collection changed as a result of the call
      */
     public boolean add(T t) {
-        if(head == null || head.nextNode == null)
+        if(head == null  || t == null)
         {
             return false;
         }
@@ -282,7 +282,7 @@ public class MyLinkedList<T> {
         //this node tunnels into headNode
         Node<?> sperlunkerNode = head;
 
-        // tunnel thruogh list till we hit the end
+        // tunnel through list till we hit the end
         while(sperlunkerNode.nextNode != null )
         {
             goldNodes.add(sperlunkerNode.data);
@@ -290,25 +290,30 @@ public class MyLinkedList<T> {
 
         }
 
-        //reverse array
+        //reverse array of node elements
         Object[] sedoNdlog = goldNodes.toArray();
         int start = 0;
-        int end = sedoNdlog.length;
+        int end = sedoNdlog.length - 1;
         Object hold = 0;
         while(start < end)
         {
             hold = sedoNdlog[start];
             sedoNdlog[start] = sedoNdlog[end];
+            sedoNdlog[end] = hold;
             start++;
             end--;
         }
-        //compare
-        for (int i = 0 ; i < sedoNdlog.length ; i++)
+        int inverse_i = sedoNdlog.length - 1;
+        //compare node elements
+        for (int i = 0 ; i < sedoNdlog.length - 1 ; i++)
         {
-            if(sedoNdlog[i].equals(goldNodes.get(i)) == false)
+            //if any element is unmatched
+            if(!sedoNdlog[i].equals(goldNodes.get(inverse_i)))
             {
-                return sedoNdlog[i].equals(goldNodes.get(i)) == false;
+                //return false
+                return false;
             }
+            inverse_i --;
         }
 
         return true;
