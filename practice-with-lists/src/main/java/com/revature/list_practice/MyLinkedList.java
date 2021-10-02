@@ -159,21 +159,22 @@ public class MyLinkedList<T> {
      *
      */
     public MyLinkedList<T> removeDuplicates() {
-        if (this == null) { return null; }
-        if (this.head == null) { return new MyLinkedList<T>(); }
-        MyLinkedList<T> noDupes = new MyLinkedList<T>();
-        if (this.head.nextNode == null) {
-            noDupes.add(this.head.data);
-            return noDupes;
-        }
-        Node<T> currentNode = this.head;
-        while (currentNode.nextNode != null) {
-            if (!noDupes.contains(currentNode.data)) {
-                noDupes.add(currentNode.data);
-            }
-            currentNode = currentNode.nextNode;
-        }
-        return noDupes;
+//        if (this == null) { return null; }
+//        if (this.head == null) { return new MyLinkedList<T>(); }
+//        MyLinkedList<T> noDupes = new MyLinkedList<T>();
+//        if (this.head.nextNode == null) {
+//            noDupes.add(this.head.data);
+//            return noDupes;
+//        }
+//        Node<T> currentNode = this.head;
+//        while (currentNode.nextNode != null) {
+//            if (!noDupes.contains(currentNode.data)) {
+//                noDupes.add(currentNode.data);
+//            }
+//            currentNode = currentNode.nextNode;
+//        }
+//        return noDupes;
+        return null;
     }
 
     /**
