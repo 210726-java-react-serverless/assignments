@@ -1,6 +1,7 @@
 package com.revature.list_practice;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -152,8 +153,6 @@ public class MyLinkedList<T> {
      * @return true if this list contains a loop
      */
     public boolean containsLoop() {
-        // keep record
-        final Node<T> record = head;
         Node<T> current = head;
 
         // nullcheck
@@ -177,7 +176,19 @@ public class MyLinkedList<T> {
      *
      */
     public MyLinkedList<T> removeDuplicates() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        Node<T> current = head;
+
+        // Create a history queue. Perform a contains operation to look into the list and locate an object.
+        // Put that object in a linked list. return the linked list.
+        List<Node<T>> nodeSet = new ArrayList<>();
+        MyLinkedList<T> returnList = new MyLinkedList<>();
+        while (current.nextNode != null) {
+            if (!nodeSet.contains(current))  {
+                nodeSet.add(current);
+                returnList.add(current.data);
+            }
+        }
+        return returnList;
     }
 
     /**
