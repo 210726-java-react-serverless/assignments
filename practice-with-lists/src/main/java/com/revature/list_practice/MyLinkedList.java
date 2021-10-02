@@ -1,6 +1,7 @@
 package com.revature.list_practice;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -192,7 +193,15 @@ public class MyLinkedList<T> {
      * @return true if the contents of this list form a palindrome
      */
     public boolean isPalindromicList() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        List<T> list = new ArrayList<>();
+        Node<T> newNode = this.head;
+        while(newNode != null) {
+            list.add(newNode.data);
+            newNode = newNode.nextNode;
+        }
+        for (int i = 0; i < list.size() / 2; i++)
+            if (!list.get(i).equals(list.get(list.size() - i - 1))) return false;
+        return true;
     }
 
     static class Node<T> {
