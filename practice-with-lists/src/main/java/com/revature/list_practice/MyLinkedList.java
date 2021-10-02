@@ -157,8 +157,17 @@ public class MyLinkedList<T> {
      */
     public boolean isPalindromicList() {
         List<T> list = new ArrayList<>();
+        while (head != null) {
+            list.add(head.data);
+            head = head.nextNode;
+        }
 
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        int length = list.size() - 1;
+        int j = length;
+        for (int i = 0; i < length / 2; i++) {
+            if (!list.get(i).equals(list.get(j--))) return false;
+        }
+        return true;
     }
 
     static class Node<T> {
