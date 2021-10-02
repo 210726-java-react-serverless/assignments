@@ -136,9 +136,7 @@ public class MyLinkedList<T> {
      *
      * @return the head of this list, or null if this list is empty
      */
-    public T peek() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
-    }
+    public T peek() { return head.data; }
 
     /**
      * Iterates through this list and determines whether a loop exists. A loop is
