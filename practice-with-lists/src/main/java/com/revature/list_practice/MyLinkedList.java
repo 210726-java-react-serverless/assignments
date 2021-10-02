@@ -60,9 +60,17 @@ public class MyLinkedList<T> {
      */
     public boolean add(T t) {
         if (t == null) { return false; }
-        Node addNode = new Node(t);
-        addNode.nextNode = this.head;
-        this.head = addNode;
+        Node<T> addNode = new Node(t);
+        Node<T> currentNode = this.head;
+        if (currentNode == null) {
+            this.head = addNode;
+            return true;
+        }
+        do {
+            if (currentNode.nextNode == null) {
+                currentNode.nextNode = addNode;
+            }
+        } while (!currentNode.nextNode.equals(addNode));
         return true;
     }
 
@@ -139,7 +147,7 @@ public class MyLinkedList<T> {
 //            copy.add(currentNode.data);
 //            currentNode = currentNode.nextNode;
 //        }
-//        return false;
+        return false;
     }
 
     /**
