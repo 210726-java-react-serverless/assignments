@@ -151,7 +151,8 @@ public class MyLinkedList<T> {
      *
      */
     public MyLinkedList<T> removeDuplicates() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if (this == null) { return null; }
+        if (this.head == null) { return new MyLinkedList<T>(); }
     }
 
     /**
