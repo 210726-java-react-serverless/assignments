@@ -203,7 +203,7 @@ public class MyLinkedList<T> {
         while (currentNode != null) {
             index.put(size, currentNode.data);
 
-            currentNode = currentNode.nextNode;
+            if (currentNode != null) { currentNode = currentNode.nextNode; }
             if (currentNode != null) { size++; }
         }
     }
