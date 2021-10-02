@@ -1,5 +1,8 @@
 package com.revature.list_practice;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * A simple implementation of a singly linked list.
  *
@@ -129,7 +132,14 @@ public class MyLinkedList<T> {
      * @return true if this list contains a loop
      */
     public boolean containsLoop() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        List<Node<T>> nodes = new ArrayList<>();
+        Node<T> newNode = this.head;
+        while (newNode != null) {
+            if (nodes.contains(newNode)) return true;
+            nodes.add(newNode);
+            newNode = newNode.nextNode;
+        }
+        return false;
     }
 
     /**
