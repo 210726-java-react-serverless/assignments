@@ -160,8 +160,11 @@ public class MyLinkedList<T> {
         }
         Node<T> currentNode = this.head;
         while (currentNode.nextNode != null) {
-
+            if (!noDupes.contains(currentNode.data)) {
+                noDupes.add(currentNode.data);
+            }
         }
+        return noDupes;
     }
 
     /**
