@@ -52,7 +52,12 @@ public class MyLinkedList<T> {
      * @return true if this collection changed as a result of the call
      */
     public boolean add(T t) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if(contains(t) || t == null) return false;
+        while(head.nextNode != null){
+            head = head.nextNode;
+        }
+        head.nextNode = new Node(t);
+        return true;
     }
 
     /**
