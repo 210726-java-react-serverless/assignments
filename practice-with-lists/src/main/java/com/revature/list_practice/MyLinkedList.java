@@ -78,6 +78,7 @@ public class MyLinkedList<T> {
     public boolean remove(Object o) {
         Node previousNode;
         Node currentNode = this.head;
+        if (this == null) { return false; }
     }
 
     /**
