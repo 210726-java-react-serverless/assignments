@@ -1,5 +1,7 @@
 package com.revature.list_practice;
 
+import java.util.LinkedList;
+
 /**
  * A simple implementation of a singly linked list.
  *
@@ -23,7 +25,11 @@ public class MyLinkedList<T> {
      * @return true if this collection contains no elements
      */
     public boolean isEmpty() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+
+        LinkedList<String> coll = new LinkedList<>();
+        System.out.println(coll.isEmpty());
+
+        return true;
     }
 
     /**
