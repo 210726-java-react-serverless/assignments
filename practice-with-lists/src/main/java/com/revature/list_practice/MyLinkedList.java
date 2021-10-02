@@ -203,6 +203,7 @@ public class MyLinkedList<T> {
         while (currentNode.nextNode != null) {
 
             currentNode = currentNode.nextNode;
+            size++;
         }
     }
 
