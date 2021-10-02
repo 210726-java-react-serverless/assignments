@@ -2,7 +2,6 @@ package com.revature.list_practice;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -194,7 +193,7 @@ public class MyLinkedList<T> {
                 nodeSet.add(current);
                 returnList.add(current.data);
             } else if (containsLoop()) {
-                return new MyLinkedList<T>();
+                return new MyLinkedList<>();
             }
             current = current.nextNode;
         }
@@ -219,7 +218,7 @@ public class MyLinkedList<T> {
         Node<T> current = head;
 
         // collect size. persist data to hashmap.
-        HashMap<Integer, T> storage = new HashMap<Integer, T>();
+        HashMap<Integer, T> storage = new HashMap<>();
         int size = 1;
         while(current.nextNode != null) {
             storage.put(size, current.data);
@@ -247,7 +246,7 @@ public class MyLinkedList<T> {
         Node<T> current = head;
 
         // collect size. persist data to hashmap.
-        HashMap<Integer, T> storage = new HashMap<Integer, T>();
+        HashMap<Integer, T> storage = new HashMap<>();
         int size = 0;
         while(current.nextNode != null) {
             size++;
