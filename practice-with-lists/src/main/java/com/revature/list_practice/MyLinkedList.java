@@ -223,11 +223,13 @@ public class MyLinkedList<T> {
                 currentNode = currentNode.nextNode;
             }
         }
+        currentNode = this.head;
         while (currentNode != null) {
             if (currentNode != null) {
                 if (!currentNode.data.equals(stack.pop())) {
                     return false;
                 }
+                currentNode = currentNode.nextNode;
             }
         }
         return true;
