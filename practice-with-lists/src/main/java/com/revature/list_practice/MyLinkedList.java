@@ -80,7 +80,20 @@ public class MyLinkedList<T> {
      * @return true if this list contained the specified element
      */
     public boolean remove(Object o) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if (o == null) return false;
+        Node<T> newNode = head;
+        Node<T> prevNode = null;
+        boolean removed = false;
+        while (newNode != null) {
+            if (newNode.data.equals(o)) {
+                prevNode.nextNode = newNode.nextNode;
+                removed = true;
+            }
+            prevNode = newNode;
+            newNode = newNode.nextNode;
+        }
+
+        return removed;
     }
 
     /**
