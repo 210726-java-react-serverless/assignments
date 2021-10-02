@@ -41,9 +41,7 @@ public class MyLinkedList<T> {
         Node <T> testnode = new Node<>(t);
 
         // Check for null head. It's possible.
-        if(head == null) {
-            return false;
-        }
+        if(head == null) { return false; }
 
         // Iterator, locate existing object and return if that object is matched. Otherwise, continue.
         while(current != null) {
@@ -65,7 +63,26 @@ public class MyLinkedList<T> {
      * @return true if this collection changed as a result of the call
      */
     public boolean add(T t) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        // nullcheck t
+        if (t == null) return false;
+
+        // Define nodes.
+        Node<T> current = head;
+        Node<T> testnode = new Node<>(t);
+
+        // nullcheck current
+        if (current == null) {
+            head = testnode;
+        } else {
+            // iterate. Test current.data against testnode.data.
+            // return false if they match since they should not be the same. proceed if not.
+            while (current.nextNode != null) {
+                if (current.data.equals(testnode.data)) return false;
+                current.nextNode = testnode;
+            }
+        }
+        // added successfully.
+        return true;
     }
 
     /**
