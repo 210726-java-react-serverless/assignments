@@ -1,5 +1,8 @@
 package com.revature.list_practice;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * A simple implementation of a singly linked list.
  *
@@ -149,7 +152,20 @@ public class MyLinkedList<T> {
      * @return true if this list contains a loop
      */
     public boolean containsLoop() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        // keep record
+        final Node<T> record = head;
+        Node<T> current = head;
+
+        // nullcheck
+        if (current == null) return false;
+
+        // Create a history queue. Perform a contains operation to look into the list and locate an object.
+        List<Node<T>> nodeSet = new ArrayList<>();
+        while (current.nextNode != null) {
+            nodeSet.add(current);
+            if (nodeSet.contains(current)) return true;
+        }
+        return false;
     }
 
     /**
