@@ -80,7 +80,16 @@ public class MyLinkedList<T> {
      * @return true if this list contained the specified element
      */
     public boolean remove(Object o) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+       if(!contains((T)o) || o == null){return false;}
+       Node<T> checkOne = new Node(head);
+       Node<T> checkTwo = new Node(head);
+        while (checkOne != o){
+            checkOne = checkTwo;
+            checkTwo = checkTwo.nextNode;
+        }
+        checkOne.nextNode = checkTwo.nextNode;
+        //This seems silly, I feel like I should right the if statement again.
+        return true;
     }
 
     /**
