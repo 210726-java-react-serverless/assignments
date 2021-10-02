@@ -69,10 +69,9 @@ public class MyLinkedList<T> {
         do {
             if (currentNode.nextNode == null) {
                 currentNode.nextNode = addNode;
-                continue;
             }
-            currentNode = currentNode.nextNode
-        } while (!currentNode.nextNode.equals(addNode));
+            currentNode = currentNode.nextNode;
+        } while (!currentNode.equals(addNode));
         return true;
     }
 
