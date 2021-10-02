@@ -154,6 +154,10 @@ public class MyLinkedList<T> {
         if (this == null) { return null; }
         if (this.head == null) { return new MyLinkedList<T>(); }
         MyLinkedList<T> noDupes = new MyLinkedList<T>();
+        if (this.head.nextNode == null) {
+            noDupes.add(this.head.data);
+            return noDupes;
+        }
         Node<T> currentNode = this.head;
         while (currentNode.nextNode != null) {
 
