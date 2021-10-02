@@ -1,5 +1,6 @@
 package com.revature.list_practice;
 
+import java.util.ArrayDeque;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -213,6 +214,8 @@ public class MyLinkedList<T> {
      */
     public boolean isPalindromicList() {
         if (this == null || this.head == null) { return true; }
+        ArrayDeque<T> stack = new ArrayDeque<T>();
+        Node<T> currentNode = this.head;
     }
 
     static class Node<T> {
