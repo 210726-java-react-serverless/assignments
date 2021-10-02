@@ -82,12 +82,16 @@ public class MyLinkedList<T> {
     public boolean remove(Object o) {
        if(!contains((T)o) || o == null){return false;}
        Node<T> checkOne = new Node(head);
-       Node<T> checkTwo = new Node(head);
-        while (checkOne != o){
+       Node<T> checkTwo = new Node(head.nextNode);
+        while (checkOne != null){
+            if(checkTwo == null){break;}
+            if(checkTwo.data.equals(o)){
+                checkOne.nextNode = checkTwo.nextNode;
+                break;
+            }
             checkOne = checkTwo;
             checkTwo = checkTwo.nextNode;
         }
-        checkOne.nextNode = checkTwo.nextNode;
         //This seems silly, I feel like I should right the if statement again.
         return true;
     }
@@ -98,7 +102,11 @@ public class MyLinkedList<T> {
      * @return the head of this list, or null if this list is empty
      */
     public T poll() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if(isEmpty()){return null;}
+        Node<T> removed = new Node(null);
+        removed = head;
+        head = head.nextNode;
+        return removed.data;
     }
 
     /**
@@ -107,7 +115,8 @@ public class MyLinkedList<T> {
      * @return the head of this list, or null if this list is empty
      */
     public T peek() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if(isEmpty()){return null;}
+        return head.data;
     }
 
     /**
@@ -121,6 +130,7 @@ public class MyLinkedList<T> {
      * @return true if this list contains a loop
      */
     public boolean containsLoop() {
+
         throw new ImplementationMissingException(); // TODO: REPLACE THIS
     }
 
