@@ -149,7 +149,31 @@ public class MyLinkedList<T> {
      *
      */
     public MyLinkedList<T> removeDuplicates() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        MyLinkedList<T> newList = new MyLinkedList<>();
+
+        HashMap<Node, Integer> map = new HashMap<>();
+
+        if(!isEmpty()){
+            map.put(head, 1);
+        } else {
+            return newList;
+        }
+
+        while(head.nextNode != null){
+            head = head.nextNode;
+            map.computeIfPresent(head, (node, integer) -> integer + 1);
+            map.putIfAbsent(head, 1);
+        }
+
+        map.forEach((node, integer) -> {
+            if(integer == 1){
+                newList.add((T) node.data);
+            }
+        });
+        newList.poll();
+        newList.poll();
+
+        return newList;
     }
 
     /**
