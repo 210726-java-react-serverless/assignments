@@ -39,11 +39,15 @@ public class MyLinkedList<T> {
      * @return true if this collection contains the specified element
      */
     public boolean contains(T t) {
+        Node<T> check = new Node(null);
+        check = head;
         while(!isEmpty()) {
-            if (head.data.equals(t)) {
+            if (check.data.equals(t)) {
                 return true;
             }
-            head = head.nextNode;
+            if(check.nextNode != null){
+                check = check.nextNode;
+            } else break;
         }
         return false;
     }
@@ -92,7 +96,6 @@ public class MyLinkedList<T> {
             checkOne = checkTwo;
             checkTwo = checkTwo.nextNode;
         }
-        //This seems silly, I feel like I should right the if statement again.
         return true;
     }
 
@@ -130,8 +133,21 @@ public class MyLinkedList<T> {
      * @return true if this list contains a loop
      */
     public boolean containsLoop() {
-
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if(isEmpty()){return false;}
+        MyLinkedList<T> newList = new MyLinkedList<>();
+        Node<T> check = new Node(null);
+        check = this.head;
+        int flag = 0;
+        //loop through each node
+        while (check.nextNode != null){
+            //if a duplicate appears return true
+            if(newList.contains(check.data)){flag = 1; break;}
+            //Otherwise add to the newList
+            newList.add(check.data);
+            check = check.nextNode;
+        }
+        if(flag == 1) {return true;}
+        return false;
     }
 
     /**
@@ -143,7 +159,24 @@ public class MyLinkedList<T> {
      *
      */
     public MyLinkedList<T> removeDuplicates() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        MyLinkedList<T> newList = new MyLinkedList<>();
+        Node<T> check = new Node(null);
+        Node<T> temp = new Node(null);
+        check = this.head;
+        //loop through each node
+        while (check.nextNode != null){
+            //if a duplicate appears remove it
+            if(newList.contains(check.data)){
+                temp = check;
+                check = check.nextNode;
+                remove(temp.data);
+                continue;}
+            //Otherwise add to the newList
+                newList.add(check.data);
+                check = check.nextNode;
+
+        }
+        return newList;
     }
 
     /**
@@ -157,6 +190,7 @@ public class MyLinkedList<T> {
      * @return the k-th to last element of this list
      */
     public T getKthToLast(int k) {
+        if(k < 0) {return null;}
         throw new ImplementationMissingException(); // TODO: REPLACE THIS
     }
 
