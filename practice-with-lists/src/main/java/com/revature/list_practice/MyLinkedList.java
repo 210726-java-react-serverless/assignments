@@ -113,6 +113,7 @@ public class MyLinkedList<T> {
                 return true;
             }
             if (containsLoop()) return false;
+            current = current.nextNode;
         }
         return false;
     }
@@ -162,8 +163,12 @@ public class MyLinkedList<T> {
         // Create a history queue. Perform a contains operation to look into the list and locate an object.
         List<Node<T>> nodeSet = new ArrayList<>();
         while (current.nextNode != null) {
-            nodeSet.add(current);
-            if (nodeSet.contains(current)) return true;
+            if (nodeSet.contains(current))  {
+                return true;
+            } else {
+                nodeSet.add(current);
+            }
+            current = current.nextNode;
         }
         return false;
     }
@@ -190,6 +195,7 @@ public class MyLinkedList<T> {
             } else if (containsLoop()) {
                 return new MyLinkedList<T>();
             }
+            current = current.nextNode;
         }
         return returnList;
     }
