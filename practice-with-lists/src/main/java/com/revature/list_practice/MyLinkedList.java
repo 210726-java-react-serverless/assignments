@@ -112,6 +112,7 @@ public class MyLinkedList<T> {
                 previous.nextNode = current.nextNode;
                 return true;
             }
+            if (containsLoop()) return false;
         }
         return false;
     }
@@ -140,7 +141,7 @@ public class MyLinkedList<T> {
      *
      * @return the head of this list, or null if this list is empty
      */
-    public T peek() { return head.data; }
+    public T peek() { if(head!=null) return head.data; else return null; }
 
     /**
      * Iterates through this list and determines whether a loop exists. A loop is
@@ -186,6 +187,8 @@ public class MyLinkedList<T> {
             if (!nodeSet.contains(current))  {
                 nodeSet.add(current);
                 returnList.add(current.data);
+            } else if (containsLoop()) {
+                return new MyLinkedList<T>();
             }
         }
         return returnList;
