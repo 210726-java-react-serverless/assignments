@@ -26,7 +26,12 @@ public class MyLinkedList<T> {
      * @return true if this collection contains no elements
      */
     public boolean isEmpty() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+
+       if(head.data == null || head == null)
+       {
+           return true;
+       }
+       return false;
     }
 
     /**
@@ -61,6 +66,8 @@ public class MyLinkedList<T> {
      * @return true if this collection changed as a result of the call
      */
     public boolean add(T t) {
+
+        Node<?> packer_node = head;
         throw new ImplementationMissingException(); // TODO: REPLACE THIS
     }
 
