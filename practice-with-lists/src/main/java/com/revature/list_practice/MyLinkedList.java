@@ -115,6 +115,7 @@ public class MyLinkedList<T> {
      */
     public T peek() {
         if (this == null || this.head == null) { return null; }
+        return this.head.data;
     }
 
     /**
