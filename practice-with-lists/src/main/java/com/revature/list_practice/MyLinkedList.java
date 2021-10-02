@@ -131,6 +131,9 @@ public class MyLinkedList<T> {
     public boolean containsLoop() {
         if (this == null || this.head == null) { return false; }
         if (this.head.nextNode == null) { return false; }
+        MyLinkedList<T> copy = new MyLinkedList<>();
+        Node<T> currentNode = this.head;
+
     }
 
     /**
