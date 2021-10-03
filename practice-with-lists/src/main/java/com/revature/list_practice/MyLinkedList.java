@@ -196,11 +196,22 @@ public class MyLinkedList<T> {
             newSet.add(ptr.data);
 
             ptr = ptr.nextNode;
-            if (ptr == null || ptr.equals(head)) {
+            if(ptr == null || ptr.equals(head)) {
                 //We've returned to the head node or the end
                 break;
             }
         }
+
+
+        //Insert in reverse order
+        T[] arr = (T[]) newSet.toArray();
+        MyLinkedList<T> newList = new MyLinkedList<>();
+        for(int i = arr.length - 1; i >= 0; i--) {
+            System.out.println("VAL: " + arr[i]);
+            newList.add(arr[i]);
+        }
+
+        return newList;
     }
 
     /**
