@@ -1,8 +1,6 @@
 package com.revature.list_practice;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -40,9 +38,10 @@ public class MyLinkedList<T> {
      * @return true if this collection contains the specified element
      */
     public boolean contains(T t) {
-        while (head != null) {
-            if (head.data.equals(t)) return true;
-            head = head.nextNode;
+        Node<T> current = head;
+        while (current != null) {
+            if (current.data.equals(t)) return true;
+            current = current.nextNode;
         }
         return false;
     }
@@ -57,13 +56,18 @@ public class MyLinkedList<T> {
      * @return true if this collection changed as a result of the call
      */
     public boolean add(T t) {
-        if (t == null) return false;
-        while (head != null) {
-            if (head.data.equals(t)) return false;
-            head = head.nextNode;
+        if (t == null || contains(t)) return false;
+        if (head == null) {
+            head = new Node<>(t);
+            return true;
         }
-        Node<T> node = new Node<>(t);
-        head = node;
+
+        Node<T> current = head;
+        while (current != null) {
+            current = current.nextNode;
+        }
+        current.nextNode = new Node<>(t);
+
         return true;
     }
 
@@ -78,12 +82,13 @@ public class MyLinkedList<T> {
      * @return true if this list contained the specified element
      */
     public boolean remove(Object o) {
-        while (head != null) {
-            if (head.data.equals(o)) {
-                head.data = null;
+        Node<T> current = head;
+        while (current != null) {
+            if (current.data == o) {
+                current.data = null;
                 return true;
             }
-            head = head.nextNode;
+            current = current.nextNode;
         }
         return false;
     }
@@ -96,7 +101,7 @@ public class MyLinkedList<T> {
     public T poll() {
         if (head == null) return null;
         T data = head.data;
-        head = head.nextNode;
+        head = new Node<>(null);
         return data;
     }
 
