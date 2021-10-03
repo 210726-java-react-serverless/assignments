@@ -86,8 +86,30 @@ public class MyLinkedList<T> {
      * @param o element to be removed from this list
      * @return true if this list contained the specified element
      */
-    public boolean remove(Object o) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+    public boolean remove(T o) {
+        boolean ret = false;
+        //Exit early if it already exists in the collection
+        if(this.contains(o)){
+            ret = true;
+            Node<T> temp = head;
+            if (head.data == o) {
+                head = null;
+            }
+            else {
+                while (head.nextNode != null) {
+                    if (head.nextNode.data == o) {
+                        if (head.nextNode.nextNode != null) {
+                            head.nextNode = head.nextNode.nextNode;
+                        }
+                        else
+                            head.nextNode = null;
+                    }
+                    head = head.nextNode;
+                }
+            }
+            head = temp;
+        }
+        return ret;
     }
 
     /**
