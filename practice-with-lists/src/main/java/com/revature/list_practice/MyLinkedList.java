@@ -83,8 +83,16 @@ public class MyLinkedList<T> {
      * @param o element to be removed from this list
      * @return true if this list contained the specified element
      */
-    public boolean remove(Object o) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+    public boolean remove(T t) {
+
+        if(head == null) return false;
+
+        if(contains(t)){
+            System.out.println("found");
+            return true;
+        }
+
+        return false;
     }
 
     /**
