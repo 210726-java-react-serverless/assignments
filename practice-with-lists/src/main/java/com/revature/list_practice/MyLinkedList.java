@@ -1,5 +1,6 @@
 package com.revature.list_practice;
 
+
 /**
  * A simple implementation of a singly linked list.
  *
@@ -23,7 +24,7 @@ public class MyLinkedList<T> {
      * @return true if this collection contains no elements
      */
     public boolean isEmpty() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        return(head == null);
     }
 
     /**
@@ -71,7 +72,9 @@ public class MyLinkedList<T> {
      * @return the head of this list, or null if this list is empty
      */
     public T poll() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        T ret = head.data;
+        head = head.nextNode;
+        return ret;
     }
 
     /**
@@ -80,7 +83,7 @@ public class MyLinkedList<T> {
      * @return the head of this list, or null if this list is empty
      */
     public T peek() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        return head.data;
     }
 
     /**
