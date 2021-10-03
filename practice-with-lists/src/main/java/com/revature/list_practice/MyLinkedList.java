@@ -1,6 +1,9 @@
 package com.revature.list_practice;
 
-import java.util.LinkedList;
+import org.w3c.dom.NamedNodeMap;
+
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * A simple implementation of a singly linked list.
@@ -73,9 +76,10 @@ public class MyLinkedList<T> {
         boolean found = false;
 
         Node<T> current = head;
+        Node<T> next = null;
 
         while(current != null && !found){
-            if(current != null){
+            if(next == null){
                 found = true;
             }else {
                 current = current.nextNode;
@@ -182,7 +186,18 @@ public class MyLinkedList<T> {
      *
      */
     public MyLinkedList<T> removeDuplicates() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+
+        MyLinkedList<T> result = new MyLinkedList<>();
+        Node curr = head;
+
+        while (curr != null && curr.nextNode != null) {
+            if (curr.data == curr.nextNode.data) {
+                curr.nextNode = curr.nextNode.nextNode;
+            } else {
+                curr = curr.nextNode;
+            }
+        }
+        return result;
     }
 
     /**
