@@ -92,12 +92,22 @@ public class MyLinkedList<T> {
      * @param o element to be removed from this list
      * @return true if this list contained the specified element
      */
-    public boolean remove(T t) {
+    public boolean remove(Object o) {
 
         if(head == null) return false;
 
-        if(contains(t)){
-            System.out.println("found");
+        if(contains((T)o)){
+            if(head.data.equals(o)){
+                if(head.nextNode == null)
+                    head = null;
+                else{
+                    while(head.nextNode != null) {
+                        head.data = head.nextNode.data;
+                        head = head.nextNode;
+                    }
+                    head = null;
+                }
+            }
             return true;
         }
 
