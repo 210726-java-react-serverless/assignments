@@ -1,5 +1,7 @@
 package com.revature.list_practice;
 
+import java.util.HashSet;
+
 /**
  * A simple implementation of a singly linked list.
  *
@@ -151,7 +153,23 @@ public class MyLinkedList<T> {
      * @return true if this list contains a loop
      */
     public boolean containsLoop() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        // Return false if list is empty
+        if(head==null) return false;
+
+        // Create set to hold elements.
+        HashSet<Node<T>> nodeSet = new HashSet<>();
+
+        nodeSet.add(head);
+
+        while(head.nextNode!=null){
+            head = head.nextNode;
+            if(nodeSet.contains(head)){
+                return true;
+            }
+            nodeSet.add(head);
+        }
+
+        return false;
     }
 
     /**
