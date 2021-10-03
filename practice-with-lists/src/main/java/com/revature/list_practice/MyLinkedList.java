@@ -36,7 +36,20 @@ public class MyLinkedList<T> {
      * @return true if this collection contains the specified element
      */
     public boolean contains(T t) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        boolean ret = false;
+        //If head is null, return false.
+        //Otherwise iterate through
+        if (head != null) {
+            Node<T> temp = head;
+            while (temp != null) {
+                if (temp.data == t) {
+                    ret = true;
+                    break;
+                }
+                temp = temp.nextNode;
+            }
+        }
+        return ret;
     }
 
     /**
@@ -49,7 +62,18 @@ public class MyLinkedList<T> {
      * @return true if this collection changed as a result of the call
      */
     public boolean add(T t) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        boolean ret = false;
+        //Exit early if it already exists in the collection
+        if(!this.contains(t)){
+            //Append the item to the front of the list
+            if (t != null) {
+                MyLinkedList.Node<T> nodeA = new MyLinkedList.Node<T>(t);
+                nodeA.nextNode = head;
+                head = nodeA;
+                ret = true;
+            }
+        }
+        return ret;
     }
 
     /**
