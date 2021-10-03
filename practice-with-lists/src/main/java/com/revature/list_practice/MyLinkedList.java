@@ -258,13 +258,14 @@ public class MyLinkedList<T> {
         Node<?> thisCurrent = this.head;
         Node<?> thatCurrent = that.head;
 
-        while (thisCurrent != null && thatCurrent != null) {
+        do {
             if (!thisCurrent.data.equals(thatCurrent.data)) {
                 return false;
             }
             thisCurrent = thisCurrent.nextNode;
             thatCurrent = thatCurrent.nextNode;
         }
+        while (thisCurrent != null && thatCurrent != null);
 
         return true;
     }
