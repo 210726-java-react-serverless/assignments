@@ -1,9 +1,6 @@
 package com.revature.list_practice;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * A simple implementation of a singly linked list.
@@ -262,7 +259,31 @@ public class MyLinkedList<T> {
      * @return true if the contents of this list form a palindrome
      */
     public boolean isPalindromicList() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        Deque<T> stack = new ArrayDeque<>();
+        Node<T> ptr = head;
+        while(ptr != null) {
+            stack.add(ptr.data);
+
+            ptr = ptr.nextNode;
+            if(ptr == null || ptr.equals(head)) {
+                //We've returned to the head node or to the end
+                break;
+            }
+        }
+
+        ptr = head;
+        while(ptr != null) {
+            if(!ptr.data.equals(stack.pollLast())) {
+                return false;
+            }
+
+            ptr = ptr.nextNode;
+            if(ptr == null || ptr.equals(head)) {
+                break;
+            }
+        }
+        return true;
+
     }
 
     static class Node<T> {
