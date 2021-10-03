@@ -39,7 +39,7 @@ public class MyLinkedList<T> {
      * @return true if this collection contains the specified element
      */
     public boolean contains(T t) {
-        Node<T> check = new Node(null);
+        Node<T> check;
         check = head;
         while(!isEmpty()) {
             if (check.data.equals(t)) {
@@ -106,7 +106,7 @@ public class MyLinkedList<T> {
      */
     public T poll() {
         if(isEmpty()){return null;}
-        Node<T> removed = new Node(null);
+        Node<T> removed;
         removed = head;
         head = head.nextNode;
         return removed.data;
@@ -135,11 +135,11 @@ public class MyLinkedList<T> {
     public boolean containsLoop() {
         if(isEmpty()){return false;}
         MyLinkedList<T> newList = new MyLinkedList<>();
-        Node<T> check = new Node(null);
+        Node<T> check;
         check = this.head;
         int flag = 0;
         //loop through each node
-        while (check.nextNode != null){
+        while (check != null){
             //if a duplicate appears return true
             if(newList.contains(check.data)){flag = 1; break;}
             //Otherwise add to the newList
@@ -159,21 +159,19 @@ public class MyLinkedList<T> {
      *
      */
     public MyLinkedList<T> removeDuplicates() {
+        if(isEmpty()){return null;}
         MyLinkedList<T> newList = new MyLinkedList<>();
-        Node<T> check = new Node(null);
-        Node<T> temp = new Node(null);
-        check = this.head;
+        Node<T> check;
+        check = head;
         //loop through each node
-        while (check.nextNode != null){
-            //if a duplicate appears remove it
+        while (check != null){
+            //if a duplicate appears skip it//
             if(newList.contains(check.data)){
-                temp = check;
                 check = check.nextNode;
-                remove(temp.data);
-                continue;}
+               } else {
             //Otherwise add to the newList
                 newList.add(check.data);
-                check = check.nextNode;
+                check = check.nextNode;}
 
         }
         return newList;
