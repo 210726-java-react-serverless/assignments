@@ -65,6 +65,7 @@ public class MyLinkedList<T> {
      */
     public boolean add(T t) {
 
+        Node<T> start = head;
         // Invalid value provided
         if (t == null) return false;
 
@@ -82,7 +83,7 @@ public class MyLinkedList<T> {
             head = head.nextNode;
         }
         head.nextNode = new Node<T>(t);
-        head = head.nextNode;
+        head = start;
         return true;
     }
 
@@ -195,13 +196,8 @@ public class MyLinkedList<T> {
             dupeSet.add(head.data);
         }
 
-        T[] array = (T[]) dupeSet.toArray();
-        for(int i = array.length - 1; i >= 0 ; i--){
-            noDupes.add(array[i]);
-        }
-
+        dupeSet.forEach(noDupes::add);
         return noDupes;
-
     }
 
     /**
