@@ -63,13 +63,9 @@ public class MyLinkedList<T> {
             head = new Node<>(t);
             return true;
         }
-
-        Node<T> current = head;
-        while (current != null) {
-            current = current.nextNode;
-        }
-        current.nextNode = new Node<>(t);
-
+        MyLinkedList.Node<T> newNode = new MyLinkedList.Node<>(t);
+        newNode.nextNode = head;
+        head = newNode;
         return true;
     }
 
@@ -151,7 +147,19 @@ public class MyLinkedList<T> {
      *
      */
     public MyLinkedList<T> removeDuplicates() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if (head == null) return null;
+        MyLinkedList<T> newList = new MyLinkedList<>();
+        Set<T> nodes = new HashSet<>();
+        Node<T> current = head;
+        while (current != null) {
+            if (!nodes.contains(current.data)) {
+                Node<T> temp = new Node<>(current.data);
+                newList.add(temp.data);
+                nodes.add(temp.data);
+            }
+            current = current.nextNode;
+        }
+        return newList;
     }
 
     /**
