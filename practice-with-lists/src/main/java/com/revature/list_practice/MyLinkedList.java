@@ -96,8 +96,12 @@ public class MyLinkedList<T> {
      * @return the head of this list, or null if this list is empty
      */
     public T poll() {
-        T ret = head.data;
-        head = head.nextNode;
+        T ret;
+        if (head != null) {
+            ret = head.data;
+            head = head.nextNode;
+        }
+        else ret = null;
         return ret;
     }
 
@@ -107,7 +111,7 @@ public class MyLinkedList<T> {
      * @return the head of this list, or null if this list is empty
      */
     public T peek() {
-        return head.data;
+        return head == null ? null : head.data;
     }
 
     /**
