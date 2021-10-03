@@ -63,12 +63,16 @@ public class MyLinkedList<T> {
      */
     public boolean add(T t) {
         if(t == null || contains(t)){return false;}
+        Node<T> check = head;
+        Node<T> newNode = new Node(t);
+
         if(isEmpty()){
             head = new Node(t);
         } else {
-           Node<T> newNode = new Node(t);
-           newNode.nextNode = head;
-           head = newNode;
+           while(check.nextNode != null) {
+               check = check.nextNode;
+           }
+           check.nextNode = newNode;
         }
        return true;
     }
@@ -168,12 +172,14 @@ public class MyLinkedList<T> {
             //if a duplicate appears skip it//
             if(newList.contains(check.data)){
                 check = check.nextNode;
-               } else {
+                continue;
+            }
             //Otherwise add to the newList
                 newList.add(check.data);
-                check = check.nextNode;}
+                check = check.nextNode;
 
         }
+        System.out.println(newList);
         return newList;
     }
 
@@ -208,6 +214,14 @@ public class MyLinkedList<T> {
         Node(T data) {
             this.data = data;
         }
+
+        @Override
+        public String toString() {
+            return "Node{" +
+                    "data=" + data +
+                    ", nextNode=" + nextNode +
+                    '}';
+        }
     }
 
     /**
@@ -238,4 +252,10 @@ public class MyLinkedList<T> {
         return true;
     }
 
+    @Override
+    public String toString() {
+        return "MyLinkedList{" +
+                "head=" + head +
+                '}';
+    }
 }
