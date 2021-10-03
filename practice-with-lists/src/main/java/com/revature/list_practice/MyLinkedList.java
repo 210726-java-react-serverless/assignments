@@ -150,7 +150,25 @@ public class MyLinkedList<T> {
      * @return true if this list contains a loop
      */
     public boolean containsLoop() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        //Let's do it correctly, tortoise and hare algorithm.
+        //https://en.wikipedia.org/wiki/Cycle_detection#Tortoise_and_hare
+        Node<T> tortoise = head;
+        Node<T> hare = head;
+        boolean ret = false;
+        while (head != null)
+        {
+            tortoise = tortoise.nextNode;
+            if (hare.nextNode != null)
+                hare = hare.nextNode.nextNode;
+            else break;
+            if (tortoise == null || hare == null)
+                break;
+            if (tortoise.data == hare.data) {
+                ret = true;
+                break;
+            }
+        }
+        return ret;
     }
 
     /**
