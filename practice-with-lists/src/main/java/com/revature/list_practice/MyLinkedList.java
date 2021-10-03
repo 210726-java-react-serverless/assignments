@@ -1,7 +1,9 @@
 package com.revature.list_practice;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * A simple implementation of a singly linked list.
@@ -185,7 +187,20 @@ public class MyLinkedList<T> {
      *
      */
     public MyLinkedList<T> removeDuplicates() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        Set<T> newSet = new HashSet<>();
+        Map<T, Integer> instances = new HashMap<>();
+
+        Node<T> ptr = head;
+        while(ptr != null) {
+            System.out.println(ptr.data);
+            newSet.add(ptr.data);
+
+            ptr = ptr.nextNode;
+            if (ptr == null || ptr.equals(head)) {
+                //We've returned to the head node or the end
+                break;
+            }
+        }
     }
 
     /**
