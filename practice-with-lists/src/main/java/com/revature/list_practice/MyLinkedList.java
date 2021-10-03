@@ -1,5 +1,6 @@
 package com.revature.list_practice;
 
+import java.util.ArrayDeque;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -252,7 +253,27 @@ public class MyLinkedList<T> {
      * @return true if the contents of this list form a palindrome
      */
     public boolean isPalindromicList() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if(head==null) return false;
+        Node<T> start = head;
+        ArrayDeque<T> stack = new ArrayDeque<>();
+        stack.push(head.data);
+
+        // Populate stack
+        while(head.nextNode != null){
+            head = head.nextNode;
+            stack.push(head.data);
+        }
+
+        // Return to start
+        head = start;
+
+        // Determine if palindromic
+        while(head.nextNode != null){
+            if(!head.data.equals(stack.pop())) return false;
+            head = head.nextNode;
+        }
+
+        return true;
     }
 
     static class Node<T> {
