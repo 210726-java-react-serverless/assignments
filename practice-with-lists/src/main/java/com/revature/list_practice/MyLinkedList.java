@@ -233,16 +233,21 @@ public class MyLinkedList<T> {
      * @return true if the contents of this list form a palindrome
      */
     public boolean isPalindromicList() {
-        Node<T> curr, reverse;
-        curr = head;
-        reverse = head;
+        String str = ""; //initialize an empty string
+        Node<T> curr = head;
 
-        while(curr != null && reverse != null) {
-            if (curr.data != reverse.data) {
+        //traverse the linked list & store all the elements in the linked list in that string
+        while(curr != null){
+            str += curr.data;
+            curr = curr.nextNode;
+        }
+
+        //check first & last characters are equal or not
+        //if not, it's not forming a palindrome
+        int n = str.length();
+        for(int i=0; i<n/2; i++){
+            if(str.charAt(i) != str.charAt(n-i-1)){
                 return false;
-            } else {
-                curr = curr.nextNode;
-                reverse = reverse.nextNode;
             }
         }
         return true;
