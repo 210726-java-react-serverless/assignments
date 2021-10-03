@@ -1,5 +1,8 @@
 package com.revature.list_practice;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * A simple implementation of a singly linked list.
  *
@@ -152,7 +155,25 @@ public class MyLinkedList<T> {
      * @return true if this list contains a loop
      */
     public boolean containsLoop() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        int index = 0;
+        //Given a node returns its index if already encountered
+        Map<Node<T>, Integer> encountered = new HashMap<>();
+        Node<T> ptr = head;
+
+        while(ptr != null) {
+            encountered.put(ptr, index);
+            if(encountered.containsKey(ptr.nextNode)) {
+                return true;
+            }
+
+            ptr = ptr.nextNode;
+            index += 0;
+            if(ptr == null ) {
+                //We've reached the end
+                return false;
+            }
+        }
+        return false;
     }
 
     /**
