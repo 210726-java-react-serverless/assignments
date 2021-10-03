@@ -34,6 +34,24 @@ public class MyLinkedListTestSuite {
     }
 
     @Test
+    public void add_addsAllItems_whenMultipleItemsAreAdded() {
+        // Arrange
+        String testInput1 = "test-1";
+        String testInput2 = "test-2";
+
+        // Act
+        boolean addResult1 = sut.add(testInput1);
+        boolean addResult2 = sut.add(testInput2);
+
+        // Assert
+        assertTrue(addResult1);
+        assertTrue(sut.contains(testInput1));
+        assertTrue(addResult2);
+        assertTrue(sut.contains(testInput2));
+
+    }
+
+    @Test
     public void add_returnsFalse_givenNull() {
 
         // Act
