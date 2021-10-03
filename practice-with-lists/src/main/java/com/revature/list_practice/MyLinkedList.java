@@ -225,7 +225,35 @@ public class MyLinkedList<T> {
      * @return the k-th to last element of this list
      */
     public T getKthToLast(int k) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        int size = 0;
+        Node<T> ptr = head;
+        while(ptr != null) {
+            size++;
+
+            ptr = ptr.nextNode;
+            if(ptr == null || ptr.equals(head)) {
+                //We've returned to the head node or the end
+                break;
+            }
+        }
+
+        int index = 0;
+        int goal = size - k - 1;
+        ptr = head;
+        while(ptr != null) {
+            System.out.println(ptr.data);
+            if(index == goal) {
+                return ptr.data;
+            }
+
+            ptr = ptr.nextNode;
+            index++;
+            if(ptr == null || ptr.equals(head)) {
+                //We've returned to the head node or the end
+                break;
+            }
+        }
+        return null;
     }
 
     /**
