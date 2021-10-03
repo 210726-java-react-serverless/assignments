@@ -595,4 +595,26 @@ public class MyLinkedListTestSuite {
 
     }
 
+    @Test
+    public void equals_returnsFalse_givenEmptyList() {
+
+        // Arrange
+        MyLinkedList.Node<String> nodeA = new MyLinkedList.Node<>("test-1");
+        MyLinkedList.Node<String> nodeB = new MyLinkedList.Node<>("test-2");
+        MyLinkedList.Node<String> nodeC = new MyLinkedList.Node<>("test-3");
+        nodeA.nextNode = nodeB;
+        nodeB.nextNode = nodeC;
+        sut = new MyLinkedList<>(nodeA);
+
+        MyLinkedList.Node<String> nodeX = new MyLinkedList.Node<>(null);
+        MyLinkedList<String> differentList = new MyLinkedList<>(nodeX);
+
+        // Act
+        boolean equalsResult = sut.equals(differentList);
+
+        // Assert
+        assertFalse(equalsResult);
+    }
+
+
 }
