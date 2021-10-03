@@ -82,8 +82,9 @@ public class MyLinkedList<T> {
             // return false if they match since they should not be the same. proceed if not.
             while (current.nextNode != null) {
                 if (current.data.equals(testnode.data)) return false;
-                current.nextNode = testnode;
+                current = current.nextNode;
             }
+            current.nextNode = testnode;
         }
         // added successfully.
         return true;
@@ -186,11 +187,11 @@ public class MyLinkedList<T> {
 
         // Create a history queue. Perform a contains operation to look into the list and locate an object.
         // Put that object in a linked list. return the linked list.
-        List<Node<T>> nodeSet = new ArrayList<>();
+        List<T> nodeSet = new ArrayList<>();
         MyLinkedList<T> returnList = new MyLinkedList<>();
         while (current.nextNode != null) {
-            if (!nodeSet.contains(current))  {
-                nodeSet.add(current);
+            if (!nodeSet.contains(current.data))  {
+                nodeSet.add(current.data);
                 returnList.add(current.data);
             } else if (containsLoop()) {
                 return new MyLinkedList<>();
