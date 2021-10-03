@@ -150,7 +150,27 @@ public class MyLinkedList<T> {
      * @return true if this list contains a loop
      */
     public boolean containsLoop() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        Node slow, fast;
+        slow = head;
+        fast = head.nextNode; // start fast one node ahead
+
+        while(true){
+
+            //if fast pointer encounters a null
+            if(fast == null || fast.nextNode == null){
+                return false;
+
+            //if slow pointer equals fast or the next fast
+            //pointer is equal to slow then the list contains a loop
+            }else  if(slow == fast || slow == fast.nextNode){
+                return true;
+            }else {
+
+                //advance pointer
+                slow = slow.nextNode;
+                fast = fast.nextNode.nextNode;
+            }
+        }
     }
 
     /**
