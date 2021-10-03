@@ -75,7 +75,7 @@ public class MyLinkedList<T> {
         Node<T> current = head;
 
         while(current != null && !found){
-            if(t != null){
+            if(current != null){
                 found = true;
             }else {
                 current = current.nextNode;
@@ -119,7 +119,15 @@ public class MyLinkedList<T> {
      * @return the head of this list, or null if this list is empty
      */
     public T poll() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+
+        if (head == null) {
+            return null;
+        }
+
+        T output = head.data;
+        head = head.nextNode;
+        return output;
+
     }
 
     /**
