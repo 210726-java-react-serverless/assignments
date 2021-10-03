@@ -130,7 +130,12 @@ public class MyLinkedList<T> {
      * @return the head of this list, or null if this list is empty
      */
     public T peek() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if(isEmpty()){
+            return null;
+        }
+        else{
+            return this.head.data;
+        }
     }
 
     /**
