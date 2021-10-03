@@ -165,7 +165,19 @@ public class MyLinkedList<T> {
      * @return the k-th to last element of this list
      */
     public T getKthToLast(int k) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if (k < 0) return null;
+        Node<T> current = head;
+        Node<T> node = head;
+        int gap = -1;
+
+        while (node != null) {
+            if (gap == k) current = current.nextNode;
+            else gap++;
+            node = node.nextNode;
+        }
+
+        if (gap < k) return null;
+        return current.data;
     }
 
     /**
