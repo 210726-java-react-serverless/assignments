@@ -1,9 +1,5 @@
 package com.revature.list_practice;
 
-import org.w3c.dom.NamedNodeMap;
-
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * A simple implementation of a singly linked list.
@@ -154,7 +150,7 @@ public class MyLinkedList<T> {
      * @return true if this list contains a loop
      */
     public boolean containsLoop() {
-        Node slow, fast;
+        Node<T> slow, fast;
         slow = head;
         fast = head.nextNode; // start fast one node ahead
 
@@ -188,7 +184,7 @@ public class MyLinkedList<T> {
     public MyLinkedList<T> removeDuplicates() {
 
         MyLinkedList<T> result = new MyLinkedList<>();
-        Node curr = head;
+        Node<T> curr = head;
 
         while (curr != null && curr.nextNode != null) {
             if (curr.data == curr.nextNode.data) {
@@ -240,7 +236,19 @@ public class MyLinkedList<T> {
      * @return true if the contents of this list form a palindrome
      */
     public boolean isPalindromicList() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        Node<T> curr, reverse;
+        curr = head;
+        reverse = head;
+
+        while(curr != null && reverse != null) {
+            if (curr.data != reverse.data) {
+                return false;
+            } else {
+                curr = curr.nextNode;
+                reverse = reverse.nextNode;
+            }
+        }
+        return true;
     }
 
     static class Node<T> {
