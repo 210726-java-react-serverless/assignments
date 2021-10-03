@@ -69,21 +69,18 @@ public class MyLinkedList<T> {
      */
     public boolean add(T t) {
 
-        boolean found = false;
-
-        Node<T> current = head;
-        Node<T> next = null;
-
-        while(current != null && !found){
-            if(next == null){
-                found = true;
-            }else {
-                current = current.nextNode;
-            }
-        }
-        return found;
-
-
+       Node<T> add = new Node<T>(t);
+       if(head ==  t){
+           return false;
+       } else if(head == null){
+           this.head = add;
+       }else {
+           Node<T> curr = head;
+           while (curr.nextNode != null){
+               curr = curr.nextNode;
+           }
+       }
+        return true;
     }
 
     /**
