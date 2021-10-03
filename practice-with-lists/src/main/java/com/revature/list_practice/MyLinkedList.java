@@ -42,7 +42,7 @@ public class MyLinkedList<T> {
         Node currentNode = this.head;
         if (this == null || this.head == null) { return false; }
         if (this.head.data.equals(t)) { return true; }
-        while(currentNode.nextNode != null) {
+        while(currentNode != null) {
             if (currentNode.data.equals(t)) { return true; }
             currentNode = currentNode.nextNode;
         }
