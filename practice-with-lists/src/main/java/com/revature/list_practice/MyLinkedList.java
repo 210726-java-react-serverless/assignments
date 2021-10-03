@@ -120,7 +120,12 @@ public class MyLinkedList<T> {
      * @return the head of this list, or null if this list is empty
      */
     public T poll() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if(head == null){
+            return null;
+        }
+        T pollData = head.data;
+        remove(head.data);
+        return pollData;
     }
 
     /**
