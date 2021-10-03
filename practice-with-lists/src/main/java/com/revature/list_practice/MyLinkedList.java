@@ -219,6 +219,8 @@ public class MyLinkedList<T> {
         // If length is exactly k, the Kth-to-last node would be null
         if(curr == null) return null;
 
+        if(k < 0) return null; //null if given negative value
+
         // Move both nodes forward in unison until curr is at the end of the list
         while(curr.nextNode != null){
             curr = curr.nextNode;
