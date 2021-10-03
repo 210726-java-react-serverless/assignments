@@ -1,6 +1,8 @@
 package com.revature.list_practice;
 
 
+import java.util.HashSet;
+
 /**
  * A simple implementation of a singly linked list.
  *
@@ -159,7 +161,32 @@ public class MyLinkedList<T> {
      *
      */
     public MyLinkedList<T> removeDuplicates() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        HashSet<T> removeDupes = new HashSet<T>();
+        Node<T> temp = head;
+        //Iterate over the list and add everything to a set
+        while (temp != null)
+        {
+            removeDupes.add(temp.data);
+            temp = temp.nextNode;
+        }
+        //Create a new linked list from the set
+        MyLinkedList.Node<T> tempNode = null;
+        MyLinkedList.Node<T> headNode = null;
+        for (T element : removeDupes) {
+            MyLinkedList.Node<T> newNode = new MyLinkedList.Node<T>(element);
+            if (tempNode != null)
+            {
+                tempNode.nextNode = newNode;
+                tempNode = newNode;
+            }
+            else
+            {
+                tempNode = newNode;
+                headNode = newNode;
+            }
+        }
+        MyLinkedList ret = new MyLinkedList(headNode);
+        return ret;
     }
 
     /**
