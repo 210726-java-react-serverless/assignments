@@ -1,6 +1,7 @@
 package com.revature.list_practice;
 
 
+import java.util.ArrayList;
 import java.util.HashSet;
 
 /**
@@ -232,7 +233,24 @@ public class MyLinkedList<T> {
      * @return true if the contents of this list form a palindrome
      */
     public boolean isPalindromicList() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        ArrayList<T> palindromicList = new ArrayList<T>();
+        int count = 0;
+        Node<T> temp = head;
+        //Iterate over the list and add everything to an ArrayList
+        while (temp != null)
+        {
+            palindromicList.add(temp.data);
+            temp = temp.nextNode;
+            count++;
+        }
+        //Iterate over the ArrayList and compare both sides
+        //If the count is odd it won't compare the middle but that's okay
+        for(int i=0; i<count/2; i++)
+        {
+            if (palindromicList.get(i) != palindromicList.get(count-1-i))
+                return false;
+        }
+        return true;
     }
 
     static class Node<T> {
