@@ -211,7 +211,27 @@ public class MyLinkedList<T> {
      * @return the k-th to last element of this list
      */
     public T getKthToLast(int k) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+
+        Node<T> curr = head;
+        Node<T> follow = head;
+
+
+        // Iterate curr forward by k. If reaching the end of the list then it is
+        // shorter than k, so you can't have Kth-to-last node
+        for(int i=0; i < k; i++){
+            if(curr == null) return null; // out of bounds
+            curr = curr.nextNode;
+        }
+
+        // If length is exactly k, the Kth-to-last node would be null
+        if(curr == null) return null;
+
+        // Move both nodes forward in unison until curr is at the end of the list
+        while(curr.nextNode != null){
+            curr = curr.nextNode;
+            follow = follow.nextNode;
+        }
+        return follow.data;
     }
 
     /**
