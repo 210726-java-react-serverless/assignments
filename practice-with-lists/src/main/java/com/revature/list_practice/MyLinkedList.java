@@ -1,7 +1,9 @@
 package com.revature.list_practice;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * A simple implementation of a singly linked list.
@@ -126,7 +128,18 @@ public class MyLinkedList<T> {
      * @return true if this list contains a loop
      */
     public boolean containsLoop() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if (head == null) return false;
+
+        Node<T> current = head;
+        Set<Node<T>> nodes = new HashSet<>();
+
+        while (current != null) {
+            if (nodes.contains(current)) return true;
+            nodes.add(current);
+            current = current.nextNode;
+        }
+
+        return false;
     }
 
     /**
