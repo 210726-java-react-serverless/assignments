@@ -42,7 +42,7 @@ public class MyLinkedList<T> {
      */
     public boolean contains(T t) {
         if(this.head != null){
-            while(this.head.nextNode != null){
+            while(this.head != null){
                 if(this.head.data.equals(t)){
                     return true;
                 }
@@ -68,22 +68,19 @@ public class MyLinkedList<T> {
      * @return true if this collection changed as a result of the call
      */
     public boolean add(T t) {
-        if(this.head != null){
-            while(this.head.nextNode != null){
-                if(this.head.data.equals(t)){
-                    this.head.nextNode.data = t;
-                    return false;
-                }
-                else{
-                    this.head = this.head.nextNode;
-                }
-            }
-            this.head.nextNode.data = t;
-            return true;
-        }
-        else{
+        if(t == null || contains(t)){
             return false;
         }
+        if(isEmpty()){
+            this.head = new Node<>(t);
+        }
+        else{
+            while(this.head != null){
+                this.head = this.head.nextNode;
+            }
+            this.head.nextNode = new Node<>(t);
+        }
+        return true;
     }
 
     /**
@@ -97,7 +94,18 @@ public class MyLinkedList<T> {
      * @return true if this list contained the specified element
      */
     public boolean remove(Object o) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if(!isEmpty()){
+            while(this.head != null){
+                if(this.head.equals(o)){
+                    this.head = null;
+                    return true;
+                }
+                else{
+                    this.head = this.head.nextNode;
+                }
+            }
+        }
+        return false;
     }
 
     /**
@@ -106,7 +114,14 @@ public class MyLinkedList<T> {
      * @return the head of this list, or null if this list is empty
      */
     public T poll() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if(isEmpty()){
+            return null;
+        }
+        else{
+            T data = this.head.data;
+            this.head = null;
+            return data;
+        }
     }
 
     /**
