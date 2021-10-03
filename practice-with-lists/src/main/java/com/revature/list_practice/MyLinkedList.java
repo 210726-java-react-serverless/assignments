@@ -173,7 +173,30 @@ public class MyLinkedList<T> {
      * @return the k-th to last element of this list
      */
     public T getKthToLast(int k) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        T ret;
+        int size=0;
+        Node<T> temp = head;
+
+        //Get the size of the linked list
+        while (temp != null)
+        {
+            size++;
+            temp = temp.nextNode;
+        }
+        temp = head;
+
+        //Go to the kth-last link
+        if (k < size && k >= 0) {
+            for (int i = 0; i < size - k - 1; i++) {
+                temp = temp.nextNode;
+            }
+            ret = temp.data;
+        }
+        //Unless k is too big or negative in which case it's null
+        else
+            ret = null;
+
+        return ret;
     }
 
     /**
