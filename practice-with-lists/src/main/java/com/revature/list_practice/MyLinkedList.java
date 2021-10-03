@@ -96,14 +96,12 @@ public class MyLinkedList<T> {
     public boolean remove(Object o) {
         boolean found = false;
 
-        Node<T> previous = null;
         Node<T> current = head;
 
         while(current != null && !found){
             if(o.equals(current.data)){
                 found = true;
             }else {
-                previous = current;
                 current = current.nextNode;
             }
         }
