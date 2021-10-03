@@ -42,15 +42,11 @@ public class MyLinkedList<T> {
         Node currentNode = this.head;
         if (this == null || this.head == null) { return false; }
         if (this.head.data.equals(t)) { return true; }
-        if (!this.isEmpty()) {
-            while(currentNode.nextNode != null) {
-                if (currentNode.data.equals(t)) { return true; }
-                currentNode = currentNode.nextNode;
-            }
-            return false;
-        } else {
-            return false;
+        while(currentNode.nextNode != null) {
+            if (currentNode.data.equals(t)) { return true; }
+            currentNode = currentNode.nextNode;
         }
+        return false;
     }
 
     /**
