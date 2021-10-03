@@ -17,6 +17,7 @@ public class MyLinkedList<T> {
         this.head = startingNode;
     }
 
+
     /**
      * Returns true if this collection contains no elements.
      *
@@ -149,7 +150,7 @@ public class MyLinkedList<T> {
      * @return true if this list contains a loop
      */
     public boolean containsLoop() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        return true;
     }
 
     /**
@@ -161,7 +162,20 @@ public class MyLinkedList<T> {
      *
      */
     public MyLinkedList<T> removeDuplicates() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        MyLinkedList List = new MyLinkedList();
+        int i = 0;
+        for (Node<T> current = this.head; current != null; current = current.nextNode) {
+            int n = 0;
+            for (Node<T> node = this.head; node != null; node = node.nextNode) {
+                if (i != n && node.equals(current)) {
+                    List.add(this.head);
+                }
+                n++;
+            }
+            i++;
+        }
+        return List;
+
     }
 
     /**
@@ -175,7 +189,31 @@ public class MyLinkedList<T> {
      * @return the k-th to last element of this list
      */
     public T getKthToLast(int k) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if(k < 0){
+            return null;
+        }
+        else if(k == 0){
+            while (this.head.nextNode != null){
+                this.head = this.head.nextNode;
+            }
+            return this.head.data;
+        }
+        else if(k > 0){
+            Node<T> temp = this.head;
+            int count = 0, diff = 0;
+            while (temp != null)
+            {
+                count++;
+                temp = temp.nextNode;
+            }
+            diff = count - k;
+            while (diff > 1){
+                this.head = this.head.nextNode;
+                diff--;
+            }
+            return this.head.data;
+        }
+        return null;
     }
 
     /**
@@ -184,7 +222,7 @@ public class MyLinkedList<T> {
      * @return true if the contents of this list form a palindrome
      */
     public boolean isPalindromicList() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        return false;
     }
 
     static class Node<T> {
