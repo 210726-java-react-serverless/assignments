@@ -61,16 +61,25 @@ public class MyLinkedList<T> {
      * @return true if this collection changed as a result of the call
      */
     public boolean add(T t) {
+
+        // Invalid value provided
+        if (t == null) return false;
+
         // No duplicates allowed.
-        if(contains(t))
+        if (contains(t))
             return false;
 
         // No values found, can add new element.
-        if(head == null && t != null){
+        if (head == null) {
             head = new Node<>(t);
             return true;
         }
-        return false;
+        // Get to the end of the list and add new node
+        while (head.nextNode != null) {
+            head = head.nextNode;
+        }
+        head.nextNode = new Node<T>(t);
+        return true;
     }
 
     /**
