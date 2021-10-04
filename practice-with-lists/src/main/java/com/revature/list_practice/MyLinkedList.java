@@ -67,7 +67,7 @@ public class MyLinkedList<T> {
             head = new Node<>(t);
             return true;
         }
-        
+
         while(placeHolder.nextNode!=null){
             if(placeHolder.data.equals(t))
                 return false;
@@ -90,7 +90,17 @@ public class MyLinkedList<T> {
      * @return true if this list contained the specified element
      */
     public boolean remove(Object o) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        Node<T> prev;
+        Node<T> placeHolder = head;
+        while(placeHolder!=null){
+            prev = placeHolder;
+            if(placeHolder.data.equals(o)){
+                prev.nextNode = placeHolder.nextNode;
+                return true;
+            }
+            placeHolder = placeHolder.nextNode;
+        }
+        return false;
     }
 
     /**
