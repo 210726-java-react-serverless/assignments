@@ -161,7 +161,27 @@ public class MyLinkedList<T> {
      *
      */
     public MyLinkedList<T> removeDuplicates() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        MyLinkedList<T> newList = new MyLinkedList<>();
+
+        if(head==null)
+            return null;
+
+        Node<T> oldNode = head;
+
+        while(oldNode!=null){
+            if(!newList.contains(oldNode.data))
+                newList.add(oldNode.data);
+            oldNode = oldNode.nextNode;
+        }
+
+        Node<T> arg = newList.head;
+
+        while(arg!=null){
+            System.out.print(arg.data);
+            arg = arg.nextNode;
+        }
+
+        return newList;
     }
 
     /**
@@ -175,7 +195,28 @@ public class MyLinkedList<T> {
      * @return the k-th to last element of this list
      */
     public T getKthToLast(int k) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if(k<0) return null;
+        Node<T> placeHolder = head;
+        boolean found;
+
+        while(placeHolder != null){
+            Node<T> iterateNode = placeHolder;
+            int i = 0;
+            found = false;
+            while(iterateNode != null){
+                if(iterateNode.nextNode==null&&i==k){
+                    found = true;
+                    break;
+                }
+                i++;
+                iterateNode = iterateNode.nextNode;
+            }
+            if(found)
+                return placeHolder.data;
+
+            placeHolder = placeHolder.nextNode;
+        }
+        return null;
     }
 
     /**
