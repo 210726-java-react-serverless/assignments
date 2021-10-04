@@ -40,13 +40,7 @@ public class MyLinkedList<T> {
      * @return true if this collection contains the specified element
      */
     public boolean contains(T t) {
-        Node<T> placeHolder = head;
-        while( placeHolder!=null){
-            if(placeHolder.data.equals(t))
-                return true;
-            placeHolder = placeHolder.nextNode;
-        }
-        return false;
+        throw new ImplementationMissingException(); // TODO: REPLACE THIS
     }
 
     /**
@@ -59,19 +53,7 @@ public class MyLinkedList<T> {
      * @return true if this collection changed as a result of the call
      */
     public boolean add(T t) {
-        Node<T> placeHolder = head;
-        if(t == null)
-            return false;
-        while(placeHolder!=null){
-            if(placeHolder.data.equals(t))
-                return false;
-            placeHolder = placeHolder.nextNode;
-        }
-
-        placeHolder = new Node<>(t);
-        placeHolder.nextNode = null;
-
-        return true;
+        throw new ImplementationMissingException(); // TODO: REPLACE THIS
     }
 
     /**
@@ -85,17 +67,7 @@ public class MyLinkedList<T> {
      * @return true if this list contained the specified element
      */
     public boolean remove(Object o) {
-        Node<T> prev;
-        Node<T> placeHolder = head;
-        while(placeHolder!=null){
-            prev = placeHolder;
-            if(placeHolder.data.equals(o)){
-                prev.nextNode = placeHolder.nextNode;
-                return true;
-            }
-            placeHolder = placeHolder.nextNode;
-        }
-        return false;
+        throw new ImplementationMissingException(); // TODO: REPLACE THIS
     }
 
     /**
@@ -104,11 +76,7 @@ public class MyLinkedList<T> {
      * @return the head of this list, or null if this list is empty
      */
     public T poll() {
-        if(head == null)
-            return null;
-        T headsData = head.data;
-        head = head.nextNode;
-        return headsData;
+        throw new ImplementationMissingException(); // TODO: REPLACE THIS
     }
 
     /**
@@ -117,9 +85,7 @@ public class MyLinkedList<T> {
      * @return the head of this list, or null if this list is empty
      */
     public T peek() {
-        if(head == null)
-            return null;
-        return head.data;
+        throw new ImplementationMissingException(); // TODO: REPLACE THIS
     }
 
     /**
@@ -133,18 +99,7 @@ public class MyLinkedList<T> {
      * @return true if this list contains a loop
      */
     public boolean containsLoop() {
-        Set<Node<T>> listsNodes = new HashSet<>();
-        Node<T> placeHolder = head;
-        if(head == null)
-            return false;
-        while(placeHolder != null){
-            if(listsNodes.contains(placeHolder))
-                return true;
-
-            listsNodes.add(placeHolder);
-            placeHolder = placeHolder.nextNode;
-        }
-        return false;
+        throw new ImplementationMissingException(); // TODO: REPLACE THIS
     }
 
     /**
@@ -156,38 +111,7 @@ public class MyLinkedList<T> {
      *
      */
     public MyLinkedList<T> removeDuplicates() {
-        MyLinkedList<T> newList = new MyLinkedList<>();
-
-        if(head==null)
-            return null;
-
-        System.out.print("OldList: ");
-        Node<T> oldNode = head;
-
-        while(oldNode != null){
-            System.out.print(oldNode.data);
-            oldNode = oldNode.nextNode;
-        }
-
-        oldNode = head;
-        while(oldNode!=null){
-            System.out.println("head : "+oldNode.data);
-            if(!newList.contains(oldNode.data)) {
-                System.out.println("NEWLIST DOES NOT CONTAIN:"+oldNode.data);
-                newList.add(oldNode.data);
-            }
-            oldNode = oldNode.nextNode;
-        }
-
-        System.out.print("NewList: ");
-        Node<T> arg = newList.head;
-
-        while(arg!=null){
-            System.out.print(arg.data);
-            arg = arg.nextNode;
-        }
-
-        return newList;
+        throw new ImplementationMissingException(); // TODO: REPLACE THIS
     }
 
     /**
