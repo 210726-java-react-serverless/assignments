@@ -2,6 +2,7 @@ package com.revature.list_practice;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Stack;
 
 /**
  * A simple implementation of a singly linked list.
@@ -225,7 +226,19 @@ public class MyLinkedList<T> {
      * @return true if the contents of this list form a palindrome
      */
     public boolean isPalindromicList() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        Stack<T> stack = new Stack<>();
+        Node<T> placeHolder = head;
+        while(placeHolder != null){
+            stack.push(placeHolder.data);
+            placeHolder = placeHolder.nextNode;
+        }
+        placeHolder = head;
+        while(placeHolder!=null){
+            if(placeHolder.data != stack.pop())
+                return false;
+            placeHolder = placeHolder.nextNode;
+        }
+        return true;
     }
 
     static class Node<T> {
