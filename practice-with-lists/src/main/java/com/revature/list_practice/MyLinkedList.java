@@ -1,6 +1,7 @@
 package com.revature.list_practice;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 /**
  * A simple implementation of a singly linked list.
@@ -37,9 +38,11 @@ public class MyLinkedList<T> {
      * @return true if this collection contains the specified element
      */
     public boolean contains(T t) {
-        while(!isEmpty()){
-            if(head.data.equals(t)) return true;
-            head = head.nextNode;
+        Node<T> temp = head;
+        if(!isEmpty() && head.data.equals(t)) return true;
+        while(!isEmpty() && temp.nextNode != null){
+            temp = temp.nextNode;
+            if(temp.data.equals(t)) return true;
         }
         return false;
     }
@@ -54,14 +57,20 @@ public class MyLinkedList<T> {
      * @return true if this collection changed as a result of the call
      */
     public boolean add(T t) {
+        System.out.println("An item is being added.....");
         if(contains(t) || t == null) return false;
-        if(isEmpty()){
+        Node<T> temp = head;
+        if(head == null){
+            System.out.println("the list is empty... adding " + t);
             head = new Node(t);
+            return true;
         }
-        while(head.nextNode != null){
-            head = head.nextNode;
+        temp.nextNode = null;
+        while(temp.nextNode != null){
+            temp = temp.nextNode;
         }
-        head.nextNode = new Node(t);
+        System.out.println("the list contains multiple items... adding " + t);
+        temp.nextNode = new Node(t);
         return true;
     }
 
@@ -149,7 +158,7 @@ public class MyLinkedList<T> {
     public MyLinkedList<T> removeDuplicates() {
         MyLinkedList<T> newList = new MyLinkedList<>();
 
-        HashMap<Node, Integer> map = new HashMap<>();
+        LinkedHashMap<Node, Integer> map = new LinkedHashMap<>();
 
         if(!isEmpty()){
             map.put(head, 1);
@@ -164,12 +173,17 @@ public class MyLinkedList<T> {
         }
 
         map.forEach((node, integer) -> {
+            System.out.println(node.data);
             if(integer == 1){
                 newList.add((T) node.data);
             }
         });
-        newList.poll();
-        newList.poll();
+
+        while(newList.head.nextNode != null){
+            System.out.println(newList.head.data);
+            newList.head = newList.head.nextNode;
+
+        }
 
         return newList;
     }
