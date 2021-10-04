@@ -339,6 +339,7 @@ public class MyLinkedListTestSuite {
         // Act
         MyLinkedList<String> removeDuplicatesResult = sut.removeDuplicates();
 
+
         // Assert
         assertEquals(removeDuplicatesResult, expectedResult);
         assertNotSame(removeDuplicatesResult, sut);

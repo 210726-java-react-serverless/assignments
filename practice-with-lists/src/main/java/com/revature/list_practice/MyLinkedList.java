@@ -1,5 +1,8 @@
 package com.revature.list_practice;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * A simple implementation of a singly linked list.
  *
@@ -23,7 +26,9 @@ public class MyLinkedList<T> {
      * @return true if this collection contains no elements
      */
     public boolean isEmpty() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if(head == null)
+            return true;
+        return false;
     }
 
     /**
@@ -35,7 +40,13 @@ public class MyLinkedList<T> {
      * @return true if this collection contains the specified element
      */
     public boolean contains(T t) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        Node<T> placeHolder = head;
+        while( placeHolder!=null){
+            if(placeHolder.data.equals(t))
+                return true;
+            placeHolder = placeHolder.nextNode;
+        }
+        return false;
     }
 
     /**
@@ -48,7 +59,19 @@ public class MyLinkedList<T> {
      * @return true if this collection changed as a result of the call
      */
     public boolean add(T t) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        Node<T> placeHolder = head;
+        if(t == null)
+            return false;
+        while(placeHolder!=null){
+            if(placeHolder.data.equals(t))
+                return false;
+            placeHolder = placeHolder.nextNode;
+        }
+
+        placeHolder = new Node<>(t);
+        placeHolder.nextNode = null;
+
+        return true;
     }
 
     /**
@@ -62,7 +85,17 @@ public class MyLinkedList<T> {
      * @return true if this list contained the specified element
      */
     public boolean remove(Object o) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        Node<T> prev;
+        Node<T> placeHolder = head;
+        while(placeHolder!=null){
+            prev = placeHolder;
+            if(placeHolder.data.equals(o)){
+                prev.nextNode = placeHolder.nextNode;
+                return true;
+            }
+            placeHolder = placeHolder.nextNode;
+        }
+        return false;
     }
 
     /**
@@ -71,7 +104,11 @@ public class MyLinkedList<T> {
      * @return the head of this list, or null if this list is empty
      */
     public T poll() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if(head == null)
+            return null;
+        T headsData = head.data;
+        head = head.nextNode;
+        return headsData;
     }
 
     /**
@@ -80,7 +117,9 @@ public class MyLinkedList<T> {
      * @return the head of this list, or null if this list is empty
      */
     public T peek() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if(head == null)
+            return null;
+        return head.data;
     }
 
     /**
@@ -94,7 +133,18 @@ public class MyLinkedList<T> {
      * @return true if this list contains a loop
      */
     public boolean containsLoop() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        Set<Node<T>> listsNodes = new HashSet<>();
+        Node<T> placeHolder = head;
+        if(head == null)
+            return false;
+        while(placeHolder != null){
+            if(listsNodes.contains(placeHolder))
+                return true;
+
+            listsNodes.add(placeHolder);
+            placeHolder = placeHolder.nextNode;
+        }
+        return false;
     }
 
     /**
@@ -106,7 +156,38 @@ public class MyLinkedList<T> {
      *
      */
     public MyLinkedList<T> removeDuplicates() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        MyLinkedList<T> newList = new MyLinkedList<>();
+
+        if(head==null)
+            return null;
+
+        System.out.print("OldList: ");
+        Node<T> oldNode = head;
+
+        while(oldNode != null){
+            System.out.print(oldNode.data);
+            oldNode = oldNode.nextNode;
+        }
+
+        oldNode = head;
+        while(oldNode!=null){
+            System.out.println("head : "+oldNode.data);
+            if(!newList.contains(oldNode.data)) {
+                System.out.println("NEWLIST DOES NOT CONTAIN:"+oldNode.data);
+                newList.add(oldNode.data);
+            }
+            oldNode = oldNode.nextNode;
+        }
+
+        System.out.print("NewList: ");
+        Node<T> arg = newList.head;
+
+        while(arg!=null){
+            System.out.print(arg.data);
+            arg = arg.nextNode;
+        }
+
+        return newList;
     }
 
     /**
