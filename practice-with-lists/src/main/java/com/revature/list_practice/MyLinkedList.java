@@ -138,7 +138,18 @@ public class MyLinkedList<T> {
      * @return true if this list contains a loop
      */
     public boolean containsLoop() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        Set<Node<T>> listsNodes = new HashSet<>();
+        Node<T> placeHolder = head;
+        if(head == null)
+            return false;
+        while(placeHolder != null){
+            if(listsNodes.contains(placeHolder))
+                return true;
+
+            listsNodes.add(placeHolder);
+            placeHolder = placeHolder.nextNode;
+        }
+        return false;
     }
 
     /**
