@@ -1,5 +1,9 @@
 package com.revature.list_practice;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * A simple implementation of a singly linked list.
  *
@@ -23,7 +27,11 @@ public class MyLinkedList<T> {
      * @return true if this collection contains no elements
      */
     public boolean isEmpty() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if(head.data.equals(null)){
+            return true;
+        } else{
+            return false;
+        }
     }
 
     /**
@@ -35,7 +43,15 @@ public class MyLinkedList<T> {
      * @return true if this collection contains the specified element
      */
     public boolean contains(T t) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        Node node = new Node(1);
+        node = head;
+        while(node.nextNode != null){
+            if(node.data.equals(t)){
+                return true;
+            }
+            node = node.nextNode;
+        }
+        return false;
     }
 
     /**
@@ -48,7 +64,17 @@ public class MyLinkedList<T> {
      * @return true if this collection changed as a result of the call
      */
     public boolean add(T t) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if(!contains(t)){
+            Node node = new Node(t);
+            if (!isEmpty()) {
+                head.nextNode = node;
+            }
+            head = node;
+            return true;
+        } else{
+            return false;
+        }
+
     }
 
     /**
@@ -62,7 +88,17 @@ public class MyLinkedList<T> {
      * @return true if this list contained the specified element
      */
     public boolean remove(Object o) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        Node node = new Node(1);
+        node = head;
+        while(node.nextNode.nextNode != null){
+            if(node.nextNode.data.equals(o)){
+                node.data = null;
+                node.nextNode = node.nextNode.nextNode;
+                return true;
+            }
+            node = node.nextNode;
+        }
+        return false;
     }
 
     /**
@@ -71,7 +107,14 @@ public class MyLinkedList<T> {
      * @return the head of this list, or null if this list is empty
      */
     public T poll() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if(isEmpty()){
+            return null;
+        } else{
+            T result = head.data;
+            head.data = null;
+            head = head.nextNode;
+            return result;
+        }
     }
 
     /**
@@ -80,7 +123,11 @@ public class MyLinkedList<T> {
      * @return the head of this list, or null if this list is empty
      */
     public T peek() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if(isEmpty()){
+            return null;
+        } else {
+            return head.data;
+        }
     }
 
     /**
@@ -94,7 +141,17 @@ public class MyLinkedList<T> {
      * @return true if this list contains a loop
      */
     public boolean containsLoop() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        Node node = new Node(1);
+        node = head;
+        int count = 0;
+        while(node.nextNode != null){
+            if(count > 1000){
+                return true;
+            }
+            node = node.nextNode;
+            count++;
+        }
+        return false;
     }
 
     /**
@@ -106,7 +163,20 @@ public class MyLinkedList<T> {
      *
      */
     public MyLinkedList<T> removeDuplicates() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        Node node = new Node(1);
+        node = head;
+        while(node != null){
+            Node secondNode = new Node(1);
+            secondNode = node.nextNode;
+            while(secondNode != null) {
+                if (node.data.equals(secondNode.data)){
+                    remove(secondNode);
+                }
+                secondNode = secondNode.nextNode;
+            }
+            node = node.nextNode;
+        }
+        return null;
     }
 
     /**
@@ -120,7 +190,19 @@ public class MyLinkedList<T> {
      * @return the k-th to last element of this list
      */
     public T getKthToLast(int k) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        Node node = new Node(1);
+        node = head;
+        int count = 0;
+        while(node.nextNode != null){
+            node = node.nextNode;
+            count++;
+        }
+        int index = count - k;
+        node = head;
+        for(int i = 0; i < index; i++){
+            node = node.nextNode;
+        }
+        return (T) node.data;
     }
 
     /**
@@ -129,7 +211,26 @@ public class MyLinkedList<T> {
      * @return true if the contents of this list form a palindrome
      */
     public boolean isPalindromicList() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        List list = new ArrayList<Object>();
+        Node node = new Node(1);
+        node = head;
+        while(node.nextNode != null) {
+            list.add(node.data);
+            node = node.nextNode;
+        }
+
+       List backwards = new ArrayList();
+        for (int i = 0; i < list.size(); i++){
+            backwards.add(list.indexOf(i));
+        }
+        Collections.reverse(list);
+
+        if(list.equals(backwards)){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     static class Node<T> {
