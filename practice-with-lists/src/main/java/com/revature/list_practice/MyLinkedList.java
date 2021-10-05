@@ -1,5 +1,8 @@
 package com.revature.list_practice;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * A simple implementation of a singly linked list.
  *
@@ -15,6 +18,7 @@ public class MyLinkedList<T> {
 
     public MyLinkedList(Node<T> startingNode) {
         this.head = startingNode;
+
     }
 
     /**
@@ -22,8 +26,14 @@ public class MyLinkedList<T> {
      *
      * @return true if this collection contains no elements
      */
+
     public boolean isEmpty() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+
+        if(head == null){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     /**
@@ -35,7 +45,15 @@ public class MyLinkedList<T> {
      * @return true if this collection contains the specified element
      */
     public boolean contains(T t) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        Node<T>  currentHead = head;
+        while(currentHead != null){
+            if(currentHead.data.equals(t)){
+
+                return true;
+            }     currentHead = currentHead.nextNode;
+
+        }
+        // TODO: REPLACE THIS return false;
     }
 
     /**
@@ -48,7 +66,22 @@ public class MyLinkedList<T> {
      * @return true if this collection changed as a result of the call
      */
     public boolean add(T t) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        Node<T> currentHead = head;
+        if (t == null) return false;
+
+        if (contains(t)){
+            return false;
+        }
+        if(head == null){
+            head = new Node<>(t);
+            return true;
+        }
+
+        while(head.nextNode !=null){
+            head = head.nextNode;
+        }
+
+        return true;
     }
 
     /**
@@ -62,7 +95,15 @@ public class MyLinkedList<T> {
      * @return true if this list contained the specified element
      */
     public boolean remove(Object o) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        Node<T> currentHead = head;
+        while( currentHead != null){
+            if(currentHead.data == o){
+                currentHead.data = null;
+                return true;
+            }
+            currentHead = currentHead.nextNode;
+        }
+        return false;
     }
 
     /**
@@ -71,7 +112,10 @@ public class MyLinkedList<T> {
      * @return the head of this list, or null if this list is empty
      */
     public T poll() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if(head == null) return null;
+        T data = head.data;
+        head = head.nextNode;
+        return data;
     }
 
     /**
@@ -80,7 +124,9 @@ public class MyLinkedList<T> {
      * @return the head of this list, or null if this list is empty
      */
     public T peek() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if(head == null)
+            return null;
+        return head.data;
     }
 
     /**
@@ -94,7 +140,21 @@ public class MyLinkedList<T> {
      * @return true if this list contains a loop
      */
     public boolean containsLoop() {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if(head == null) {
+            return false;
+        }
+        Node<T> currentHead = head;
+
+        Set<Node<T>> n = new HashSet<>();
+
+        while(currentHead.nextNode !=null){
+            if(n.contains(currentHead)){
+                return true;
+            }
+            n.add(currentHead);
+            currentHead = currentHead.nextNode;
+        }
+
     }
 
     /**
@@ -120,7 +180,25 @@ public class MyLinkedList<T> {
      * @return the k-th to last element of this list
      */
     public T getKthToLast(int k) {
-        throw new ImplementationMissingException(); // TODO: REPLACE THIS
+        if(k < 0){
+            return null;
+        }
+        Node<T> currentHead = head;
+        Node<T> n = head;
+        int num = -1;
+
+        while(n != null){
+            if(num == k){
+                currentHead = currentHead.nextNode;
+            }else{
+                n = n.nextNode;
+            }
+        }
+
+        if(num < k){
+            return null;
+        }
+        return currentHead.data;
     }
 
     /**
