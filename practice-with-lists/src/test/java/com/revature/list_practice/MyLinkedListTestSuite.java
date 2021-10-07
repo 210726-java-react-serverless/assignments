@@ -34,6 +34,24 @@ public class MyLinkedListTestSuite {
     }
 
     @Test
+    public void add_addsAllItems_whenMultipleItemsAreAdded() {
+        // Arrange
+        String testInput1 = "test-1";
+        String testInput2 = "test-2";
+
+        // Act
+        boolean addResult1 = sut.add(testInput1);
+        boolean addResult2 = sut.add(testInput2);
+
+        // Assert
+        assertTrue(addResult1);
+        assertTrue(sut.contains(testInput1));
+        assertTrue(addResult2);
+        assertTrue(sut.contains(testInput2));
+
+    }
+
+    @Test
     public void add_returnsFalse_givenNull() {
 
         // Act
@@ -594,5 +612,27 @@ public class MyLinkedListTestSuite {
         assertFalse(equalsResult);
 
     }
+
+    @Test
+    public void equals_returnsFalse_givenEmptyList() {
+
+        // Arrange
+        MyLinkedList.Node<String> nodeA = new MyLinkedList.Node<>("test-1");
+        MyLinkedList.Node<String> nodeB = new MyLinkedList.Node<>("test-2");
+        MyLinkedList.Node<String> nodeC = new MyLinkedList.Node<>("test-3");
+        nodeA.nextNode = nodeB;
+        nodeB.nextNode = nodeC;
+        sut = new MyLinkedList<>(nodeA);
+
+        MyLinkedList.Node<String> nodeX = new MyLinkedList.Node<>(null);
+        MyLinkedList<String> differentList = new MyLinkedList<>(nodeX);
+
+        // Act
+        boolean equalsResult = sut.equals(differentList);
+
+        // Assert
+        assertFalse(equalsResult);
+    }
+
 
 }
